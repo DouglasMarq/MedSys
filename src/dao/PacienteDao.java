@@ -24,7 +24,7 @@ public class PacienteDao implements dao<Paciente> {
 
 	@Override
 	public void create(Paciente obj) {
-		Connection con = ConnectionFactory.getConection();
+		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 
 		try {
@@ -50,7 +50,7 @@ public class PacienteDao implements dao<Paciente> {
 
 	@Override
 	public List<Paciente> read() {
-		Connection con = ConnectionFactory.getConection();
+		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 
@@ -68,7 +68,7 @@ public class PacienteDao implements dao<Paciente> {
 				String sexo = rs.getString("Sexo");
 				String convenio = rs.getString("Convenio");
 
-				String logradouro =
+				//String logradouro = //GABRIEL EDITA AQUI DPS
 					
 					
 				//new Endereco(logradouro, numero, complemento, bairro, cidade, cep);
@@ -80,11 +80,12 @@ public class PacienteDao implements dao<Paciente> {
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
+            return null;
 	}
 
 	@Override
 	public void update(Paciente obj) {
-		Connection con = ConnectionFactory.getConection();
+		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 		
 			
@@ -93,7 +94,7 @@ public class PacienteDao implements dao<Paciente> {
 
 	@Override
 	public void delete(Paciente obj) {
-		Connection con = ConnectionFactory.getConection();
+		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 		
 		try {
