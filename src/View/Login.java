@@ -6,7 +6,6 @@
 package View;
 
 import Controller.Principal;
-import dao.login;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
