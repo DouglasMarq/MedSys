@@ -1,26 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
-import dao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author Douglas
- */
 public class login {
     
     private String password;
     private String username;
     
     public boolean validar_login(String username,String password){
+        
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -31,10 +22,8 @@ public class login {
             stmt.setString(2, password);
             rs = stmt.executeQuery();
             if (rs.next()){
-                System.out.println("Login Valido");
                 return true;
             } else {
-                System.out.println("Login Invalido");
                 return false;
             }
         } catch (SQLException ex){
@@ -46,21 +35,7 @@ public class login {
         }
     }
     
-    public boolean registrar_usuario(String username,String password){
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        
-        try{
-            stmt = con.prepareStatement("INSERT INTO d0_Funcionario (ds_user,ds_pass) VALUES ('"+ username +"','"+ password +"')");
-            stmt.executeUpdate();
-        } catch (SQLException ex){
-            throw new RuntimeException("Erro ao registrar");
-        } finally {
-            stmt = null;
-            ConnectionFactory.closeConnection(con);
-            return false;
-        }
-    }
+    
 
     public login(String password, String username) {
         setPassword(password);
