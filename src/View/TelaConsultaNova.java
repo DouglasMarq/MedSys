@@ -30,45 +30,67 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        lblDataDaConsulta = new javax.swing.JLabel();
+        dtcDataConsulta = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taQueixaDoPaciente = new javax.swing.JTextArea();
+        lblQueixaDoPaciente = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pnbSalvar = new javax.swing.JPanel();
+        lblbSalvar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Nova consulta");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 11, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 129, -1));
 
         jLabel2.setText("Medico");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(jLabel1))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel2)))
-                .addContainerGap(138, Short.MAX_VALUE))
+        lblDataDaConsulta.setText("Data da consulta");
+        getContentPane().add(lblDataDaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+        getContentPane().add(dtcDataConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(463, 108, -1, -1));
+
+        taQueixaDoPaciente.setColumns(20);
+        taQueixaDoPaciente.setRows(5);
+        jScrollPane1.setViewportView(taQueixaDoPaciente);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 193, 563, -1));
+
+        lblQueixaDoPaciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblQueixaDoPaciente.setText("Queixa do paciente");
+        getContentPane().add(lblQueixaDoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 170, -1, -1));
+
+        jLabel3.setText("Especialidade?");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Doctors_Bag_70px.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        lblbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Save_30px.png"))); // NOI18N
+
+        javax.swing.GroupLayout pnbSalvarLayout = new javax.swing.GroupLayout(pnbSalvar);
+        pnbSalvar.setLayout(pnbSalvarLayout);
+        pnbSalvarLayout.setHorizontalGroup(
+            pnbSalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnbSalvarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblbSalvar))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+        pnbSalvarLayout.setVerticalGroup(
+            pnbSalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnbSalvarLayout.createSequentialGroup()
+                .addComponent(lblbSalvar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        getContentPane().add(pnbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 30, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,8 +131,17 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser dtcDataConsulta;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblDataDaConsulta;
+    private javax.swing.JLabel lblQueixaDoPaciente;
+    private javax.swing.JLabel lblbSalvar;
+    private javax.swing.JPanel pnbSalvar;
+    private javax.swing.JTextArea taQueixaDoPaciente;
     // End of variables declaration//GEN-END:variables
 }
