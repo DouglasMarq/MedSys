@@ -9,19 +9,18 @@ package model;
  *
  * @author gabri
  */
-public class Medico extends Funcionario{
-	private String cmr;	
+public class Medico extends Funcionario {
+
+	private String cmr;
 	private Agenda agenda;
 
-    public Medico(String cmr, Agenda agenda, String login, String senha, long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-        super(login, senha, id, nome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
-        this.cmr = cmr;
-        this.agenda = agenda;
-    }
+	public Medico(String cmr, Agenda agenda, String login, String senha, long id, String nome, String sobrenome, String cpf, String rg, 
+		String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+		super(login, senha, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
+		this.cmr = cmr;
+		this.agenda = agenda;
+	}
 
-        
-        
-        
 	public Agenda getAgenda() {
 		return agenda;
 	}
