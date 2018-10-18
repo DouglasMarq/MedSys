@@ -44,4 +44,14 @@ public class Formata {
         }
         return (new DefaultFormatterFactory(mask,mask));
     }
+    
+    public static DefaultFormatterFactory DtNascimento(){
+        MaskFormatter mask = null;
+        try {
+            mask = new MaskFormatter("##/##/####");
+            mask.setPlaceholderCharacter('_');
+        } catch (ParseException ex) {
+        }
+        return (new DefaultFormatterFactory(mask,mask));
+    }
 }
