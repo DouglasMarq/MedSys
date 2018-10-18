@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import View.Login;
 import dao.ConnectionFactory;
+import dao.login;
 import java.sql.Connection;
 
-/**
- *
- * @author lucas
- */
 public class Principal {
     public static void main(String[] args){
         //Connection con = ConnectionFactory.getConnection();
@@ -20,6 +12,15 @@ public class Principal {
         Login lg = new Login();
         lg.setVisible(true);
         
+    }
+    public boolean validarlogin(String username, String password){
+        login l = new login(username, password);
+        l.validar_login(username, password);
+        if(l.validar_login(username,password)){
+                return true;
+            } else {
+                return false;
+            }
     }
     
 }
