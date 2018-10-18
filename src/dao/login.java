@@ -35,21 +35,7 @@ public class login {
         }
     }
     
-    public boolean registrar_usuario(String username,String password){
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        
-        try{
-            stmt = con.prepareStatement("INSERT INTO d0_Funcionario (ds_user,ds_pass) VALUES ('"+ username +"','"+ password +"')");
-            stmt.executeUpdate();
-        } catch (SQLException ex){
-            throw new RuntimeException("Erro ao registrar");
-        } finally {
-            stmt = null;
-            ConnectionFactory.closeConnection(con);
-            return false;
-        }
-    }
+    
 
     public login(String password, String username) {
         setPassword(password);
