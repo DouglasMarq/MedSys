@@ -13,26 +13,61 @@ package model;
 public abstract class Pessoa {
 	private long id;
 	private String nome;
+	private String cpf;
 	private String rg;
 	private String dataNascimento;
+	private String telefone;
+	private String celular;
+	private String email;
 	private Endereco endereco;
 	private EstadoCivil estadoCivil;
 	private Sexo sexo;
 
-	public Pessoa(long id, String nome, String rg, String dataNascimento, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-		this.id = id;
-		this.nome = nome;
-		this.rg = rg;
-		this.dataNascimento = dataNascimento;
-		this.endereco = endereco;
-		this.estadoCivil = estadoCivil;
-		this.sexo = sexo;
-	}
-	
-	public Pessoa (Sexo sexo) {
-		this.sexo = sexo;
-	}
+    public Pessoa(long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.email = email;
+        this.endereco = endereco;
+        this.estadoCivil = estadoCivil;
+        this.sexo = sexo;
+    }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
 	
 

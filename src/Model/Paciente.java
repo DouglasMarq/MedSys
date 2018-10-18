@@ -9,21 +9,20 @@ package model;
  *
  * @author gabri
  */
-public class Paciente extends Pessoa{
-	private String convenio;	
+public class Paciente extends Pessoa {
 
+    private String convenio;
 
-	public Paciente(String convenio, long id, String nome, String rg, String dataNascimento, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-		super(id, nome, rg, dataNascimento, endereco, estadoCivil, sexo);
-		this.convenio = convenio;
-	}
-	
+    public Paciente(String convenio, long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+        super(id, nome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
+        this.convenio = convenio;
+    }
 
-	public String getConvenio() {
-		return convenio;
-	}
+    public String getConvenio() {
+        return convenio;
+    }
 
-	public void setConvenio(String convenio) {
-		this.convenio = convenio;
-	}
+    public void setConvenio(String convenio) {
+        this.convenio = convenio;
+    }
 }
