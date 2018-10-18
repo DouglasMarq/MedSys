@@ -5,13 +5,9 @@
  */
 package View;
 
-import dao.login;
+import Controller.Principal;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author lucas
- */
 public class Login extends javax.swing.JFrame {
 
     private void LogarFuncionario(){
@@ -24,10 +20,10 @@ public class Login extends javax.swing.JFrame {
             char[] pass = pfPassMed.getPassword();
             String password = String.copyValueOf(pass);
             
-            login l = new login(username,password);
+            Principal l = new Principal();
+            l.validarlogin(username, password);
             
-            if(l.validar_login(username,password)){
-                //faça algo
+            if(l.validarlogin(username,password)){
                 System.out.println("Login Valido");
             } else {
                 System.out.println("Login Invalido");
