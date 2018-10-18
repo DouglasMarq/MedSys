@@ -11,13 +11,13 @@ package model;
  */
 public class Endereco {
 	private String logradouro;
-	private int numero;
-	private char complemento;
+	private String numero;
+	private String complemento;
 	private String bairro;
 	private String cidade;
 	private long cep;
 
-	public Endereco(String logradouro, int numero, char complemento, String bairro, String cidade, long cep) {
+	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, long cep) {
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
@@ -37,19 +37,19 @@ public class Endereco {
 		this.logradouro = logradouro;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
-	public char getComplemento() {
+	public String getComplemento() {
 		return complemento;
 	}
 
-	public void setComplemento(char complemento) {
+	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
 

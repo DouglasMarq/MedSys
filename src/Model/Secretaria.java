@@ -14,9 +14,11 @@ import dao.PacienteDao;
 
 public class Secretaria extends Funcionario {
 
-	public Secretaria(long id, String nome, String rg, String dataNascimento, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-		super(id, nome, rg, dataNascimento, endereco, estadoCivil, sexo);
-	}
+    public Secretaria(String login, String senha, long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+        super(login, senha, id, nome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
+    }
+
+	
 
 	public void cadastrarPaciente(Paciente paciente) {
 		try {

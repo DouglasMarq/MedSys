@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="66" green="66" red="66" type="rgb"/>
     </Property>
@@ -44,7 +44,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tpPaciente" min="-2" pref="631" max="-2" attributes="0"/>
+                      <Component id="tbCadastros" min="-2" pref="631" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -57,7 +57,7 @@
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tpPaciente" min="-2" pref="235" max="-2" attributes="0"/>
+              <Component id="tbCadastros" min="-2" pref="235" max="-2" attributes="0"/>
               <EmptySpace pref="49" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -81,20 +81,26 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLimpar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
+      </Events>
     </Component>
-    <Container class="javax.swing.JTabbedPane" name="tpPaciente">
+    <Container class="javax.swing.JTabbedPane" name="tbCadastros">
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Pacientes"/>
       </AccessibilityProperties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="pnPaciente">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Paciente">
@@ -288,7 +294,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="pnMedico">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Medicos">
@@ -306,44 +312,53 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblDataNascimento1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Component id="lblTelefone1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                      <Component id="lblEstadoCivil1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="lblEspecialidade" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="tffDtPaciente1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="tfSexoMedico" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tfNmMedico" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
+                                          <Component id="lblNmMedico" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="tfSnMedico" min="-2" pref="107" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="tffTelefone1" min="-2" pref="105" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="cbEstadoCivil1" min="-2" pref="106" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="cbEspecialidade" min="-2" pref="92" max="-2" attributes="0"/>
+                                              <Component id="tffCpfMedico" min="-2" pref="107" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="tfCdMedico" min="-2" pref="77" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                              <Component id="tfNmPaciente1" min="-2" pref="234" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="tffCpf1" min="-2" pref="107" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblSnMedico" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextField1" min="-2" pref="126" max="-2" attributes="0"/>
+                                      <Component id="tftCRM" min="-2" pref="126" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblDataNascimento1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                              <Component id="lblTelefone1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                              <Component id="lblEstadoCivil1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="tffDtMedico" min="-2" pref="105" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="tffTelefoneMedico" min="-2" pref="105" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="cbEstadoCivilMedico" min="-2" pref="106" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cbEspecialidade" min="-2" pref="156" max="-2" attributes="0"/>
+                                          <Component id="lblEspecialidade" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblcdMedico" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                              <Component id="lblNmPaciente1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
                               <Component id="lblCpf1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="lblCRM" min="-2" max="-2" attributes="0"/>
@@ -366,16 +381,18 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblcdMedico" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNmPaciente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNmMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCpf1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCRM" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSnMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfCdMedico" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tffCpf1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfNmPaciente1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfSexoMedico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tffCpfMedico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfNmMedico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tftCRM" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfSnMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -386,9 +403,9 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tffDtPaciente1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tffTelefone1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbEstadoCivil1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tffDtMedico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tffTelefoneMedico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbEstadoCivilMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbEspecialidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -397,29 +414,30 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="tfCdMedico">
+            <Component class="javax.swing.JTextField" name="tfSexoMedico">
             </Component>
-            <Component class="javax.swing.JTextField" name="tfNmPaciente1">
+            <Component class="javax.swing.JTextField" name="tfNmMedico">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="tffCpf1">
+            <Component class="javax.swing.JFormattedTextField" name="tffCpfMedico">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format subtype="0" type="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="tffDtPaciente1">
+            <Component class="javax.swing.JFormattedTextField" name="tffDtMedico">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="tffTelefone1">
+            <Component class="javax.swing.JFormattedTextField" name="tffTelefoneMedico">
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbEstadoCivil1">
+            <Component class="javax.swing.JComboBox" name="cbEstadoCivilMedico">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="5">
+                    <StringItem index="0" value="Solteiro(a)"/>
+                    <StringItem index="1" value="Casado(a)"/>
+                    <StringItem index="2" value="Divorciado(a)"/>
+                    <StringItem index="3" value="Vi&#xfa;vo(a)"/>
+                    <StringItem index="4" value="Separado(a)"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -430,11 +448,46 @@
             <Component class="javax.swing.JComboBox" name="cbEspecialidade">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="39">
+                    <StringItem index="0" value="Alergia/Imunologia"/>
+                    <StringItem index="1" value="Angiologia"/>
+                    <StringItem index="2" value="Cardiologia"/>
+                    <StringItem index="3" value="Cirurgia Geral"/>
+                    <StringItem index="4" value="Cirurgia Pedi&#xe1;trica"/>
+                    <StringItem index="5" value="Cirurgia Pl&#xe1;stica"/>
+                    <StringItem index="6" value="Cl&#xed;nica M&#xe9;dica"/>
+                    <StringItem index="7" value="Dermatologia"/>
+                    <StringItem index="8" value="Doen&#xe7;as Infecto-Parasit&#xe1;rias"/>
+                    <StringItem index="9" value="DST/AIDS (Doen&#xe7;as Sexualmente Transmiss&#xed;veis/AIDS)"/>
+                    <StringItem index="10" value="Endocrinologia"/>
+                    <StringItem index="11" value="Fisiatria/Medicina Esportiva"/>
+                    <StringItem index="12" value="Fonoaudiologia"/>
+                    <StringItem index="13" value="Gastroenterologia"/>
+                    <StringItem index="14" value="Gen&#xe9;tica"/>
+                    <StringItem index="15" value="Geral"/>
+                    <StringItem index="16" value="Geriatria"/>
+                    <StringItem index="17" value="Ginecologia"/>
+                    <StringItem index="18" value="Hematologia"/>
+                    <StringItem index="19" value="Homeopatia, Acupuntura e Similares"/>
+                    <StringItem index="20" value="Medicina Preventiva e Social"/>
+                    <StringItem index="21" value="Medicina do Trabalho"/>
+                    <StringItem index="22" value="Nefrologia"/>
+                    <StringItem index="23" value="Neurologia"/>
+                    <StringItem index="24" value="Nutri&#xe7;&#xe3;o e Diet&#xe9;tica"/>
+                    <StringItem index="25" value="Obstetr&#xed;cia"/>
+                    <StringItem index="26" value="Odontologia"/>
+                    <StringItem index="27" value="Oftalmologia"/>
+                    <StringItem index="28" value="Oncologia"/>
+                    <StringItem index="29" value="Ortopedia e Traumatologia"/>
+                    <StringItem index="30" value="Otorrinolaringologia"/>
+                    <StringItem index="31" value="Pediatria"/>
+                    <StringItem index="32" value="Psicologia"/>
+                    <StringItem index="33" value="Pneumologia/Tisiologia"/>
+                    <StringItem index="34" value="Proctologia"/>
+                    <StringItem index="35" value="Psiquiatria"/>
+                    <StringItem index="36" value="Reumatologia"/>
+                    <StringItem index="37" value="Urologia"/>
+                    <StringItem index="38" value="Neurocirurgia"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -464,10 +517,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblcdMedico">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Codigo do Medico"/>
+                <Property name="text" type="java.lang.String" value="Sexo do Medico"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblNmPaciente1">
+            <Component class="javax.swing.JLabel" name="lblNmMedico">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
@@ -482,7 +535,7 @@
                 <Property name="text" type="java.lang.String" value="CRM"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+            <Component class="javax.swing.JFormattedTextField" name="tftCRM">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -490,6 +543,13 @@
                   <Font name="Tahoma" size="18" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Medicos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tfSnMedico">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblSnMedico">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sobrenome"/>
               </Properties>
             </Component>
           </SubComponents>
