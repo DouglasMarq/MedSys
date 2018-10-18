@@ -15,9 +15,9 @@ public class Endereco {
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private long cep;
+	private int cep;
 
-	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, long cep) {
+	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, int cep) {
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
@@ -69,11 +69,11 @@ public class Endereco {
 		this.cidade = cidade;
 	}
 
-	public long getCep() {
+	public int getCep() {
 		return cep;
 	}
 
-	public void setCep(long cep) {
+	public void setCep(int cep) {
 		this.cep = cep;
 	}
 }

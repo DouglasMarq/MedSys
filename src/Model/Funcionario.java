@@ -9,17 +9,17 @@ package model;
  *
  * @author gabri
  */
-public abstract class  Funcionario extends Pessoa{
+public abstract class Funcionario extends Pessoa {
+
 	private String login;
 	private String senha;
 
-    public Funcionario(String login, String senha, long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-        super(id, nome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
-        this.login = login;
-        this.senha = senha;
-    }
-
-	
+	public Funcionario(String login, String senha, long id, String nome, String sobrenome, String cpf, String rg, String dataNascimento,
+		String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+		super(id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
+		this.login = login;
+		this.senha = senha;
+	}
 
 	public String getLogin() {
 		return login;

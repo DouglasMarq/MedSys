@@ -5,14 +5,15 @@ package model;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author gabri
  */
 public abstract class Pessoa {
+
 	private long id;
 	private String nome;
+	private String sobrenome;
 	private String cpf;
 	private String rg;
 	private String dataNascimento;
@@ -23,53 +24,62 @@ public abstract class Pessoa {
 	private EstadoCivil estadoCivil;
 	private Sexo sexo;
 
-    public Pessoa(long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.dataNascimento = dataNascimento;
-        this.telefone = telefone;
-        this.celular = celular;
-        this.email = email;
-        this.endereco = endereco;
-        this.estadoCivil = estadoCivil;
-        this.sexo = sexo;
-    }
+	public Pessoa(long id, String nome, String sobrenome, String cpf, String rg, String dataNascimento, String telefone, String celular, 
+		String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+		
+		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.dataNascimento = dataNascimento;
+		this.telefone = telefone;
+		this.celular = celular;
+		this.email = email;
+		this.endereco = endereco;
+		this.estadoCivil = estadoCivil;
+		this.sexo = sexo;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getSobrenome() {
+		return sobrenome;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
 
-    public String getTelefone() {
-        return telefone;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public String getCelular() {
-        return celular;
-    }
+	public String getTelefone() {
+		return telefone;
+	}
 
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getCelular() {
+		return celular;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
 
-	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public EstadoCivil getEstadoCivil() {
 		return estadoCivil;
@@ -126,5 +136,5 @@ public abstract class Pessoa {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
+
 }
