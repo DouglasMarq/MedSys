@@ -11,7 +11,7 @@ import model.EstadoCivil;
 import model.Paciente;
 import model.Sexo;
 
-public class PacienteDao implements dao<Paciente> {
+public class FuncionarioDao implements dao<Paciente> {
 
 	@Override
 	public void create(Paciente obj) {
@@ -19,12 +19,13 @@ public class PacienteDao implements dao<Paciente> {
 		PreparedStatement pst = null;
 
 		try {
-			pst = con.prepareStatement("insert into d1_Paciente (nm_Paciente, sn_Paciente, ds_Convenio, ds_cpf,"
+			pst = con.prepareStatement("insert into d0_Pacientes (nm_Funcionario, sn_Funcionario, cd_dept, ds_CRM, ds_cpf,"
 				+ " dt_Nascimento, ds_Telefone, ds_estadocivil, ds_sexo, ds_email, ds_RG, ds_Celular, ds_Logradouro, ds_numerores, "
 				+ "ds_Complemento, ds_Bairro, ds_Cidade, ds_Cep) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?");
 
 			pst.setString(1, obj.getNome());
 			pst.setString(2, obj.getSobrenome());
+			//pst.setString(3, );
 			pst.setString(3, obj.getConvenio());
 			pst.setString(4, obj.getCpf());
 			pst.setString(5, obj.getDataNascimento());
@@ -173,7 +174,7 @@ public class PacienteDao implements dao<Paciente> {
 		ResultSet rs = null;
 
 		try {
-			pst = con.prepareStatement("select * from d1_Paciente where cd_Paciente = ?");
+			pst = con.prepareStatement("select * from d1_Pacientes where cd_Paciente = ?");
 			pst.setLong(1, idFind);
 			rs = pst.executeQuery();
 
