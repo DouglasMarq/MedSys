@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author lucas
  */
 public class ConnectionFactory {
-    private static final String url = "jdbc:sqlite:G:\\4º Semestre\\Projeto Drudi\\MedSys\\bd\\MedSysdb.db";
+    private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
     
     public static Connection getConnection(){
         try {
