@@ -31,7 +31,6 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         lblDataDaConsulta = new javax.swing.JLabel();
-        dtcDataConsulta = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         taQueixaDoPaciente = new javax.swing.JTextArea();
         lblQueixaDoPaciente = new javax.swing.JLabel();
@@ -39,6 +38,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         pnbSalvar = new javax.swing.JPanel();
         lblbSalvar = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,7 +55,6 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
         lblDataDaConsulta.setText("Data da consulta");
         getContentPane().add(lblDataDaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
-        getContentPane().add(dtcDataConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(463, 108, -1, -1));
 
         taQueixaDoPaciente.setColumns(20);
         taQueixaDoPaciente.setRows(5);
@@ -91,6 +90,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         );
 
         getContentPane().add(pnbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 30, 30));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,8 +131,8 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser dtcDataConsulta;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
