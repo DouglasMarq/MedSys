@@ -5,7 +5,7 @@
  */
 package model;
 
-import model.dao.PacienteDao;
+import dao.PacienteDao;
 
 /**
  *
