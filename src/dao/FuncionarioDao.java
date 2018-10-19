@@ -1,20 +1,5 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import model.Endereco;
-import model.EstadoCivil;
-import model.Funcionario;
-import model.Medico;
-import model.Paciente;
-import model.Sexo;
-
-//public class FuncionarioDao implements dao<Funcionario> {
-
 	/*
 	public void create(Funcionario obj) {
 		Connection con = ConnectionFactory.getConnection();

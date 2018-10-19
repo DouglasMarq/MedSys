@@ -1,5 +1,6 @@
 package dao;
 
+import Model.Endereco;
 import Model.Paciente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +17,7 @@ public class PacienteDao implements dao<Paciente> {
 		PreparedStatement pst = null;
 
 		try {
-			pst = con.prepareStatement("insert into d1_Paciente (nm_Paciente, sn_Paciente, ds_Convenio, ds_cpf,"
+			pst = con.prepareStatement("insert into d1_Pacientes (nm_Paciente, sn_Paciente, ds_Convenio, ds_cpf,"
 				+ " dt_Nascimento, ds_Telefone, ds_estadocivil, ds_sexo, ds_email, ds_RG, ds_Celular, ds_Logradouro, ds_numerores, "
 				+ "ds_Complemento, ds_Bairro, ds_Cidade, ds_Cep) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?");
 
@@ -26,7 +27,7 @@ public class PacienteDao implements dao<Paciente> {
 			pst.setString(4, obj.getCpf());
 			pst.setString(5, obj.getDataNascimento());
 			pst.setString(6, obj.getTelefone());
-			pst.setString(7, obj.getEstadoCivil().toString());
+			pst.setString(7, obj.getEstadocivil().toString());
 			pst.setString(8, obj.getSexo().toString());
 			pst.setString(9, obj.getEmail());
 			pst.setString(10, obj.getRg());
@@ -126,7 +127,7 @@ public class PacienteDao implements dao<Paciente> {
 			pst.setString(4, obj.getCpf());
 			pst.setString(5, obj.getDataNascimento());
 			pst.setString(6, obj.getTelefone());
-			pst.setString(7, obj.getEstadoCivil().toString());
+			pst.setString(7, obj.getEstadocivil().toString());
 			pst.setString(8, obj.getSexo().toString());
 			pst.setString(9, obj.getEmail());
 			pst.setString(10, obj.getRg());

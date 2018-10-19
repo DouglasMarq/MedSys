@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
     //private static final String url = "jdbc:sqlite:C:\\Users\\gabri\\Documents\\Desenvolvimento\\Projetos\\MedSys\\bd\\MedSysdb.db";
-    private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
+   private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
     
     
     public static Connection getConnection(){

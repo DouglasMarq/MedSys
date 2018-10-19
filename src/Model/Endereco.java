@@ -9,7 +9,8 @@ package Model;
  *
  * @author gabri
  */
-class Endereco {
+public class Endereco {
+
 	private String logradouro;
 	private String numero;
 	private String complemento;
@@ -25,8 +26,6 @@ class Endereco {
 		this.cidade = cidade;
 		this.cep = cep;
 	}
-	
-	
 
 	public String getLogradouro() {
 		return logradouro;
@@ -75,7 +74,5 @@ class Endereco {
 	public void setCep(int cep) {
 		this.cep = cep;
 	}
-	
-	
-	
+
 }
