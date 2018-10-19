@@ -22,7 +22,7 @@ public class registrar {
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("INSERT INTO d2_Medico (nm_Medico,sn_Medico,ds_CRM,ds_CPF,dt_Nascimento,ds_Telefone,ds_estadocivil,ds_sexo) VALUES ('"+ nome +"','"+ sobrenome +"','"+ CRM +"','"+ CPF +"','"+ Nascimento +"','"+ Telefone +"','"+ estadocivil +"','"+ Sexo +"')");
+            stmt = con.prepareStatement("INSERT INTO d0_Funcionario (nm_Medico,sn_Medico,ds_CRM,ds_CPF,dt_Nascimento,ds_Telefone,ds_estadocivil,ds_sexo) VALUES ('"+ nome +"','"+ sobrenome +"','"+ CRM +"','"+ CPF +"','"+ Nascimento +"','"+ Telefone +"','"+ estadocivil +"','"+ Sexo +"')");
             stmt.executeUpdate();
         } catch (SQLException ex){
             throw new RuntimeException("Erro ao registrar");

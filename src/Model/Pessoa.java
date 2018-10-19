@@ -27,18 +27,18 @@ public abstract class Pessoa {
 	public Pessoa(long id, String nome, String sobrenome, String cpf, String rg, String dataNascimento, String telefone, String celular, 
 		String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
 		
-		this.id = id;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.dataNascimento = dataNascimento;
-		this.telefone = telefone;
-		this.celular = celular;
-		this.email = email;
-		this.endereco = endereco;
-		this.estadoCivil = estadoCivil;
-		this.sexo = sexo;
+		setId(id);
+		setNome(nome);
+		setSobrenome(sobrenome);
+		setCpf(cpf);
+		setRg(rg);
+		setDataNascimento(dataNascimento);
+		setTelefone(telefone);
+		setCelular(celular);
+		setEmail(email);
+		setEndereco(endereco);
+		setEstadoCivil(estadoCivil);
+		setSexo(sexo);
 	}
 
 	public String getSobrenome() {

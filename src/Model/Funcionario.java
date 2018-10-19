@@ -13,12 +13,14 @@ public abstract class Funcionario extends Pessoa {
 
 	private String login;
 	private String senha;
+	private int departamento;
 
-	public Funcionario(String login, String senha, long id, String nome, String sobrenome, String cpf, String rg, String dataNascimento,
-		String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+	public Funcionario(String login, String senha, int departamento, long id, String nome, String sobrenome, String cpf, String rg, 
+		String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
 		super(id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
-		this.login = login;
-		this.senha = senha;
+		setLogin(login);
+		setSenha(senha);
+		setDepartamento(departamento);
 	}
 
 	public String getLogin() {
@@ -36,4 +38,13 @@ public abstract class Funcionario extends Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public int getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(int departamento) {
+		this.departamento = departamento;
+	}
+
 }

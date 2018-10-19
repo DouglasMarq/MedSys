@@ -18,12 +18,12 @@ public class Endereco {
 	private int cep;
 
 	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, int cep) {
-		this.logradouro = logradouro;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.cep = cep;
+		setLogradouro(logradouro);
+		setNumero(numero);
+		setComplemento(complemento);
+		setBairro(bairro);
+		setCidade(cidade);
+		setCep(cep);
 	}
 
 	

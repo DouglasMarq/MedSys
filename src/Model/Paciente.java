@@ -16,7 +16,7 @@ public class Paciente extends Pessoa {
 	public Paciente(String convenio, long id, String nome, String sobrenome, String cpf, String rg, String dataNascimento, String telefone, 
 			String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
 		super(id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
-		this.convenio = convenio;
+		setConvenio(convenio);
 	}
 
 	public String getConvenio() {

@@ -14,11 +14,12 @@ public class Medico extends Funcionario {
 	private String cmr;
 	private Agenda agenda;
 
-	public Medico(String cmr, Agenda agenda, String login, String senha, long id, String nome, String sobrenome, String cpf, String rg, 
-		String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-		super(login, senha, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
-		this.cmr = cmr;
-		this.agenda = agenda;
+	public Medico(String cmr, Agenda agenda, String login, String senha, int departamento, long id, String nome, String sobrenome, String cpf, 
+		String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
+		super(login, senha, departamento, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
+		setCmr(cmr);
+		setAgenda(agenda);
+		
 	}
 
 	public Agenda getAgenda() {

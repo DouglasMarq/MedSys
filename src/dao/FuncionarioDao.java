@@ -8,13 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Endereco;
 import model.EstadoCivil;
+import model.Funcionario;
+import model.Medico;
 import model.Paciente;
 import model.Sexo;
 
-public class FuncionarioDao implements dao<Paciente> {
+public class FuncionarioDao implements dao<Funcionario> {
 
-	@Override
-	public void create(Paciente obj) {
+	
+	public void create(Funcionario obj) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 
@@ -25,8 +27,8 @@ public class FuncionarioDao implements dao<Paciente> {
 
 			pst.setString(1, obj.getNome());
 			pst.setString(2, obj.getSobrenome());
-			//pst.setString(3, );
-			pst.setString(3, obj.getConvenio());
+			pst.setInt(3, obj.getDepartamento() );
+			//pst.setString(3, obj.);
 			pst.setString(4, obj.getCpf());
 			pst.setString(5, obj.getDataNascimento());
 			pst.setString(6, obj.getTelefone());
@@ -50,8 +52,9 @@ public class FuncionarioDao implements dao<Paciente> {
 
 	}
 
+	
 	@Override
-	public List<Paciente> read() {
+	public List<Funcionario> read() {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 		ResultSet rs;
@@ -69,7 +72,7 @@ public class FuncionarioDao implements dao<Paciente> {
 				String dataNascimento = rs.getString("dt_Nascimento");
 				String rg = rs.getString("ds_RG");
 				String telefone = rs.getString("ds_Telefone");
-				String celular = rs.getString("ds_Celular");
+					String celular = rs.getString("ds_Celular");
 				String email = rs.getString("ds_email");
 				String convenio = rs.getString("ds_Convenio");
 				String lougradouro = rs.getString("ds_Lougradouro");
@@ -99,7 +102,7 @@ public class FuncionarioDao implements dao<Paciente> {
 	}
 
 	@Override
-	public void update(Paciente obj) {
+	public void update(Funcionario obj) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 
@@ -126,7 +129,7 @@ public class FuncionarioDao implements dao<Paciente> {
 
 			pst.setString(1, obj.getNome());
 			pst.setString(2, obj.getSobrenome());
-			pst.setString(3, obj.getConvenio());
+			//pst.setString(3, obj.getCrm());
 			pst.setString(4, obj.getCpf());
 			pst.setString(5, obj.getDataNascimento());
 			pst.setString(6, obj.getTelefone());
@@ -152,12 +155,12 @@ public class FuncionarioDao implements dao<Paciente> {
 	}
 
 	@Override
-	public void delete(Paciente obj) {
+	public void delete(Funcionario obj) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 
 		try {
-			pst = con.prepareStatement("delete from d1_Paciente"
+			pst = con.prepareStatement("delete from d0_Paciente"
 				+ "where id = ?");
 			pst.setLong(1, obj.getId());
 		} catch (SQLException ex) {
@@ -168,7 +171,7 @@ public class FuncionarioDao implements dao<Paciente> {
 	}
 
 	@Override
-	public Paciente findById(long idFind) {
+	public Medico findById(long idFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -198,10 +201,10 @@ public class FuncionarioDao implements dao<Paciente> {
 			String estadoCivil = rs.getString("ds_estadocivil");
 
 			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-			Paciente paciente = new Paciente(convenio, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email,
+			//Funcionario = new Paciente(convenio, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email,
 				endereco, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
 
-			return paciente;
+			//return funcionario;
 		} catch (SQLException ex) {
 			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
 		} finally {
@@ -209,5 +212,6 @@ public class FuncionarioDao implements dao<Paciente> {
 		}
 
 	}
+
 
 }
