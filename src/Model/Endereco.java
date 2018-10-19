@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Model;
 
 /**
  *
  * @author gabri
  */
-public class Endereco {
+class Endereco {
 	private String logradouro;
 	private String numero;
 	private String complemento;
@@ -18,16 +18,15 @@ public class Endereco {
 	private int cep;
 
 	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, int cep) {
-		setLogradouro(logradouro);
-		setNumero(numero);
-		setComplemento(complemento);
-		setBairro(bairro);
-		setCidade(cidade);
-		setCep(cep);
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.cep = cep;
 	}
-
 	
-
+	
 
 	public String getLogradouro() {
 		return logradouro;
@@ -76,4 +75,7 @@ public class Endereco {
 	public void setCep(int cep) {
 		this.cep = cep;
 	}
+	
+	
+	
 }

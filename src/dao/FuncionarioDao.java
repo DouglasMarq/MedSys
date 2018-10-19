@@ -13,9 +13,9 @@ import model.Medico;
 import model.Paciente;
 import model.Sexo;
 
-public class FuncionarioDao implements dao<Funcionario> {
+//public class FuncionarioDao implements dao<Funcionario> {
 
-	
+	/*
 	public void create(Funcionario obj) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
@@ -85,8 +85,8 @@ public class FuncionarioDao implements dao<Funcionario> {
 				String estadoCivil = rs.getString("ds_estadocivil");
 
 				Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-				Paciente paciente = new Paciente(convenio, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email,
-					endereco, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
+				//Paciente paciente = new Paciente(convenio, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email,
+				//	endereco, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
 				pacientes.add(paciente);
 
 			}
@@ -202,7 +202,7 @@ public class FuncionarioDao implements dao<Funcionario> {
 
 			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
 			//Funcionario = new Paciente(convenio, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email,
-				endereco, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
+				//endereco, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
 
 			//return funcionario;
 		} catch (SQLException ex) {
@@ -213,5 +213,5 @@ public class FuncionarioDao implements dao<Funcionario> {
 
 	}
 
-
-}
+*/
+//}

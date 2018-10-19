@@ -1,15 +1,12 @@
 package dao;
 
+import Model.Paciente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Endereco;
-import model.EstadoCivil;
-import model.Paciente;
-import model.Sexo;
 
 public class PacienteDao implements dao<Paciente> {
 
@@ -39,7 +36,7 @@ public class PacienteDao implements dao<Paciente> {
 			pst.setString(14, obj.getEndereco().getComplemento());
 			pst.setString(15, obj.getEndereco().getBairro());
 			pst.setString(16, obj.getEndereco().getCidade());
-			pst.setInt(17, obj.getEndereco().getCep());
+			pst.setLong(17, obj.getEndereco().getCep());
 
 		} catch (SQLException ex) {
 			throw new RuntimeException("Erro no Cadastro do Paciente");
@@ -81,8 +78,8 @@ public class PacienteDao implements dao<Paciente> {
 				String estadoCivil = rs.getString("ds_estadocivil");
 
 				Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-				Paciente paciente = new Paciente(convenio, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email,
-					endereco, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
+				Paciente paciente = new Model.Paciente(convenio, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular,
+					telefone, email, Model.EstadoCivil.valueOf(estadoCivil), Model.Sexo.valueOf(sexo));
 				pacientes.add(paciente);
 
 			}
@@ -197,10 +194,11 @@ public class PacienteDao implements dao<Paciente> {
 			String estadoCivil = rs.getString("ds_estadocivil");
 
 			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-			Paciente paciente = new Paciente(convenio, id, nome, sobrenome, cpf, rg, dataNascimento, telefone, celular, email,
-				endereco, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
+			Paciente paciente = new Model.Paciente(convenio, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone,
+				email, Model.EstadoCivil.valueOf(estadoCivil), Model.Sexo.valueOf(sexo));
 
 			return paciente;
+
 		} catch (SQLException ex) {
 			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
 		} finally {
