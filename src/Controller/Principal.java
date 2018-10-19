@@ -20,9 +20,16 @@ public class Principal {
             return false;
         }
     }
-    public boolean registrarMedico(String nome,String sobrenome,String CRM,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo){
-        registrar r = new registrar(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo);
-        r.registrar_usuario(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo);
+    
+    public boolean registrarMedico(String nome,String sobrenome,String CRM,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo, String Email, String Celular, String RG){
+        registrar r = new registrar(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
+        r.registrar_medico(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
+        return true;
+    }
+    
+    public boolean registrarPaciente(String nome,String sobrenome,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo, String Email, String Celular, String RG){
+        registrar r = new registrar(nome, sobrenome, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
+        r.registrar_paciente(nome, sobrenome, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
         return true;
     }
 }

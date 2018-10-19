@@ -1,7 +1,9 @@
 package View;
 
 import Controller.Principal;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -11,9 +13,7 @@ import util.Formata;
 public class CadastroPaciente extends javax.swing.JFrame {
 
     private void registrarMedico(){
-        if(tfSexoMedico.getText().length()==0){
-            JOptionPane.showMessageDialog(null, "Há campos vazios");
-        } else if (tfSnMedico.getText().length()==0){
+         if (tfSnMedico.getText().length()==0){
             JOptionPane.showMessageDialog(null, "Há campos vazios");
         } else if (tfNmMedico.getText().length()==0){
             JOptionPane.showMessageDialog(null, "Há campos vazios");
@@ -21,27 +21,62 @@ public class CadastroPaciente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Há campos vazios");
         } else if (tftCRM.getText().length()==0){
             JOptionPane.showMessageDialog(null, "Há campos vazios");
-        } else if (tffDtMedico.getText().length()==0){
-            JOptionPane.showMessageDialog(null, "Há campos vazios");
         } else if (tffTelefoneMedico.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffCelular.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffRg.getText().length()==0){
             JOptionPane.showMessageDialog(null, "Há campos vazios");
         } else {
             String nome = tfNmMedico.getText();
             String sobrenome = tfSnMedico.getText();
             String CRM = tftCRM.getText();
             String CPF = tffCpfMedico.getText();
-            String Nascimento = tffDtMedico.getText();
+            DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+            String Nascimento = fmt.format(this.dtcDataDeNascimento.getDate());
             String Telefone = tffTelefoneMedico.getText();
             String estadocivil = cbEstadoCivilMedico.getSelectedItem().toString();
-            String Sexo = tfSexoMedico.getText();
+            String Sexo = cbSexoMed.getSelectedItem().toString();
+            String Celular = tffCelular.getText();
+            String Email = tfEmailmed.getText();
+            String RG = tffRg.getText();
             
             Principal r = new Principal();
-            r.registrarMedico(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo);
+            r.registrarMedico(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
         }
     }
     
     private void registrarPaciente(){
-        
+         if (tfSnPaciente.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tfNmPaciente.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffCpf.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffTelefonePaciente.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tfEmailPac.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (TffCelularPac.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffRgPac.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else {
+            String nome = tfNmPaciente.getText();
+            String sobrenome = tfSnPaciente.getText();
+            String CPF = tffCpf.getText();
+            DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+            String Nascimento = fmt.format(this.dtcDataDeNascimentoPac.getDate());
+            String Telefone = tffTelefonePaciente.getText();
+            String estadocivil = cbEstadoCivil.getSelectedItem().toString();
+            String Sexo = cbSexoPac.getSelectedItem().toString();
+            String Celular = TffCelularPac.getText();
+            String Email = tfEmailPac.getText();
+            String RG = tffRgPac.getText();
+            
+            Principal r = new Principal();
+            r.registrarPaciente(nome, sobrenome, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
+        }
     }
     
     private void setMask(){
@@ -49,30 +84,26 @@ public class CadastroPaciente extends javax.swing.JFrame {
         tffCpf.setFormatterFactory(Formata.cpf());
         tffTelefonePaciente.setFormatterFactory(Formata.telefone());
         tffTelefoneMedico.setFormatterFactory(Formata.telefone());
-        tffDtMedico.setFormatterFactory(Formata.DtNascimento());
-        tffDtPaciente.setFormatterFactory(Formata.DtNascimento());
+        TffCelularPac.setFormatterFactory(Formata.celular());
+        tffCelular.setFormatterFactory(Formata.celular());
+        tffRg.setFormatterFactory(Formata.RG());
+        tffRgPac.setFormatterFactory(Formata.RG());
     }
     
     private void LimpaMed(){
-        tfSexoMedico.setText("");
         tfSnMedico.setText("");
         tfNmMedico.setText("");
         tffCpfMedico.setText("");
         tftCRM.setText("");
-        tffDtMedico.setText("");
         tffTelefoneMedico.setText("");
-        tfSexoMedico.requestFocus();
     }
     
     private void LimpaPaciente(){
-        tfSexoMedico.setText("");
         tfSnMedico.setText("");
         tfNmMedico.setText("");
         tffCpfMedico.setText("");
         tftCRM.setText("");
-        tffDtMedico.setText("");
         tffTelefoneMedico.setText("");
-        tfSexoMedico.requestFocus();
     }
     
     
@@ -187,7 +218,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
 
         lblRg.setText("Rg");
 
-        cbSexoPac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSexoPac.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
 
         lblCelularPac.setText("Celular");
 
@@ -343,7 +374,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
 
         lblCelular.setText("Celular");
 
-        cbSexoMed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSexoMed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
 
         lblEmailMed.setText("Email");
 

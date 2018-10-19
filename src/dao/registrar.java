@@ -16,13 +16,32 @@ public class registrar {
     private String Telefone;
     private String estadocivil;
     private String Sexo;
+    private String Email;
+    private String Celular;
+    private String RG;
     
-    public boolean registrar_usuario(String nome,String sobrenome,String CRM,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo){
+    public boolean registrar_medico(String nome,String sobrenome,String CRM,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo, String Email, String Celular, String RG){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("INSERT INTO d0_Funcionario (nm_Medico,sn_Medico,ds_CRM,ds_CPF,dt_Nascimento,ds_Telefone,ds_estadocivil,ds_sexo) VALUES ('"+ nome +"','"+ sobrenome +"','"+ CRM +"','"+ CPF +"','"+ Nascimento +"','"+ Telefone +"','"+ estadocivil +"','"+ Sexo +"')");
+            stmt = con.prepareStatement("INSERT INTO d0_Funcionarios (nm_Funcionario,sn_Funcionario,cd_crm,ds_cpf,dt_Nascimento,ds_Telefone,ds_estadocivil,ds_sexo,ds_email,ds_Celular,ds_RG) VALUES ('"+ nome +"','"+ sobrenome +"','"+ CRM +"','"+ CPF +"','"+ Nascimento +"','"+ Telefone +"','"+ estadocivil +"','"+ Sexo +"','"+ Email +"','"+ Celular +"','"+ RG +"')");
+            stmt.executeUpdate();
+        } catch (SQLException ex){
+            throw new RuntimeException("Erro ao registrar");
+        } finally {
+            stmt = null;
+            ConnectionFactory.closeConnection(con);
+            return false;
+        }
+    }
+    
+    public boolean registrar_paciente(String nome,String sobrenome,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo, String Email, String Celular, String RG){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO d1_Pacientes (nm_Paciente,sn_Paciente,ds_cpf,dt_Nascimento,ds_Telefone,ds_estadocivil,ds_sexo,ds_email,ds_Celular,ds_RG) VALUES ('"+ nome +"','"+ sobrenome +"','"+ CPF +"','"+ Nascimento +"','"+ Telefone +"','"+ estadocivil +"','"+ Sexo +"','"+ Email +"','"+ Celular +"','"+ RG +"')");
             stmt.executeUpdate();
         } catch (SQLException ex){
             throw new RuntimeException("Erro ao registrar");
@@ -33,7 +52,7 @@ public class registrar {
         }
     }
 
-    public registrar(String nome,String sobrenome,String CRM,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo) {
+    public registrar(String nome,String sobrenome,String CRM,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo, String Email, String Celular, String RG) {
         setNome(nome);
         setSobrenome(sobrenome);
         setCRM(CRM);
@@ -42,8 +61,24 @@ public class registrar {
         setTelefone(Telefone);
         setEstadocivil(estadocivil);
         setSexo(Sexo);
+        setCelular(Celular);
+        setEmail(Email);
+        setRG(RG);
     }
-
+    
+    public registrar(String nome,String sobrenome,String CPF,String Nascimento,String Telefone,String estadocivil,String Sexo, String Email, String Celular, String RG) {
+        setNome(nome);
+        setSobrenome(sobrenome);
+        setCPF(CPF);
+        setNascimento(Nascimento);
+        setTelefone(Telefone);
+        setEstadocivil(estadocivil);
+        setSexo(Sexo);
+        setCelular(Celular);
+        setEmail(Email);
+        setRG(RG);
+    }
+    
     /**
      * @return the nome
      */
@@ -154,5 +189,47 @@ public class registrar {
      */
     public void setSexo(String Sexo) {
         this.Sexo = Sexo;
+    }
+
+    /**
+     * @return the Email
+     */
+    public String getEmail() {
+        return Email;
+    }
+
+    /**
+     * @param Email the Email to set
+     */
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+
+    /**
+     * @return the Celular
+     */
+    public String getCelular() {
+        return Celular;
+    }
+
+    /**
+     * @param Celular the Celular to set
+     */
+    public void setCelular(String Celular) {
+        this.Celular = Celular;
+    }
+
+    /**
+     * @return the RG
+     */
+    public String getRG() {
+        return RG;
+    }
+
+    /**
+     * @param RG the RG to set
+     */
+    public void setRG(String RG) {
+        this.RG = RG;
     }
 }
