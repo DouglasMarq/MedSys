@@ -10,6 +10,7 @@ package Model;
  * @author gabri
  */
 public abstract class Pessoa {
+
 	private long id;
 	private String nome;
 	private String sobrenome;
@@ -22,6 +23,9 @@ public abstract class Pessoa {
 	private String email;
 	private EstadoCivil estadocivil;
 	private Sexo sexo;
+
+	public Pessoa() {
+	}
 
 	public Pessoa(long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
 		this.id = id;
@@ -51,11 +55,6 @@ public abstract class Pessoa {
 		this.estadocivil = estadocivil;
 		this.sexo = sexo;
 	}
-
-	
-	
-	
-	
 
 	public long getId() {
 		return id;
@@ -152,8 +151,10 @@ public abstract class Pessoa {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Pessoa{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", rg=" + rg + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", endereco=" + endereco + ", celular=" + celular + ", telefone=" + telefone + ", email=" + email + ", estadocivil=" + estadocivil + ", sexo=" + sexo + '}';
+	}
+
 }

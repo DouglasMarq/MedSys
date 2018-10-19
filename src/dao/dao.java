@@ -17,9 +17,9 @@ public interface dao<T> {
 
 	public List<T> read(); // seleciona todos
 
-	public void update(T obj); // atualiza
+	public void update(long id, T obj); // atualiza
 
-	public void delete(T obj); // exclui
+	public void delete(long id); // exclui
 
 	public T findById(long id); // retorna somente 1
 
