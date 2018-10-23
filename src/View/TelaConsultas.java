@@ -45,16 +45,33 @@ public class TelaConsultas extends javax.swing.JFrame {
 
         tbConsultaAberta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código da Consulta", "Status", "Data da Consulta", "Paciente", "Medico", "SID", "Tipo de Exame"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         spAbertas.setViewportView(tbConsultaAberta);
+        if (tbConsultaAberta.getColumnModel().getColumnCount() > 0) {
+            tbConsultaAberta.getColumnModel().getColumn(0).setResizable(false);
+            tbConsultaAberta.getColumnModel().getColumn(1).setResizable(false);
+            tbConsultaAberta.getColumnModel().getColumn(2).setResizable(false);
+            tbConsultaAberta.getColumnModel().getColumn(3).setResizable(false);
+            tbConsultaAberta.getColumnModel().getColumn(4).setResizable(false);
+            tbConsultaAberta.getColumnModel().getColumn(5).setResizable(false);
+            tbConsultaAberta.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         jtpConsultas.addTab("Abertas", spAbertas);
 
