@@ -7,7 +7,6 @@ package dao;
 
 import Model.Endereco;
 import Model.EstadoCivil;
-import Model.Medico;
 import Model.Operador;
 import Model.Sexo;
 import java.sql.Connection;
@@ -72,7 +71,7 @@ public class OperadorDao implements dao<Operador> {
 		ResultSet rs = null;
 
 		try {
-			pst = con.prepareStatement("select * from d0_Funcionarios");
+			pst = con.prepareStatement("select * from d0_Funcionarios where cd_cargo = 20");
 			rs = pst.executeQuery();
 
 			List operadores = new ArrayList();
@@ -114,9 +113,6 @@ public class OperadorDao implements dao<Operador> {
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
-	}
-
-	public OperadorDao() {
 	}
 
 	@Override

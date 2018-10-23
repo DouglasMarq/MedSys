@@ -72,7 +72,7 @@ public class MedicoDao implements dao<Medico> {
 		ResultSet rs = null;
 
 		try {
-			pst = con.prepareStatement("select * from d0_Funcionarios");
+			pst = con.prepareStatement("select * from d0_Funcionarios where cd_cargo = 20");
 			rs = pst.executeQuery();
 
 			List medicos = new ArrayList();
