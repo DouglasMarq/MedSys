@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dao;
 
 import Model.Endereco;
@@ -11,6 +16,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author gabri
+ */
 public class OperadorDao implements dao<Operador> {
 
 	@Override
@@ -168,13 +177,15 @@ public class OperadorDao implements dao<Operador> {
 	}
 
 	@Override
-	public void delete(long idFind) {
+	public void delete(long idFind, String cpfFind, String nomeFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 
 		try {
-			pst = con.prepareStatement("delete from d0_Funcionarios	where cd_Funcionario = ?");
+			pst = con.prepareStatement("delete from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?)");
 			pst.setLong(1, idFind);
+			pst.setString(2, nomeFind);
+			pst.setString(3, cpfFind);
 
 			pst.executeUpdate();
 		} catch (SQLException ex) {
@@ -229,6 +240,11 @@ public class OperadorDao implements dao<Operador> {
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
+	}
+
+	@Override
+	public Operador findOne(long idFind, String cpfFind, String nomeFind) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 }

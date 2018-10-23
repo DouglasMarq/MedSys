@@ -1,9 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dao;
 
 import Model.Endereco;
+import Model.Endereco;
+import Model.EstadoCivil;
 import Model.EstadoCivil;
 import Model.Paciente;
+import Model.Paciente;
 import Model.Sexo;
+import Model.Sexo;
+import dao.ConnectionFactory;
+import dao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +22,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author gabri
+ */
 public class PacienteDao implements dao<Paciente> {
 
 	@Override
@@ -145,7 +160,7 @@ public class PacienteDao implements dao<Paciente> {
 			pst.setString(16, pacienteUpdate.getEndereco().getCidade());
 			pst.setInt(17, pacienteUpdate.getEndereco().getCep());
 			pst.setLong(18, idFind);
-	
+
 			pst.executeUpdate();
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
@@ -157,13 +172,15 @@ public class PacienteDao implements dao<Paciente> {
 	}
 
 	@Override
-	public void delete(long idFind) {
+	public void delete(long idFind, String cpfFind, String nomeFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 
 		try {
-			pst = con.prepareStatement("delete from d1_Pacientes where cd_Paciente = ?");
+			pst = con.prepareStatement("delete from d1_Pacientes where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and ds_cpf LIKE(?)");
 			pst.setLong(1, idFind);
+			pst.setString(2, nomeFind);
+			pst.setString(3, cpfFind);
 
 			pst.executeUpdate();
 		} catch (SQLException ex) {
@@ -182,30 +199,30 @@ public class PacienteDao implements dao<Paciente> {
 		try {
 			pst = con.prepareStatement("select * from d1_Pacientes where cd_Paciente = ?");
 			pst.setLong(1, idFind);
-			
+
 			rs = pst.executeQuery();
 
-				Long id = rs.getLong("cd_Paciente");
-				String nome = rs.getString("nm_Paciente");
-				String sobrenome = rs.getString("sn_Paciente");
-				String cpf = rs.getString("ds_cpf");
-				String dataNascimento = rs.getString("dt_Nascimento");
-				String rg = rs.getString("ds_RG");
-				String telefone = rs.getString("ds_Telefone");
-				String celular = rs.getString("ds_Celular");
-				String email = rs.getString("ds_Email");
-				String convenio = rs.getString("ds_Convenio");
-				String lougradouro = rs.getString("ds_Logradouro");
-				String numeroEndereco = rs.getString("ds_numerores");
-				String complemento = rs.getString("ds_Complemento");
-				String bairro = rs.getString("ds_Bairro");
-				String cidade = rs.getString("ds_Cidade");
-				int cep = rs.getInt("ds_Cep");
-				String sexo = rs.getString("ds_sexo");
-				String estadoCivil = rs.getString("ds_estadocivil");
+			Long id = rs.getLong("cd_Paciente");
+			String nome = rs.getString("nm_Paciente");
+			String sobrenome = rs.getString("sn_Paciente");
+			String cpf = rs.getString("ds_cpf");
+			String dataNascimento = rs.getString("dt_Nascimento");
+			String rg = rs.getString("ds_RG");
+			String telefone = rs.getString("ds_Telefone");
+			String celular = rs.getString("ds_Celular");
+			String email = rs.getString("ds_Email");
+			String convenio = rs.getString("ds_Convenio");
+			String lougradouro = rs.getString("ds_Logradouro");
+			String numeroEndereco = rs.getString("ds_numerores");
+			String complemento = rs.getString("ds_Complemento");
+			String bairro = rs.getString("ds_Bairro");
+			String cidade = rs.getString("ds_Cidade");
+			int cep = rs.getInt("ds_Cep");
+			String sexo = rs.getString("ds_sexo");
+			String estadoCivil = rs.getString("ds_estadocivil");
 
-				Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-				Paciente paciente = new Paciente(convenio, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
+			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
+			Paciente paciente = new Paciente(convenio, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
 
 			return paciente;
 
@@ -216,4 +233,54 @@ public class PacienteDao implements dao<Paciente> {
 			ConnectionFactory.closeConnection(con);
 		}
 	}
+
+	@Override
+	public Paciente findOne(long idFind, String cpfFind, String nomeFind) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		try {
+			pst = con.prepareStatement("select * from d1_Pacientes where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and ds_cpf LIKE(?)");
+			pst.setLong(1, idFind);
+			pst.setString(2, nomeFind);
+			pst.setString(3, cpfFind);
+
+			rs = pst.executeQuery();
+
+			Long id = rs.getLong("cd_paciente");
+			String nome = rs.getString("nm_paciente");
+			String sobrenome = rs.getString("sn_Paciente");
+			String cpf = rs.getString("ds_cpf");
+			String dataNascimento = rs.getString("dt_nascimento");
+			String rg = rs.getString("ds_rg");
+			String telefone = rs.getString("ds_Telefone");
+			String celular = rs.getString("ds_Celular");
+			String email = rs.getString("ds_Email");
+			String convenio = rs.getString("ds_Convenio");
+			String lougradouro = rs.getString("ds_Logradouro");
+			String numeroEndereco = rs.getString("ds_numerores");
+			String complemento = rs.getString("ds_Complemento");
+			String bairro = rs.getString("ds_Bairro");
+			String cidade = rs.getString("ds_Cidade");
+			int cep = rs.getInt("ds_Cep");
+			String sexo = rs.getString("ds_sexo");
+			String estadoCivil = rs.getString("ds_estadocivil");
+
+			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
+			Paciente paciente = new Paciente(convenio, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
+
+			return paciente;
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			//System.out.println(ex.getStackTrace());
+			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
+		} finally {
+			ConnectionFactory.closeConnection(con);
+		}
+
+	}
+
 }
+
