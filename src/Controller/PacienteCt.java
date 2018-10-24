@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author gabri
  */
-public class ClienteCT {
+public class PacienteCt {
 
 	public boolean cadastrarPaciente(String convenio, String nome, String sobrenome, String rg, String cpf, String dataNascimento, String logradouro, String numero, String complemento, String bairro, String cidade, int cep, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
 
