@@ -1,12 +1,50 @@
 package View;
 
+import dao.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 public class TelaConsultas extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaConsultas
      */
+    
+    private void setTable(){
+        
+        DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
+        
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,nm_Paciente,sn_Paciente,nm_Medico,sn_Medico from d3_Consultas");
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                String a = rs.getString("cd_Consulta");
+                String b = rs.getString("ds_status");
+                String c = rs.getString("dt_consulta");
+                String d = rs.getString("nm_Paciente");
+                String d2 = rs.getString("sn_Paciente");
+                String e = rs.getString("nm_Medico");
+                String e2 = rs.getString("sn_Medico");
+                Consultas.addRow(new Object[]{a,b,c,d,d2,e,e2});
+            }
+        } catch(SQLException ex) {
+            throw new RuntimeException("Erro ao pegar dados");
+        }
+        
+        tbConsultaAberta.setModel(Consultas);
+        
+    }
     public TelaConsultas() {
         initComponents();
+        setTable();
     }
 
     /**
