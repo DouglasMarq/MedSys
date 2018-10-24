@@ -9,14 +9,10 @@ package Model;
  *
  * @author gabri
  */
-public class Paciente extends Pessoa{
+public class Paciente extends Pessoa {
 
 	private String convenio;
 
-	
-
-	
-	
 	public Paciente(String convenio, long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
 		super(id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
 		this.convenio = convenio;
@@ -26,7 +22,7 @@ public class Paciente extends Pessoa{
 		super(nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
 		this.convenio = convenio;
 	}
-	
+
 	public Paciente() {
 	}
 
@@ -38,5 +34,4 @@ public class Paciente extends Pessoa{
 		this.convenio = convenio;
 	}
 
-	
 }

@@ -196,53 +196,6 @@ public class MedicoDao implements dao<Medico> {
 	}
 
 	@Override
-	public Medico findById(long idFind) {
-		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst = null;
-		ResultSet rs = null;
-
-		try {
-			pst = con.prepareStatement("select * from d0_Funcionarios where cd_Funcionario = ?");
-			pst.setLong(1, idFind);
-
-			rs = pst.executeQuery();
-
-			long id = rs.getLong("cd_funcionario");
-			String login = rs.getString("ds_user");
-			String senha = rs.getString("ds_pass");
-			String nome = rs.getString("nm_Funcionario");
-			String sobrenome = rs.getString("sn_Funcionario");
-			int cargo = rs.getInt("cd_cargo");
-			String crm = rs.getString("ds_crm");
-			String cpf = rs.getString("ds_cpf");
-			String dataNascimento = rs.getString("dt_nascimento");
-			String rg = rs.getString("ds_rg");
-			String telefone = rs.getString("ds_Telefone");
-			String celular = rs.getString("ds_Celular");
-			String email = rs.getString("ds_Email");
-			String lougradouro = rs.getString("ds_Logradouro");
-			String numeroEndereco = rs.getString("ds_numerores");
-			String complemento = rs.getString("ds_Complemento");
-			String bairro = rs.getString("ds_Bairro");
-			String cidade = rs.getString("ds_Cidade");
-			int cep = rs.getInt("ds_Cep");
-			String sexo = rs.getString("ds_sexo");
-			String estadoCivil = rs.getString("ds_estadocivil");
-
-			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-			Medico medico = new Medico(crm, login, senha, cargo, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
-
-			return medico;
-
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
-		} finally {
-			ConnectionFactory.closeConnection(con);
-		}
-	}
-
-	@Override
 	public Medico findOne(long idFind, String cpfFind, String nomeFind) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}

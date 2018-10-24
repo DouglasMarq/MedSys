@@ -6,21 +6,16 @@
 package dao;
 
 import Model.Endereco;
-import Model.Endereco;
-import Model.EstadoCivil;
 import Model.EstadoCivil;
 import Model.Paciente;
-import Model.Paciente;
 import Model.Sexo;
-import Model.Sexo;
-import dao.ConnectionFactory;
-import dao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,6 +56,12 @@ public class PacienteDao implements dao<Paciente> {
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			System.out.println(ex.getStackTrace());
+
+			String message = "Erro no Cadastro do Paciente";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+
 			throw new RuntimeException("Erro no cadastro do Paciente");
 		} finally {
 			ConnectionFactory.closeConnection(con);
@@ -164,6 +165,9 @@ public class PacienteDao implements dao<Paciente> {
 			pst.executeUpdate();
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
+			String message = "Erro na Atualização do Paciente";
+			String erro = "Erro!!";
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
 			throw new RuntimeException("Erro na atualização de Cadastro do Paciente");
 		} finally {
 			ConnectionFactory.closeConnection(con);
@@ -185,50 +189,13 @@ public class PacienteDao implements dao<Paciente> {
 			pst.executeUpdate();
 		} catch (SQLException ex) {
 			ex.getMessage();
-		} finally {
-			ConnectionFactory.closeConnection(con);
-		}
-	}
 
-	@Override
-	public Paciente findById(long idFind) {
-		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst = null;
-		ResultSet rs = null;
+			String message = "Erro na Remoção do Paciente";
+			String erro = "Erro!!";
 
-		try {
-			pst = con.prepareStatement("select * from d1_Pacientes where cd_Paciente = ?");
-			pst.setLong(1, idFind);
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
 
-			rs = pst.executeQuery();
-
-			Long id = rs.getLong("cd_Paciente");
-			String nome = rs.getString("nm_Paciente");
-			String sobrenome = rs.getString("sn_Paciente");
-			String cpf = rs.getString("ds_cpf");
-			String dataNascimento = rs.getString("dt_Nascimento");
-			String rg = rs.getString("ds_RG");
-			String telefone = rs.getString("ds_Telefone");
-			String celular = rs.getString("ds_Celular");
-			String email = rs.getString("ds_Email");
-			String convenio = rs.getString("ds_Convenio");
-			String lougradouro = rs.getString("ds_Logradouro");
-			String numeroEndereco = rs.getString("ds_numerores");
-			String complemento = rs.getString("ds_Complemento");
-			String bairro = rs.getString("ds_Bairro");
-			String cidade = rs.getString("ds_Cidade");
-			int cep = rs.getInt("ds_Cep");
-			String sexo = rs.getString("ds_sexo");
-			String estadoCivil = rs.getString("ds_estadocivil");
-
-			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-			Paciente paciente = new Paciente(convenio, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
-
-			return paciente;
-
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
+			throw new RuntimeException("Erro na remoção do Paciente");
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
@@ -274,8 +241,12 @@ public class PacienteDao implements dao<Paciente> {
 
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
-			//System.out.println(ex.getStackTrace());
-			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
+
+			String message = "Erro na Procura do Paciente";
+			String erro = "Erro!!";
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+
+			throw new RuntimeException("Erro na Erro na Procura do Paciente!");
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
@@ -283,4 +254,3 @@ public class PacienteDao implements dao<Paciente> {
 	}
 
 }
-

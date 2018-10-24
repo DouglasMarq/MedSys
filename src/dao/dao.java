@@ -23,6 +23,5 @@ public interface dao<T> {
 
 	public T findOne(long idFind, String cpfFind, String nomeFind); 
 	
-	public T findById(long id); // retorna somente 1
 
 }

@@ -21,8 +21,6 @@ public class Endereco {
 	public Endereco() {
 	}
 
-	
-	
 	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, int cep) {
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -84,7 +82,5 @@ public class Endereco {
 	public String toString() {
 		return "Endereco{" + "logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", cep=" + cep + '}';
 	}
-
-	
 
 }

@@ -20,6 +20,8 @@ public class Login extends javax.swing.JFrame {
             
             if(l.validarlogin(username,password)){
                 System.out.println("Login Valido");
+		Interface i = new Interface();
+		i.setVisible(true);
             } else {
                 System.out.println("Login Invalido");
             }

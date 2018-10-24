@@ -41,8 +41,8 @@ public class Cadastros extends javax.swing.JFrame {
             String Email = tfEmailmed.getText();
             String RG = tffRg.getText();
             
-            Principal r = new Principal();
-            r.registrarMedico(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
+            //Principal r = new Principal();
+            //r.registrarMedico(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
         }
     }
     
@@ -74,8 +74,8 @@ public class Cadastros extends javax.swing.JFrame {
             String Email = tfEmailPac.getText();
             String RG = tffRgPac.getText();
             
-            Principal r = new Principal();
-            r.registrarPaciente(nome, sobrenome, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
+            //Principal r = new Principal();
+            //r.registrarPaciente(nome, sobrenome, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
         }
     }
     
@@ -99,11 +99,10 @@ public class Cadastros extends javax.swing.JFrame {
     }
     
     private void LimpaPaciente(){
-        tfSnMed.setText("");
-        tfNmMed.setText("");
-        tffCpfMed.setText("");
-        tftCRM.setText("");
-        tffTelefoneMed.setText("");
+        tfSnPaciente.setText("");
+        tfNmPaciente.setText("");
+        tffCpf.setText("");
+        tffTelefonePaciente.setText("");
     }
     
     
@@ -113,9 +112,6 @@ public class Cadastros extends javax.swing.JFrame {
     public Cadastros() {
         initComponents();
         setMask();
-    }
-    public void tff(){
-
     }
     /**
      * This method is called from within the constructor to initialize the form.
