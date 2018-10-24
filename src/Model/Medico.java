@@ -3,38 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Model;
 
 /**
  *
  * @author gabri
  */
-public class Medico extends Funcionario{
-	private String cmr;	
-	private Agenda agenda;
+public class Medico extends Funcionario {
 
-    public Medico(String cmr, Agenda agenda, String login, String senha, long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-        super(login, senha, id, nome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
-        this.cmr = cmr;
-        this.agenda = agenda;
-    }
+	private String crm;
 
-        
-        
-        
-	public Agenda getAgenda() {
-		return agenda;
+	public Medico() {
 	}
 
-	public void setAgenda(Agenda agenda) {
-		this.agenda = agenda;
+	public Medico(String crm, String login, String senha, int cargo, long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
+		super(login, senha, cargo, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
+		this.crm = crm;
 	}
 
-	public String getCmr() {
-		return cmr;
+	public Medico(String crm, String login, String senha, int cargo, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
+		super(login, senha, cargo, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
+		this.crm = crm;
 	}
 
-	public void setCmr(String cmr) {
-		this.cmr = cmr;
+	public String getCrm() {
+		return crm;
 	}
+
+	public void setCrm(String crm) {
+		this.crm = crm;
+	}
+
 }

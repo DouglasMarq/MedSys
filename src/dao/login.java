@@ -17,7 +17,7 @@ public class login {
         ResultSet rs = null;
         
         try{
-            stmt = con.prepareStatement("SELECT * FROM d3_Login WHERE ds_user=? AND ds_pass=?");
+            stmt = con.prepareStatement("SELECT * FROM d0_Funcionarios WHERE ds_user=? AND ds_pass=?");
             stmt.setString(1, username);
             stmt.setString(2, password);
             rs = stmt.executeQuery();

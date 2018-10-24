@@ -3,21 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Model;
 
 /**
  *
  * @author gabri
  */
 public class Endereco {
+
 	private String logradouro;
 	private String numero;
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private long cep;
+	private int cep;
 
-	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, long cep) {
+	public Endereco() {
+	}
+
+	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, int cep) {
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
@@ -25,9 +29,6 @@ public class Endereco {
 		this.cidade = cidade;
 		this.cep = cep;
 	}
-
-	
-
 
 	public String getLogradouro() {
 		return logradouro;
@@ -69,11 +70,12 @@ public class Endereco {
 		this.cidade = cidade;
 	}
 
-	public long getCep() {
+	public int getCep() {
 		return cep;
 	}
 
-	public void setCep(long cep) {
+	public void setCep(int cep) {
 		this.cep = cep;
 	}
+
 }

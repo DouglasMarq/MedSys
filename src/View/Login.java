@@ -20,6 +20,8 @@ public class Login extends javax.swing.JFrame {
             
             if(l.validarlogin(username,password)){
                 System.out.println("Login Valido");
+		Interface i = new Interface();
+		i.setVisible(true);
             } else {
                 System.out.println("Login Invalido");
             }
@@ -57,7 +59,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblLogCliente.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblLogCliente.setText("Secretaria");
+        lblLogCliente.setText("Operador");
 
         jTextField1.setText("Usuario");
 
@@ -65,48 +67,46 @@ public class Login extends javax.swing.JFrame {
 
         btnPacLogin.setText("Login");
 
-        lblImgPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Paciente.png"))); // NOI18N
+        lblImgPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Access_100px.png"))); // NOI18N
 
         javax.swing.GroupLayout pnLogPacLayout = new javax.swing.GroupLayout(pnLogPac);
         pnLogPac.setLayout(pnLogPacLayout);
         pnLogPacLayout.setHorizontalGroup(
             pnLogPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLogPacLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLogCliente)
-                .addGap(171, 171, 171))
             .addGroup(pnLogPacLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lblImgPac)
                 .addGroup(pnLogPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnLogPacLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lblImgPac)
+                        .addGap(18, 18, 18)
                         .addGroup(pnLogPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnLogPacLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnLogPacLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(117, Short.MAX_VALUE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnLogPacLayout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(btnPacLogin)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(237, 237, 237)
+                        .addComponent(btnPacLogin))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLogPacLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblLogCliente)
+                        .addGap(74, 74, 74)))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         pnLogPacLayout.setVerticalGroup(
             pnLogPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLogPacLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnLogPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblImgPac)
+                .addGroup(pnLogPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnLogPacLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(lblLogCliente)
                         .addGap(50, 50, 50)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnPacLogin)))
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnLogPacLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(lblImgPac)))
+                .addGap(13, 13, 13)
+                .addComponent(btnPacLogin)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -115,7 +115,7 @@ public class Login extends javax.swing.JFrame {
         lblLogMed.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblLogMed.setText("Medico");
 
-        lblImgMed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Medico.png"))); // NOI18N
+        lblImgMed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Medical_Doctor_100px.png"))); // NOI18N
         lblImgMed.setToolTipText("");
 
         tfUserMed.setText("Usuario");
@@ -135,19 +135,18 @@ public class Login extends javax.swing.JFrame {
             pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLogMedLayout.createSequentialGroup()
                 .addGroup(pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnLogMedLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(lblImgMed)
-                        .addGroup(pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnLogMedLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pfPassMed)
-                                    .addComponent(tfUserMed)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLogMedLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnLogMed)
-                                .addGap(89, 89, 89))))
+                    .addGroup(pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnLogMedLayout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(lblImgMed)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(pfPassMed)
+                                .addComponent(tfUserMed)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLogMedLayout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogMed)
+                            .addGap(89, 89, 89)))
                     .addGroup(pnLogMedLayout.createSequentialGroup()
                         .addGap(212, 212, 212)
                         .addComponent(lblLogMed)
@@ -158,17 +157,19 @@ public class Login extends javax.swing.JFrame {
             pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLogMedLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblImgMed)
+                .addComponent(lblLogMed)
+                .addGroup(pnLogMedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnLogMedLayout.createSequentialGroup()
-                        .addComponent(lblLogMed)
                         .addGap(36, 36, 36)
                         .addComponent(tfUserMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pfPassMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnLogMed)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(pfPassMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnLogMedLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lblImgMed)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLogMed)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         tpClasseLogin.addTab("Medico", pnLogMed);

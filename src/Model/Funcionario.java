@@ -3,23 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Model;
 
 /**
  *
  * @author gabri
  */
-public abstract class  Funcionario extends Pessoa{
+public abstract class Funcionario extends Pessoa {
+
 	private String login;
 	private String senha;
+	private int cargo;
 
-    public Funcionario(String login, String senha, long id, String nome, String cpf, String rg, String dataNascimento, String telefone, String celular, String email, Endereco endereco, EstadoCivil estadoCivil, Sexo sexo) {
-        super(id, nome, cpf, rg, dataNascimento, telefone, celular, email, endereco, estadoCivil, sexo);
-        this.login = login;
-        this.senha = senha;
-    }
+	public Funcionario() {
+	}
 
-	
+	public Funcionario(String login, String senha, int cargo, long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
+		super(id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
+		this.login = login;
+		this.senha = senha;
+		this.cargo = cargo;
+	}
+
+	public Funcionario(String login, String senha, int cargo, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
+		super(nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
+		this.login = login;
+		this.senha = senha;
+		this.cargo = cargo;
+	}
 
 	public String getLogin() {
 		return login;
@@ -36,4 +47,14 @@ public abstract class  Funcionario extends Pessoa{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public int getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(int cargo) {
+		this.cargo = cargo;
+	}
+
+
 }
