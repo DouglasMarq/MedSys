@@ -1,10 +1,14 @@
 package View;
 
 import Controller.Principal;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
+        
+    
     private void LogarFuncionario(){
         if(tfUserMed.getText().length() ==0){
             JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
@@ -22,6 +26,7 @@ public class Login extends javax.swing.JFrame {
                 System.out.println("Login Valido");
 		Interface i = new Interface();
 		i.setVisible(true);
+                this.setVisible(false);
             } else {
                 System.out.println("Login Invalido");
             }
@@ -30,6 +35,9 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
+        tfUserOp.requestFocus();
+        tfUserOp.setText("");
+        
     }
 
     /**
@@ -44,8 +52,8 @@ public class Login extends javax.swing.JFrame {
         tpClasseLogin = new javax.swing.JTabbedPane();
         pnLogPac = new javax.swing.JPanel();
         lblLogCliente = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tfUserOp = new javax.swing.JTextField();
+        pfPassOp = new javax.swing.JPasswordField();
         btnPacLogin = new javax.swing.JButton();
         lblImgPac = new javax.swing.JLabel();
         pnLogMed = new javax.swing.JPanel();
@@ -58,12 +66,23 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tpClasseLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tpClasseLoginMouseClicked(evt);
+            }
+        });
+
         lblLogCliente.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblLogCliente.setText("Operador");
 
-        jTextField1.setText("Usuario");
+        tfUserOp.setText("Usuario");
 
-        jPasswordField1.setText("jPasswordField1");
+        pfPassOp.setText("jPasswordField1");
+        pfPassOp.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pfPassOpFocusGained(evt);
+            }
+        });
 
         btnPacLogin.setText("Login");
 
@@ -80,8 +99,8 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(lblImgPac)
                         .addGap(18, 18, 18)
                         .addGroup(pnLogPacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tfUserOp, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pfPassOp, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnLogPacLayout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(btnPacLogin))
@@ -99,9 +118,9 @@ public class Login extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblLogCliente)
                         .addGap(50, 50, 50)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfUserOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pfPassOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnLogPacLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(lblImgPac)))
@@ -121,6 +140,11 @@ public class Login extends javax.swing.JFrame {
         tfUserMed.setText("Usuario");
 
         pfPassMed.setText("jPasswordField2");
+        pfPassMed.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pfPassMedFocusGained(evt);
+            }
+        });
 
         btnLogMed.setText("Login");
         btnLogMed.addActionListener(new java.awt.event.ActionListener() {
@@ -208,6 +232,24 @@ public class Login extends javax.swing.JFrame {
         LogarFuncionario();
     }//GEN-LAST:event_btnLogMedActionPerformed
 
+    private void tpClasseLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tpClasseLoginMouseClicked
+        // TODO add your handling code here:
+        tfUserMed.requestFocus();
+        tfUserMed.setText("");
+        tfUserOp.requestFocus();
+        tfUserOp.setText("");
+    }//GEN-LAST:event_tpClasseLoginMouseClicked
+
+    private void pfPassMedFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pfPassMedFocusGained
+        // TODO add your handling code here:
+        pfPassMed.setText("");
+    }//GEN-LAST:event_pfPassMedFocusGained
+
+    private void pfPassOpFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pfPassOpFocusGained
+        // TODO add your handling code here:
+        pfPassOp.setText("");
+    }//GEN-LAST:event_pfPassOpFocusGained
+
     /**
      * @param args the command line arguments
      */
@@ -246,17 +288,17 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogMed;
     private javax.swing.JButton btnPacLogin;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblImgMed;
     private javax.swing.JLabel lblImgPac;
     private javax.swing.JLabel lblLogCliente;
     private javax.swing.JLabel lblLogMed;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JPasswordField pfPassMed;
+    private javax.swing.JPasswordField pfPassOp;
     private javax.swing.JPanel pnLogMed;
     private javax.swing.JPanel pnLogPac;
     private javax.swing.JTextField tfUserMed;
+    private javax.swing.JTextField tfUserOp;
     private javax.swing.JTabbedPane tpClasseLogin;
     // End of variables declaration//GEN-END:variables
 }
