@@ -182,7 +182,7 @@ public class OperadorDao implements dao<Operador> {
 		PreparedStatement pst;
 
 		try {
-			pst = con.prepareStatement("delete from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?)");
+			pst = con.prepareStatement("delete from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_Cargo LIKE (20)");
 			pst.setLong(1, idFind);
 			pst.setString(2, nomeFind);
 			pst.setString(3, cpfFind);
@@ -197,7 +197,50 @@ public class OperadorDao implements dao<Operador> {
 
 	@Override
 	public Operador findOne(long idFind, String cpfFind, String nomeFind) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		try {
+			pst = con.prepareStatement("select * from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_cargo = 20");
+			rs = pst.executeQuery();
+
+
+				long id = rs.getLong("cd_funcionario");
+				String login = rs.getString("ds_user");
+				String senha = rs.getString("ds_pass");
+				String nome = rs.getString("nm_Funcionario");
+				String sobrenome = rs.getString("sn_Funcionario");
+				int cargo = rs.getInt("cd_cargo");
+				String crm = rs.getString("ds_crm");
+				String cpf = rs.getString("ds_cpf");
+				String dataNascimento = rs.getString("dt_nascimento");
+				String rg = rs.getString("ds_rg");
+				String telefone = rs.getString("ds_Telefone");
+				String celular = rs.getString("ds_Celular");
+				String email = rs.getString("ds_Email");
+				String lougradouro = rs.getString("ds_Logradouro");
+				String numeroEndereco = rs.getString("ds_numerores");
+				String complemento = rs.getString("ds_Complemento");
+				String bairro = rs.getString("ds_Bairro");
+				String cidade = rs.getString("ds_Cidade");
+				int cep = rs.getInt("ds_Cep");
+				String sexo = rs.getString("ds_sexo");
+				String estadoCivil = rs.getString("ds_estadocivil");
+
+				Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
+				Operador operador = new Operador(login, senha, cargo, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
+				
+
+			return operador;
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			System.out.println(ex.getStackTrace());
+			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
+		} finally {
+			ConnectionFactory.closeConnection(con);
+		}
 	}
 
 }

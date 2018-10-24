@@ -152,9 +152,5 @@ public abstract class Pessoa {
 		this.sexo = sexo;
 	}
 
-	@Override
-	public String toString() {
-		return "Pessoa{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", rg=" + rg + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", endereco=" + endereco + ", celular=" + celular + ", telefone=" + telefone + ", email=" + email + ", estadocivil=" + estadocivil + ", sexo=" + sexo + '}';
-	}
 
 }

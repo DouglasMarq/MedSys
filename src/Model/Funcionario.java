@@ -56,9 +56,5 @@ public abstract class Funcionario extends Pessoa {
 		this.cargo = cargo;
 	}
 
-	@Override
-	public String toString() {
-		return "Funcionario{" + "login=" + login + ", senha=" + senha + ", cargo=" + cargo + '}';
-	}
 
 }
