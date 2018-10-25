@@ -39,17 +39,17 @@ public class ConsultaDao implements dao<Consulta> {
     }
 
     @Override
-    public void create(Consulta obj) {
+    public int create(Consulta obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(long id, Consulta obj) {
+    public int update(long id, Consulta obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(long idDel, String cpfDel, String nomeDel) {
+    public int delete(long idDel, String cpfDel, String nomeDel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

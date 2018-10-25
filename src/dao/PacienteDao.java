@@ -15,14 +15,15 @@ import javax.swing.JOptionPane;
 public class PacienteDao implements dao<Paciente> {
 
 	@Override
-	public void create(Paciente obj) {
+	public int create(Paciente obj) {
 		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst;
+		PreparedStatement pst = null;
+		final String sql = "insert into d1_Pacientes (nm_Paciente, sn_Paciente, ds_Convenio, ds_cpf, dt_Nascimento,"
+			+ "ds_Telefone, ds_estadocivil, ds_sexo, ds_email, ds_RG, ds_Celular, ds_Logradouro, ds_numerores, ds_Complemento,"
+			+ " ds_Bairro, ds_Cidade, ds_Cep)  values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
-			pst = con.prepareStatement("insert into d1_Pacientes (nm_Paciente, sn_Paciente, ds_Convenio, ds_cpf, dt_Nascimento,"
-				+ "ds_Telefone, ds_estadocivil, ds_sexo, ds_email, ds_RG, ds_Celular, ds_Logradouro, ds_numerores, ds_Complemento,"
-				+ " ds_Bairro, ds_Cidade, ds_Cep)  values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			pst = con.prepareStatement(sql);
 
 			pst.setString(1, obj.getNome());
 			pst.setString(2, obj.getSobrenome());
@@ -42,20 +43,20 @@ public class PacienteDao implements dao<Paciente> {
 			pst.setString(16, obj.getEndereco().getCidade());
 			pst.setInt(17, obj.getEndereco().getCep());
 
-			pst.executeUpdate();
+			return pst.executeUpdate();
 
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			System.out.println(ex.getStackTrace());
 
-			String message = "Erro no Cadastro do Paciente";
+			String message = "Erro no Banco de Dados";
 			String erro = "Erro!!";
 
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
 
-			throw new RuntimeException("Erro no cadastro do Paciente");
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst);
 		}
 
 	}
@@ -65,9 +66,10 @@ public class PacienteDao implements dao<Paciente> {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
+		final String sql = "select * from d1_Pacientes";
 
 		try {
-			pst = con.prepareStatement("select * from d1_Pacientes");
+			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
 			List pacientes = new ArrayList();
 
@@ -101,38 +103,44 @@ public class PacienteDao implements dao<Paciente> {
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			System.out.println(ex.getStackTrace());
-			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
+			String message = "Erro no Banco de Dados";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst, rs);
+
 		}
 
 	}
 
 	@Override
-	public void update(long idFind, Paciente pacienteUpdate) {
+	public int update(long idFind, Paciente pacienteUpdate) {
 		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst;
+		PreparedStatement pst = null;
+		final String sql = "update d1_Pacientes"
+			+ " set nm_Paciente = ?,"
+			+ "sn_Paciente = ?,"
+			+ "ds_Convenio = ?,"
+			+ "ds_cpf = ?,"
+			+ "dt_Nascimento = ?,"
+			+ "ds_Telefone = ?,"
+			+ "ds_estadocivil = ?,"
+			+ "ds_sexo = ?,"
+			+ "ds_email = ?,"
+			+ "ds_RG = ?,"
+			+ "ds_Celular = ?,"
+			+ "ds_Logradouro = ?,"
+			+ "ds_numerores = ?,"
+			+ "ds_Complemento = ?,"
+			+ "ds_Bairro = ?,"
+			+ "ds_Cidade = ?,"
+			+ "ds_Cep = ?"
+			+ " where cd_Paciente = ?";
 
 		try {
-			pst = con.prepareStatement("update d1_Pacientes"
-				+ " set nm_Paciente = ?,"
-				+ "sn_Paciente = ?,"
-				+ "ds_Convenio = ?,"
-				+ "ds_cpf = ?,"
-				+ "dt_Nascimento = ?,"
-				+ "ds_Telefone = ?,"
-				+ "ds_estadocivil = ?,"
-				+ "ds_sexo = ?,"
-				+ "ds_email = ?,"
-				+ "ds_RG = ?,"
-				+ "ds_Celular = ?,"
-				+ "ds_Logradouro = ?,"
-				+ "ds_numerores = ?,"
-				+ "ds_Complemento = ?,"
-				+ "ds_Bairro = ?,"
-				+ "ds_Cidade = ?,"
-				+ "ds_Cep = ?"
-				+ " where cd_Paciente = ?");
+			pst = con.prepareStatement(sql);
 
 			pst.setString(1, pacienteUpdate.getNome());
 			pst.setString(2, pacienteUpdate.getSobrenome());
@@ -153,42 +161,46 @@ public class PacienteDao implements dao<Paciente> {
 			pst.setInt(17, pacienteUpdate.getEndereco().getCep());
 			pst.setLong(18, idFind);
 
-			pst.executeUpdate();
+			return pst.executeUpdate();
+			
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
-			String message = "Erro na Atualização do Paciente";
+			String message = "Erro no Banco de Dados";
 			String erro = "Erro!!";
+
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-			throw new RuntimeException("Erro na atualização de Cadastro do Paciente");
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst);
 		}
 
 	}
 
 	@Override
-	public void delete(long idFind, String cpfFind, String nomeFind) {
+	public int delete(long idFind, String cpfFind, String nomeFind) {
 		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst;
+		PreparedStatement pst = null;
+		final String sql = "delete from d1_Pacientes where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and ds_cpf LIKE(?)";
 
 		try {
-			pst = con.prepareStatement("delete from d1_Pacientes where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and ds_cpf LIKE(?)");
+			pst = con.prepareStatement(sql);
 			pst.setLong(1, idFind);
 			pst.setString(2, nomeFind);
 			pst.setString(3, cpfFind);
 
-			pst.executeUpdate();
+			return pst.executeUpdate();
+			
 		} catch (SQLException ex) {
 			ex.getMessage();
 
-			String message = "Erro na Remoção do Paciente";
+			String message = "Erro no Banco de Dados";
 			String erro = "Erro!!";
 
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
 
-			throw new RuntimeException("Erro na remoção do Paciente");
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst);
 		}
 	}
 
@@ -197,9 +209,10 @@ public class PacienteDao implements dao<Paciente> {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
+		final String sql = "select * from d1_Pacientes where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and ds_cpf LIKE(?)";
 
 		try {
-			pst = con.prepareStatement("select * from d1_Pacientes where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and ds_cpf LIKE(?)");
+			pst = con.prepareStatement(sql);
 			pst.setLong(1, idFind);
 			pst.setString(2, nomeFind);
 			pst.setString(3, cpfFind);
@@ -233,13 +246,13 @@ public class PacienteDao implements dao<Paciente> {
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 
-			String message = "Erro na Procura do Paciente";
+			String message = "Erro no Banco de Dados";
 			String erro = "Erro!!";
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
 
-			throw new RuntimeException("Erro na Erro na Procura do Paciente!");
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con,pst,rs);
 		}
 
 	}
