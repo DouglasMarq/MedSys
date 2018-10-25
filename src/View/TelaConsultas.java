@@ -84,7 +84,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         lblCancelaConsulta = new javax.swing.JLabel();
         lblbCancelarConsulta = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consultas");
 
         tbConsultaAberta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

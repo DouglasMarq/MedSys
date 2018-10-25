@@ -1,5 +1,8 @@
 package View;
 
+import dao.ConnectionFactory;
+import java.sql.Connection;
+
 public class Splash extends javax.swing.JFrame {
 
     /**
@@ -7,6 +10,7 @@ public class Splash extends javax.swing.JFrame {
      */
     public Splash() {
         initComponents();
+        testacnx();
     }
 
     /**
@@ -21,7 +25,8 @@ public class Splash extends javax.swing.JFrame {
         lblMedSys = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("MedSys");
 
         lblMedSys.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblMedSys.setText("MedSys");
@@ -88,6 +93,11 @@ public class Splash extends javax.swing.JFrame {
                 new Splash().setVisible(true);
             }
         });
+    }
+    
+    public void testacnx (){
+        lblStatus.setText("Conectando ao Banco de dados");
+        ConnectionFactory.getConnection();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

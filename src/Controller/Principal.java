@@ -8,6 +8,7 @@ public class Principal {
 	
     public static void main(String[] args){
         
+        
         Login lg = new Login();
         lg.setVisible(true);
         

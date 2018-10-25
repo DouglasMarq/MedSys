@@ -27,7 +27,7 @@ public class BuscaPacinete extends javax.swing.JFrame {
         lblPesquisaPacientes = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pesquisa de Pacientes");
 
         lblNome.setText("Nome");
 
