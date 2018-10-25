@@ -14,7 +14,7 @@ import java.util.List;
 public class MedicoDao implements dao<Medico> {
 
 	@Override
-	public void create(Medico obj) {
+	public int create(Medico obj) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 
@@ -53,6 +53,8 @@ public class MedicoDao implements dao<Medico> {
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
+		
+		return 0;
 	}
 
 	@Override
@@ -107,7 +109,7 @@ public class MedicoDao implements dao<Medico> {
 	}
 
 	@Override
-	public void update(long idFind, Medico obj) {
+	public int update(long idFind, Medico obj) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 
@@ -164,11 +166,11 @@ public class MedicoDao implements dao<Medico> {
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
-
+		return 0;
 	}
 
 	@Override
-	public void delete(long idFind, String cpfFind, String nomeFind) {
+	public int delete(long idFind, String cpfFind, String nomeFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst;
 
@@ -184,6 +186,8 @@ public class MedicoDao implements dao<Medico> {
 		} finally {
 			ConnectionFactory.closeConnection(con);
 		}
+		
+		return 0;
 	}
 
 	@Override

@@ -1,8 +1,5 @@
 package View;
 
-import Controller.PacienteCt;
-import Model.EstadoCivil;
-import Model.Sexo;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
@@ -26,7 +23,7 @@ public class Cadastros extends javax.swing.JFrame {
 		} else if (tffRg.getText().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Há campos vazios");
 		} else {
-			
+
 			String nome = tfNmMed.getText();
 			String sobrenome = tfSnMed.getText();
 			String CRM = tftCRM.getText();
@@ -61,7 +58,7 @@ public class Cadastros extends javax.swing.JFrame {
 		} else if (tffRgPac.getText().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Há campos vazios");
 		} else {
-			
+
 			String nome = tfNmPaciente.getText();
 			String sobrenome = tfSnPaciente.getText();
 			String CPF = tffCpf.getText();
@@ -81,9 +78,7 @@ public class Cadastros extends javax.swing.JFrame {
 			String bairro = tfBairroPac.getText();
 			int cep = Integer.parseInt(tffCepPac.getText());
 
-			//Principal r = new Principal();
-			PacienteCt ct = new PacienteCt();
-			ct.cadastrarPaciente(convenio, nome, sobrenome, RG, CPF, Nascimento, logradouro, numero, complemento, bairro, cidade, cep, Celular, Telefone, Email,EstadoCivil.valueOf(estadocivil) , Sexo.valueOf(sexo));
+			
 		}
 	}
 
@@ -270,6 +265,8 @@ public class Cadastros extends javax.swing.JFrame {
 
                 lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
                 lblTitulo.setText("Cadastros");
+
+                pnPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
                 lblDataNascimento.setText("Data de nascimento");
 
