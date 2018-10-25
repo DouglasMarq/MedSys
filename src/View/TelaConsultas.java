@@ -1,5 +1,6 @@
 package View;
 
+import Model.Consulta;
 import dao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +16,11 @@ public class TelaConsultas extends javax.swing.JFrame {
     
     private void setTable(){
         
-        DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
+        Consulta c = new Consulta();
+        
+        tbConsultaAberta.setModel(c.TableConsulta());
+        
+        /*DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
         
         Connection con = ConnectionFactory.getConnection();
         
@@ -39,7 +44,7 @@ public class TelaConsultas extends javax.swing.JFrame {
             throw new RuntimeException("Erro ao pegar dados");
         }
         
-        tbConsultaAberta.setModel(Consultas);
+        tbConsultaAberta.setModel(Consultas);*/
         
     }
     public TelaConsultas() {
