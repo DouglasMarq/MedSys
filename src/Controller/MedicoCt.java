@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.Endereco;
@@ -12,10 +7,6 @@ import Model.Sexo;
 import dao.MedicoDao;
 import java.util.List;
 
-/**
- *
- * @author gabri
- */
 public class MedicoCt {
 
 	public boolean cadastrarMedico(String crm, String login, String senha, int cargo, String nome, String sobrenome, String rg, String cpf, String dataNascimento, String logradouro, String numero, String complemento, String bairro, String cidade, int cep, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
