@@ -2,6 +2,8 @@ package View;
 
 import Model.Consulta;
 import dao.ConnectionFactory;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,6 +52,13 @@ public class TelaConsultas extends javax.swing.JFrame {
     public TelaConsultas() {
         initComponents();
         setTable();
+        centralizarComponente();
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**

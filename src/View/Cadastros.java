@@ -2,6 +2,8 @@ package View;
 
 import Model.EstadoCivil;
 import Model.Sexo;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.BorderFactory;
@@ -119,7 +121,14 @@ public class Cadastros extends javax.swing.JFrame {
 	public Cadastros() {
 		initComponents();
 		setMask();
+                centralizarComponente();
 	}
+        
+        public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    }
 
 	/**
 	 * This method is called from within the constructor to initialize the

@@ -1,5 +1,8 @@
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 public class Interface extends javax.swing.JFrame {
 
     /**
@@ -7,6 +10,13 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        centralizarComponente();
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**
@@ -28,6 +38,7 @@ public class Interface extends javax.swing.JFrame {
         lblbConsulta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MedSys");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Bem vindo");

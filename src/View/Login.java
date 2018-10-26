@@ -1,6 +1,8 @@
 package View;
 
 import Controller.Principal;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
@@ -24,22 +26,31 @@ public class Login extends javax.swing.JFrame {
             
             if(l.validarlogin(username,password)){
                 System.out.println("Login Valido");
+                JOptionPane.showMessageDialog(null, "Login valido, Bem vindo(a)");
 		Interface i = new Interface();
 		i.setVisible(true);
                 this.setVisible(false);
             } else {
                 System.out.println("Login Invalido");
+                JOptionPane.showMessageDialog(null, "Login Invalido, tente novamente");
             }
         }
     }
     
     public Login() {
         initComponents();
+        centralizarComponente();
         tfUserOp.requestFocus();
         tfUserOp.setText("");
         
     }
-
+    
+        public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,6 +88,11 @@ public class Login extends javax.swing.JFrame {
         lblLogCliente.setText("Operador");
 
         tfUserOp.setText("Usuario");
+        tfUserOp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfUserOpMouseClicked(evt);
+            }
+        });
 
         pfPassOp.setText("jPasswordField1");
         pfPassOp.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -250,6 +266,13 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         pfPassOp.setText("");
     }//GEN-LAST:event_pfPassOpFocusGained
+
+    private void tfUserOpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUserOpMouseClicked
+        // TODO add your handling code here:
+      //  if (tfUserOp.getText() != ""){
+      //      tfUserOp.setText("");
+      //  } 
+    }//GEN-LAST:event_tfUserOpMouseClicked
 
     /**
      * @param args the command line arguments

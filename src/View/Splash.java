@@ -1,6 +1,8 @@
 package View;
 
 import dao.ConnectionFactory;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 
 public class Splash extends javax.swing.JFrame {
@@ -11,6 +13,13 @@ public class Splash extends javax.swing.JFrame {
     public Splash() {
         initComponents();
         testacnx();
+        centralizarComponente();
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**

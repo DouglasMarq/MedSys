@@ -1,5 +1,8 @@
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 public class TelaConsultaNova extends javax.swing.JFrame {
 
     /**
@@ -7,6 +10,13 @@ public class TelaConsultaNova extends javax.swing.JFrame {
      */
     public TelaConsultaNova() {
         initComponents();
+        centralizarComponente();
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**
