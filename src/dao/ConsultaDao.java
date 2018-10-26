@@ -26,14 +26,8 @@ public class ConsultaDao implements dao<Consulta> {
                     String d2 = rs.getString("sn_Paciente");
                     String e = rs.getString("nm_Medico");
                     String e2 = rs.getString("sn_Medico");
-                    Consultas.add(a);
-                    Consultas.add(b);
-                    Consultas.add(c);
-                    Consultas.add(d);
-                    Consultas.add(d2);
-                    Consultas.add(e);
-                    Consultas.add(e2);
-                    //Consulta consulta = new Consulta(a,b,c,d,d2,e,e2);
+                    Consulta consulta = new Consulta(a,b,c,d,d2,e,e2);
+                    Consultas.add(consulta);
                     //Consulta.addRow(new Object[]{a,b,c,d,d2,e,e2});
                 }
 		return Consultas;

@@ -13,14 +13,14 @@ public class Consulta {
     private String e;
     private String e2;
     
-    public DefaultTableModel TableConsulta(String a, String b, String c, String d, String d2, String e, String e2){
+    public DefaultTableModel TableConsulta(){
         DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
-    
-        ConsultaDao cd = new ConsultaDao();
-        
-        cd.read();
 
-        Consultas.addRow(new Object[]{a,b,c,d,d2,e,e2});
+        ConsultaDao cd = new ConsultaDao();
+
+        for (Consulta ca : cd.read()) {
+            Consultas.addRow(new String[]{ca.getA(),ca.getB(),ca.getC(), ca.getD(),ca.getD2(),ca.getE(),ca.getE2()});
+        }
         return Consultas;
     }
     
