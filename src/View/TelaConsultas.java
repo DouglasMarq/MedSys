@@ -16,11 +16,21 @@ public class TelaConsultas extends javax.swing.JFrame {
      * Creates new form TelaConsultas
      */
     
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private String d2;
+    private String e;
+    private String e2;
+    
     private void setTable(){
         
-        Consulta c = new Consulta();
         
-        tbConsultaAberta.setModel(c.TableConsulta());
+        
+        Consulta con = new Consulta(a,b,c,d,d2,e,e2);
+        
+        tbConsultaAberta.setModel(con.TableConsulta(a, b, c, d, d2, e, e2));
         
         /*DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
         
