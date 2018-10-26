@@ -8,33 +8,12 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ConnectionFactory {
-<<<<<<< HEAD
+
     //private static final String url = "jdbc:sqlite:C:\\Users\\gabri\\Documents\\Desenvolvimento\\Projetos\\MedSys\\bd\\MedSysdb.db";
     //private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
     //private static final String url = "jdbc:sqlite:C:\\Users\\Douglas\\Downloads\\Development\\MedSys\\bd\\MedSysdb.db";
     private static final String url = "jdbc:sqlite:C:\\git\\MedSys\\bd\\MedSysdb.db";
     
-    
-    public static Connection getConnection(){
-        try {
-            return DriverManager.getConnection(url);
-        } catch (SQLException ex) {
-            throw new RuntimeException("Erro de conexão");
-        }
-    }
-    
-   public static void closeConnection(Connection con){
-        try {
-           if(con != null) con.close();
-        } catch (SQLException ex) {
-           throw new RuntimeException("Erro de fechamento de conexão");
-        }
-   } 
-=======
-	//private static final String url = "jdbc:sqlite:C:\\Users\\gabri\\Documents\\Desenvolvimento\\Projetos\\MedSys\\bd\\MedSysdb.db";
-
-	private static final String url = "jdbc:sqlite:C:\\Users\\gabri\\Documents\\Desenvolvimento\\Projetos\\MedSys\\bd\\MedSysdb.db";
-	//private static final String url = "jdbc:sqlite:C:\\Users\\Douglas\\Downloads\\Development\\MedSys\\bd\\MedSysdb.db";
 
 	public static Connection getConnection() {
 		try {
@@ -93,6 +72,4 @@ public class ConnectionFactory {
 			throw new RuntimeException();
 		}
 	}
-
->>>>>>> 318d11ae1c85e65e04334273f3e2e4edf8d3c7d3
 }

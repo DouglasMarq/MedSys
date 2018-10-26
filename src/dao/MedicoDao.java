@@ -10,19 +10,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class MedicoDao implements dao<Medico> {
 
 	@Override
 	public int create(Medico obj) {
 		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst;
+		PreparedStatement pst = null;
+		final String sql = "insert into d0_Funcionarios (ds_user, ds_pass, nm_Funcionario, sn_Funcionario, cd_cargo, "
+			+ "ds_crm, ds_cpf, dt_Nascimento, ds_Telefone,ds_estadocivil, ds_sexo, ds_email, ds_RG, ds_Celular, "
+			+ "ds_Logradouro, ds_numerores, ds_Complemento, ds_Bairro, ds_Cidade, ds_cep)"
+			+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
-			pst = con.prepareStatement("insert into d0_Funcionarios (ds_user, ds_pass, nm_Funcionario, sn_Funcionario, cd_cargo, "
-				+ "ds_crm, ds_cpf, dt_Nascimento, ds_Telefone,ds_estadocivil, ds_sexo, ds_email, ds_RG, ds_Celular, "
-				+ "ds_Logradouro, ds_numerores, ds_Complemento, ds_Bairro, ds_Cidade, ds_cep)"
-				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			pst = con.prepareStatement(sql);
 
 			pst.setString(1, obj.getLogin());
 			pst.setString(2, obj.getSenha());
@@ -45,16 +47,19 @@ public class MedicoDao implements dao<Medico> {
 			pst.setString(19, obj.getEndereco().getCidade());
 			pst.setInt(20, obj.getEndereco().getCep());
 
-			pst.executeUpdate();
+			return pst.executeUpdate();
 
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
-			throw new RuntimeException("Erro no cadastro do Medico");
+			String message = "Erro no Banco de Dados";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst);
 		}
-		
-		return 0;
+
 	}
 
 	@Override
@@ -62,9 +67,10 @@ public class MedicoDao implements dao<Medico> {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
+		final String sql = "select * from d0_Funcionarios where cd_cargo = 10";
 
 		try {
-			pst = con.prepareStatement("select * from d0_Funcionarios where cd_cargo = 10");
+			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
 
 			List medicos = new ArrayList();
@@ -102,40 +108,45 @@ public class MedicoDao implements dao<Medico> {
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			System.out.println(ex.getStackTrace());
-			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
+			String message = "Erro no Banco de Dados";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst, rs);
 		}
 	}
 
 	@Override
 	public int update(long idFind, Medico obj) {
 		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst;
+		PreparedStatement pst = null;
+		final String sql = "update d0_Funcionarios"
+			+ " set ds_user = ?,"
+			+ " ds_pass = ?,"
+			+ " nm_Funcionario = ?,"
+			+ " sn_Funcionario = ?,"
+			+ " cd_cargo = ?,"
+			+ " ds_crm = ?,"
+			+ " ds_cpf = ?,"
+			+ " dt_Nascimento = ?,"
+			+ " ds_Telefone = ?,"
+			+ "ds_estadocivil = ?,"
+			+ " ds_sexo = ?,"
+			+ " ds_email = ?,"
+			+ " ds_RG = ?,"
+			+ " ds_Celular = ?,"
+			+ " ds_Logradouro = ?,"
+			+ " ds_numerores = ?,"
+			+ " ds_Complemento = ?,"
+			+ " ds_Bairro = ?,"
+			+ " ds_Cidade = ?,"
+			+ " ds_cep = ?"
+			+ " where cd_Funcionario = ?";
 
 		try {
-			pst = con.prepareStatement("update d0_Funcionarios"
-				+ " set ds_user = ?,"
-				+ " ds_pass = ?,"
-				+ " nm_Funcionario = ?,"
-				+ " sn_Funcionario = ?,"
-				+ " cd_cargo = ?,"
-				+ " ds_crm = ?,"
-				+ " ds_cpf = ?,"
-				+ " dt_Nascimento = ?,"
-				+ " ds_Telefone = ?,"
-				+ "ds_estadocivil = ?,"
-				+ " ds_sexo = ?,"
-				+ " ds_email = ?,"
-				+ " ds_RG = ?,"
-				+ " ds_Celular = ?,"
-				+ " ds_Logradouro = ?,"
-				+ " ds_numerores = ?,"
-				+ " ds_Complemento = ?,"
-				+ " ds_Bairro = ?,"
-				+ " ds_Cidade = ?,"
-				+ " ds_cep = ?"
-				+ " where cd_Funcionario = ?");
+			pst = con.prepareStatement(sql);
 
 			pst.setString(1, obj.getLogin());
 			pst.setString(2, obj.getSenha());
@@ -159,35 +170,44 @@ public class MedicoDao implements dao<Medico> {
 			pst.setInt(20, obj.getEndereco().getCep());
 			pst.setLong(21, idFind);
 
-			pst.executeUpdate();
+			return pst.executeUpdate();
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
-			throw new RuntimeException("Erro na atualização de Cadastro do Paciente");
+			String message = "Erro no Banco de Dados";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst);
 		}
-		return 0;
 	}
 
 	@Override
 	public int delete(long idFind, String cpfFind, String nomeFind) {
 		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst;
+		PreparedStatement pst = null;
+		final String sql = "delete from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_Cargo LIKE(10)";
 
 		try {
-			pst = con.prepareStatement("delete from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_Cargo LIKE(10)");
+			pst = con.prepareStatement(sql);
 			pst.setLong(1, idFind);
 			pst.setString(2, nomeFind);
 			pst.setString(3, cpfFind);
 
-			pst.executeUpdate();
+			return pst.executeUpdate();
 		} catch (SQLException ex) {
 			ex.getMessage();
+
+			String message = "Erro no Banco de Dados";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con, pst);
 		}
-		
-		return 0;
 	}
 
 	@Override
@@ -195,11 +215,11 @@ public class MedicoDao implements dao<Medico> {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
+		final String sql = "select * from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_cargo LIKE (10)";
 
 		try {
-			pst = con.prepareStatement("select * from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_cargo LIKE (10)");
+			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
-
 
 			long id = rs.getLong("cd_funcionario");
 			String login = rs.getString("ds_user");
@@ -229,11 +249,16 @@ public class MedicoDao implements dao<Medico> {
 			return medico;
 
 		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			System.out.println(ex.getStackTrace());
-			throw new RuntimeException("Erro na Leitura da Tabela Paciente");
+			ex.getMessage();
+
+			String message = "Erro no Banco de Dados";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+
+			throw new RuntimeException();
 		} finally {
-			ConnectionFactory.closeConnection(con);
+			ConnectionFactory.closeConnection(con,pst);
 		}
 	}
 
