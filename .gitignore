@@ -5,3 +5,4 @@ nbdist/
 /nbproject/private/
 **/nbproject/private/
 .nb-gradle/
+bd/MedSysdb.db
