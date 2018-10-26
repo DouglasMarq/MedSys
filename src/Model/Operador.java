@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
+import dao.OperadorDao;
 import dao.PacienteDao;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author gabri
- */
 public class Operador extends Funcionario {
 
 	public Operador() {
@@ -26,5 +18,52 @@ public class Operador extends Funcionario {
 		super(login, senha, departamento, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
 	}
 
+	// DAO's na view
+	
+	public void gravar() {
+		OperadorDao dao = new OperadorDao();
+		int valida = dao.create(this);
 
+		if (valida != 1) {
+			
+			String message = "Cadastro não Concluido";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	public void deletar() {
+		OperadorDao dao = new OperadorDao();
+		int valida = dao.delete(this.getId(), this.getCpf(), this.getNome());
+		
+		if (valida != 1) {
+			String message = "Exclusão não Concluida";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	public void regravar() {
+		OperadorDao dao = new OperadorDao();
+		int valida = dao.update(this.getId(), this);
+		
+		if (valida != 1) {
+			String message = "Recadastro não concluido";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	public List<Operador> buscar() {
+		OperadorDao dao = new OperadorDao();
+		return dao.read();	
+	}
+	
+	public Operador buscaUm(){
+		OperadorDao dao = new OperadorDao();
+		return dao.findOne(this.getId(), this.getCpf(), this.getNome());
+	}
 }

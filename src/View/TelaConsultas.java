@@ -1,12 +1,55 @@
 package View;
 
+import Model.Consulta;
+import dao.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 public class TelaConsultas extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaConsultas
      */
+    
+    private void setTable(){
+        
+        Consulta c = new Consulta();
+        
+        tbConsultaAberta.setModel(c.TableConsulta());
+        
+        /*DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
+        
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,nm_Paciente,sn_Paciente,nm_Medico,sn_Medico from d3_Consultas");
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                String a = rs.getString("cd_Consulta");
+                String b = rs.getString("ds_status");
+                String c = rs.getString("dt_consulta");
+                String d = rs.getString("nm_Paciente");
+                String d2 = rs.getString("sn_Paciente");
+                String e = rs.getString("nm_Medico");
+                String e2 = rs.getString("sn_Medico");
+                Consultas.addRow(new Object[]{a,b,c,d,d2,e,e2});
+            }
+        } catch(SQLException ex) {
+            throw new RuntimeException("Erro ao pegar dados");
+        }
+        
+        tbConsultaAberta.setModel(Consultas);*/
+        
+    }
     public TelaConsultas() {
         initComponents();
+        setTable();
     }
 
     /**
@@ -41,7 +84,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         lblCancelaConsulta = new javax.swing.JLabel();
         lblbCancelarConsulta = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Consultas");
 
         tbConsultaAberta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,7 +135,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         pnBaixadas.setLayout(pnBaixadasLayout);
         pnBaixadasLayout.setHorizontalGroup(
             pnBaixadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spBaixadas, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+            .addComponent(spBaixadas, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
         );
         pnBaixadasLayout.setVerticalGroup(
             pnBaixadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +314,7 @@ public class TelaConsultas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addComponent(pnbCancelarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
