@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
+import util.Botoes;
 import util.Formata;
 
 public class Cadastros extends javax.swing.JFrame {
@@ -267,12 +268,8 @@ public class Cadastros extends javax.swing.JFrame {
         tfBairroOp = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         tffCepOp = new javax.swing.JFormattedTextField();
-        pnbCadastrar = new javax.swing.JPanel();
         lblbCadPaciente = new javax.swing.JLabel();
-        lblbCadastrar = new javax.swing.JLabel();
-        pnbLimpar = new javax.swing.JPanel();
         lblbLimpar = new javax.swing.JLabel();
-        lblLimpar = new javax.swing.JLabel();
 
         setTitle("Cadastros");
         setBackground(new java.awt.Color(102, 102, 102));
@@ -1127,89 +1124,44 @@ public class Cadastros extends javax.swing.JFrame {
 
         tbCadastros.addTab("Operador", pnMedico1);
 
-        pnbCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnbCadastrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnbCadastrarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnbCadastrarMouseExited(evt);
-            }
-        });
-
         lblbCadPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Add_User_Male_50px.png"))); // NOI18N
+        lblbCadPaciente.setToolTipText("Cadastrar");
         lblbCadPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbCadPacienteMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblbCadPacienteMouseEntered(evt);
             }
-        });
-
-        lblbCadastrar.setText("Cadastrar");
-
-        javax.swing.GroupLayout pnbCadastrarLayout = new javax.swing.GroupLayout(pnbCadastrar);
-        pnbCadastrar.setLayout(pnbCadastrarLayout);
-        pnbCadastrarLayout.setHorizontalGroup(
-            pnbCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbCadastrarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnbCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblbCadPaciente, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblbCadastrar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        pnbCadastrarLayout.setVerticalGroup(
-            pnbCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbCadastrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblbCadPaciente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblbCadastrar))
-        );
-
-        pnbLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnbLimparMouseClicked(evt);
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbCadPacienteMouseExited(evt);
             }
         });
 
         lblbLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Broom_50px.png"))); // NOI18N
-
-        lblLimpar.setText("Limpar");
-
-        javax.swing.GroupLayout pnbLimparLayout = new javax.swing.GroupLayout(pnbLimpar);
-        pnbLimpar.setLayout(pnbLimparLayout);
-        pnbLimparLayout.setHorizontalGroup(
-            pnbLimparLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnbLimparLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnbLimparLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblbLimpar)
-                    .addGroup(pnbLimparLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblLimpar)))
-                .addGap(28, 28, 28))
-        );
-        pnbLimparLayout.setVerticalGroup(
-            pnbLimparLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbLimparLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblbLimpar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblLimpar))
-        );
+        lblbLimpar.setToolTipText("Limpar Campos");
+        lblbLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbLimparMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbLimparMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbLimparMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(pnbCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(lblbCadPaciente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnbLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addComponent(lblbLimpar)
+                .addGap(43, 43, 43))
             .addGroup(layout.createSequentialGroup()
                 .addGap(267, 267, 267)
                 .addComponent(lblTitulo)
@@ -1221,14 +1173,18 @@ public class Cadastros extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnbLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnbCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addComponent(lblbLimpar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblbCadPaciente)))
+                .addContainerGap())
         );
 
         tbCadastros.getAccessibleContext().setAccessibleName("Pacientes");
@@ -1236,41 +1192,47 @@ public class Cadastros extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pnbCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbCadastrarMouseClicked
-	    // TODO add your handling code here:
-	    if (tbCadastros.getSelectedComponent() == pnPaciente) {
-		    registrarPaciente();
-	    } else if (tbCadastros.getSelectedComponent() == pnMedico) {
-		    registrarMedico();
-	    }
-    }//GEN-LAST:event_pnbCadastrarMouseClicked
-
-    private void pnbLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbLimparMouseClicked
-	    // TODO add your handling code here:
-	    if (tbCadastros.getSelectedComponent() == pnPaciente) {
-		    LimpaPaciente();
-	    } else if (tbCadastros.getSelectedComponent() == pnMedico) {
-		    LimpaMed();
-	    }
-    }//GEN-LAST:event_pnbLimparMouseClicked
-
     private void lblbCadPacienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseEntered
         // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbCadPaciente);
     }//GEN-LAST:event_lblbCadPacienteMouseEntered
 
-    private void pnbCadastrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbCadastrarMouseEntered
+    private void lblbCadPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseClicked
         // TODO add your handling code here:
-        Border raisedbevel;
-        raisedbevel = BorderFactory.createRaisedBevelBorder();
-        lblbCadPaciente.setBorder(raisedbevel);
-    }//GEN-LAST:event_pnbCadastrarMouseEntered
+            if (tbCadastros.getSelectedComponent() == pnPaciente) {
+		registrarPaciente();
+	    } else if (tbCadastros.getSelectedComponent() == pnMedico) {
+		registrarMedico();
+	    }
+    }//GEN-LAST:event_lblbCadPacienteMouseClicked
 
-    private void pnbCadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbCadastrarMouseExited
+    private void lblbCadPacienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseExited
         // TODO add your handling code here:
-        Border empty;
-        empty = BorderFactory.createEmptyBorder();
-        lblbCadPaciente.setBorder(empty);
-    }//GEN-LAST:event_pnbCadastrarMouseExited
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbCadPaciente);
+    }//GEN-LAST:event_lblbCadPacienteMouseExited
+
+    private void lblbLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseClicked
+        // TODO add your handling code here:
+    if (tbCadastros.getSelectedComponent() == pnPaciente) {
+        LimpaPaciente();
+    } else if (tbCadastros.getSelectedComponent() == pnMedico) {
+	LimpaMed();
+    }
+    }//GEN-LAST:event_lblbLimparMouseClicked
+
+    private void lblbLimparMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbLimpar);
+    }//GEN-LAST:event_lblbLimparMouseEntered
+
+    private void lblbLimparMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbLimpar);
+    }//GEN-LAST:event_lblbLimparMouseExited
 
 	/**
 	 * @param args the command line arguments
@@ -1369,7 +1331,6 @@ public class Cadastros extends javax.swing.JFrame {
     private javax.swing.JLabel lblEstadoCivil;
     private javax.swing.JLabel lblEstadoCivil1;
     private javax.swing.JLabel lblEstadoCivilOp;
-    private javax.swing.JLabel lblLimpar;
     private javax.swing.JLabel lblNmMed;
     private javax.swing.JLabel lblNmPaciente;
     private javax.swing.JLabel lblNumeroMed;
@@ -1393,15 +1354,12 @@ public class Cadastros extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblbCadPaciente;
-    private javax.swing.JLabel lblbCadastrar;
     private javax.swing.JLabel lblbLimpar;
     private javax.swing.JPasswordField pfSenhaMed;
     private javax.swing.JPanel pnAcesso;
     private javax.swing.JPanel pnMedico;
     private javax.swing.JPanel pnMedico1;
     private javax.swing.JPanel pnPaciente;
-    private javax.swing.JPanel pnbCadastrar;
-    private javax.swing.JPanel pnbLimpar;
     private javax.swing.JTabbedPane tbCadastros;
     private javax.swing.JTextField tfBairroMed;
     private javax.swing.JTextField tfBairroOp;

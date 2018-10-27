@@ -55,4 +55,5 @@ public class Formata {
         }
         return (new DefaultFormatterFactory(mask,mask));
     }
+    
 }

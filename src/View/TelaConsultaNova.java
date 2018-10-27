@@ -2,6 +2,7 @@ package View;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import util.Botoes;
 
 public class TelaConsultaNova extends javax.swing.JFrame {
 
@@ -37,9 +38,8 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         lblQueixaDoPaciente = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        pnbSalvar = new javax.swing.JPanel();
-        lblbSalvar = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        lblbSalvar = new javax.swing.JLabel();
 
         setTitle("Nova Consulta");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,29 +72,33 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Doctors_Bag_70px.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
 
         lblbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Save_30px.png"))); // NOI18N
-
-        javax.swing.GroupLayout pnbSalvarLayout = new javax.swing.GroupLayout(pnbSalvar);
-        pnbSalvar.setLayout(pnbSalvarLayout);
-        pnbSalvarLayout.setHorizontalGroup(
-            pnbSalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnbSalvarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblbSalvar))
-        );
-        pnbSalvarLayout.setVerticalGroup(
-            pnbSalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbSalvarLayout.createSequentialGroup()
-                .addComponent(lblbSalvar)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(pnbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 30, 30));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        lblbSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbSalvarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbSalvarMouseExited(evt);
+            }
+        });
+        getContentPane().add(lblbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblbSalvarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbSalvar);
+    }//GEN-LAST:event_lblbSalvarMouseEntered
+
+    private void lblbSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbSalvar);
+    }//GEN-LAST:event_lblbSalvarMouseExited
 
     /**
      * @param args the command line arguments
@@ -142,7 +146,6 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     private javax.swing.JLabel lblDataDaConsulta;
     private javax.swing.JLabel lblQueixaDoPaciente;
     private javax.swing.JLabel lblbSalvar;
-    private javax.swing.JPanel pnbSalvar;
     private javax.swing.JTextArea taQueixaDoPaciente;
     // End of variables declaration//GEN-END:variables
 }
