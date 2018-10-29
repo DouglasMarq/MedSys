@@ -1,6 +1,10 @@
 package View;
 
+import Model.Endereco;
 import Model.EstadoCivil;
+import Model.Medico;
+import Model.Operador;
+import Model.Paciente;
 import Model.Sexo;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -14,129 +18,165 @@ import util.Formata;
 
 public class Cadastros extends javax.swing.JFrame {
 
-	private void registrarMedico() {
-		if (tfSnMed.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tfNmMed.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tffCpfMed.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tftCRM.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tffTelefoneMed.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tffCelularMed.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tffRg.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else {
-			
-			String nome = tfNmMed.getText();
-			String sobrenome = tfSnMed.getText();
-			String CRM = tftCRM.getText();
-			String CPF = tffCpfMed.getText();
-			DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-			String Nascimento = fmt.format(this.dtcDataDeNascimentoMed.getDate());
-			String Telefone = tffTelefoneMed.getText();
-			String estadocivil = cbEstadoCivilMedico.getSelectedItem().toString();
-			String Sexo = cbSexoMed.getSelectedItem().toString();
-			String Celular = tffCelularMed.getText();
-			String Email = tfEmailmed.getText();
-			String RG = tffRg.getText();
+    private void registrarMedico() {
+        if (tfSnMed.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tfNmMed.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffCpfMed.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tftCRM.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffTelefoneMed.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffCelularMed.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffRg.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else {
 
-			//Principal r = new Principal();
-			//r.registrarMedico(nome, sobrenome, CRM, CPF, Nascimento, Telefone, estadocivil, Sexo, Email, Celular, RG);
-		}
-	}
+            String nome = tfNmMed.getText();
+            String sobrenome = tfSnMed.getText();
+            String CRM = tftCRM.getText();
+            String CPF = tffCpfMed.getText();
+            DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+            String Nascimento = fmt.format(this.dtcDataDeNascimentoMed.getDate());
+            String Telefone = tffTelefoneMed.getText();
+            String estadocivil = cbEstadoCivilMedico.getSelectedItem().toString();
+            String sexo = cbSexoMed.getSelectedItem().toString();
+            String Celular = tffCelularMed.getText();
+            String Email = tfEmailmed.getText();
+            String RG = tffRg.getText();
+            String logradouro = tfRuaMed.getText();
+            String numero = tfNumeroMed.getText();
+            String complemento = tfComplementoMed.getText();
+            String cidade = tfCidadeMed.getText();
+            String bairro = tfBairroMed.getText();
+            int cep = Integer.parseInt(tffCepMed.getText());
+            String login = tfUsuarioMed.getText();
+            String senha = pfSenhaMed;
 
-	private void registrarPaciente() {
-		if (tfSnPaciente.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tfNmPaciente.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tffCpf.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tffTelefonePaciente.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tfEmailPac.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (TffCelularPac.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else if (tffRgPac.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Há campos vazios");
-		} else {
-			
-			String nome = tfNmPaciente.getText();
-			String sobrenome = tfSnPaciente.getText();
-			String CPF = tffCpf.getText();
-			DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-			String Nascimento = fmt.format(this.dtcDataDeNascimentoPac.getDate());
-			String Telefone = tffTelefonePaciente.getText();
-			String estadocivil = cbEstadoCivil.getSelectedItem().toString().toUpperCase();
-			String sexo = cbSexoPac.getSelectedItem().toString().toUpperCase();
-			String convenio = cbConvenio.getSelectedItem().toString();
-			String Celular = TffCelularPac.getText();
-			String Email = tfEmailPac.getText();
-			String RG = tffRgPac.getText();
-			String logradouro = tfRuaPac.getText();
-			String numero = tfNumeroPac.getText();
-			String complemento = tfComplementoPac.getText();
-			String cidade = tfCidadePac.getText();
-			String bairro = tfBairroPac.getText();
-			int cep = Integer.parseInt(tffCepPac.getText());
+            Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, cep);
+            Medico medico = new Medico(CRM, login, senha, 10, nome, sobrenome, RG, CPF, Nascimento, endereco, Celular, Telefone, Email, EstadoCivil.valueOf(estadocivil), Sexo.valueOf(sexo));
 
-			//Principal r = new Principal();
-			
-		}
-	}
+        }
+    }
 
-	private void setMask() {
-		tffCpfMed.setFormatterFactory(Formata.cpf());
-		tffCpf.setFormatterFactory(Formata.cpf());
-		tffTelefonePaciente.setFormatterFactory(Formata.telefone());
-		tffTelefoneMed.setFormatterFactory(Formata.telefone());
-		TffCelularPac.setFormatterFactory(Formata.celular());
-		tffCelularMed.setFormatterFactory(Formata.celular());
-		tffRg.setFormatterFactory(Formata.RG());
-		tffRgPac.setFormatterFactory(Formata.RG());
-	}
+    private void registrarPaciente() {
+        if (tfSnPaciente.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tfNmPaciente.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffCpf.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffTelefonePaciente.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tfEmailPac.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (TffCelularPac.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else if (tffRgPac.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Há campos vazios");
+        } else {
 
-	private void LimpaMed() {
-		tfSnMed.setText("");
-		tfNmMed.setText("");
-		tffCpfMed.setText("");
-		tftCRM.setText("");
-		tffTelefoneMed.setText("");
-	}
+            String nome = tfNmPaciente.getText();
+            String sobrenome = tfSnPaciente.getText();
+            String CPF = tffCpf.getText();
+            DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+            String Nascimento = fmt.format(this.dtcDataDeNascimentoPac.getDate());
+            String Telefone = tffTelefonePaciente.getText();
+            String estadocivil = cbEstadoCivil.getSelectedItem().toString().toUpperCase();
+            String sexo = cbSexoPac.getSelectedItem().toString().toUpperCase();
+            String convenio = cbConvenio.getSelectedItem().toString();
+            String Celular = TffCelularPac.getText();
+            String Email = tfEmailPac.getText();
+            String RG = tffRgPac.getText();
+            String logradouro = tfRuaPac.getText();
+            String numero = tfNumeroPac.getText();
+            String complemento = tfComplementoPac.getText();
+            String cidade = tfCidadePac.getText();
+            String bairro = tfBairroPac.getText();
+            int cep = Integer.parseInt(tffCepPac.getText());
 
-	private void LimpaPaciente() {
-		tfSnPaciente.setText("");
-		tfNmPaciente.setText("");
-		tffCpf.setText("");
-		tffTelefonePaciente.setText("");
-	}
+            Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, cep);
+            Paciente paciente = new Paciente(convenio, nome, sobrenome, RG, CPF, Nascimento, endereco, Celular, Telefone, Email, EstadoCivil.valueOf(estadocivil), Sexo.valueOf(sexo));
+            paciente.gravar();
 
-	/**
-	 * Creates new form CadastroPaciente
-	 */
-	public Cadastros() {
-		initComponents();
-		setMask();
-                centralizarComponente();
-	}
+        }
+    }
+
+    private void registrarOperador() {
+        String nome = tfNmMed.getText();
+        String sobrenome = tfSnMed.getText();
+        String CPF = tffCpfMed.getText();
+        DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        String Nascimento = fmt.format(this.dtcDataDeNascimentoMed.getDate());
+        String Telefone = tffTelefoneMed.getText();
+        String estadocivil = cbEstadoCivilMedico.getSelectedItem().toString();
+        String sexo = cbSexoMed.getSelectedItem().toString();
+        String Celular = tffCelularMed.getText();
+        String Email = tfEmailmed.getText();
+        String RG = tffRg.getText();
+        String logradouro = tfRuaMed.getText();
+        String numero = tfNumeroMed.getText();
+        String complemento = tfComplementoMed.getText();
+        String cidade = tfCidadeMed.getText();
+        String bairro = tfBairroMed.getText();
+        int cep = Integer.parseInt(tffCepMed.getText());
+        String login = tfUsuarioMed.getText();
+        String senha;
         
-        public void centralizarComponente() {
+        Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, cep);
+        Operador operador = new Operador(login, senha, 20, nome, sobrenome, RG, CPF, Nascimento, endereco, Celular, Telefone, Email, EstadoCivil.valueOf(estadocivil), Sexo.valueOf(sexo));
+    }
+
+    private void setMask() {
+        tffCpfMed.setFormatterFactory(Formata.cpf());
+        tffCpf.setFormatterFactory(Formata.cpf());
+        tffTelefonePaciente.setFormatterFactory(Formata.telefone());
+        tffTelefoneMed.setFormatterFactory(Formata.telefone());
+        TffCelularPac.setFormatterFactory(Formata.celular());
+        tffCelularMed.setFormatterFactory(Formata.celular());
+        tffRg.setFormatterFactory(Formata.RG());
+        tffRgPac.setFormatterFactory(Formata.RG());
+    }
+
+    private void LimpaMed() {
+        tfSnMed.setText("");
+        tfNmMed.setText("");
+        tffCpfMed.setText("");
+        tftCRM.setText("");
+        tffTelefoneMed.setText("");
+    }
+
+    private void LimpaPaciente() {
+        tfSnPaciente.setText("");
+        tfNmPaciente.setText("");
+        tffCpf.setText("");
+        tffTelefonePaciente.setText("");
+    }
+
+    /**
+     * Creates new form CadastroPaciente
+     */
+    public Cadastros() {
+        initComponents();
+        setMask();
+        centralizarComponente();
+    }
+
+    public void centralizarComponente() {
         Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension dw = getSize();
         setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
-	/**
-	 * This method is called from within the constructor to initialize the
-	 * form. WARNING: Do NOT modify this code. The content of this method is
-	 * always regenerated by the Form Editor.
-	 */
-	@SuppressWarnings("unchecked")
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -389,7 +429,7 @@ public class Cadastros extends javax.swing.JFrame {
                     .addComponent(tfRuaPac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfNumeroPac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfComplementoPac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCidade)
                     .addComponent(lblBairro)
@@ -431,7 +471,7 @@ public class Cadastros extends javax.swing.JFrame {
                                 .addComponent(tffCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tffRgPac, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 15, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnPacienteLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(lblCpf)
@@ -1119,7 +1159,7 @@ public class Cadastros extends javax.swing.JFrame {
                 .addGroup(pnMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tbCadastros.addTab("Operador", pnMedico1);
@@ -1174,16 +1214,13 @@ public class Cadastros extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tbCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(lblbLimpar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblbCadPaciente)))
+                .addComponent(lblTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tbCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 412, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblbLimpar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblbCadPaciente, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -1200,11 +1237,11 @@ public class Cadastros extends javax.swing.JFrame {
 
     private void lblbCadPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseClicked
         // TODO add your handling code here:
-            if (tbCadastros.getSelectedComponent() == pnPaciente) {
-		registrarPaciente();
-	    } else if (tbCadastros.getSelectedComponent() == pnMedico) {
-		registrarMedico();
-	    }
+        if (tbCadastros.getSelectedComponent() == pnPaciente) {
+            registrarPaciente();
+        } else if (tbCadastros.getSelectedComponent() == pnMedico) {
+            registrarMedico();
+        }
     }//GEN-LAST:event_lblbCadPacienteMouseClicked
 
     private void lblbCadPacienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseExited
@@ -1215,11 +1252,11 @@ public class Cadastros extends javax.swing.JFrame {
 
     private void lblbLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseClicked
         // TODO add your handling code here:
-    if (tbCadastros.getSelectedComponent() == pnPaciente) {
-        LimpaPaciente();
-    } else if (tbCadastros.getSelectedComponent() == pnMedico) {
-	LimpaMed();
-    }
+        if (tbCadastros.getSelectedComponent() == pnPaciente) {
+            LimpaPaciente();
+        } else if (tbCadastros.getSelectedComponent() == pnMedico) {
+            LimpaMed();
+        }
     }//GEN-LAST:event_lblbLimparMouseClicked
 
     private void lblbLimparMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseEntered
@@ -1234,41 +1271,41 @@ public class Cadastros extends javax.swing.JFrame {
         bt.tirabotão(lblbLimpar);
     }//GEN-LAST:event_lblbLimparMouseExited
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-		/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-		 */
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		//</editor-fold>
-		//</editor-fold>
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Cadastros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
 
-		/* Create and display the form */
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new Cadastros().setVisible(true);
-			}
-		});
-	}
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Cadastros().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField TffCelularPac;
