@@ -31,17 +31,16 @@
               <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="tbCadastros" min="-2" pref="631" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblbCadPaciente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="lblbLimpar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="tbCadastros" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,13 +49,13 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tbCadastros" min="-2" pref="364" max="-2" attributes="0"/>
+              <Component id="tbCadastros" min="-2" pref="502" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblbCadPaciente" min="-2" max="-2" attributes="0"/>
                   <Component id="lblbLimpar" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -183,7 +182,7 @@
                       <Component id="lblCelularPac" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="317" max="-2" attributes="0"/>
                       <Component id="lblConvenio" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="70" max="32767" attributes="0"/>
+                      <EmptySpace pref="104" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -453,7 +452,7 @@
                                   <Component id="tfBairroPaciente" min="-2" pref="86" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="tffCepPaciente" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1164,7 +1163,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="tffRgOperador" min="-2" pref="138" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dtcDataDeNascimentoOperador" pref="96" max="32767" attributes="0"/>
+                              <Component id="dtcDataDeNascimentoOperador" pref="157" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -1192,7 +1191,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="tfEmailOperador" min="-2" pref="148" max="-2" attributes="0"/>
-                                              <EmptySpace pref="16" max="32767" attributes="0"/>
+                                              <EmptySpace pref="40" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1218,7 +1217,7 @@
                                               <Component id="cbEstadoCivilOperador" min="-2" pref="113" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
