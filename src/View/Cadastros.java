@@ -59,10 +59,7 @@ public class Cadastros extends javax.swing.JFrame {
             Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, cep);
             Medico medico = new Medico(CRM, login, senha, 10, nome, sobrenome, RG, CPF, Nascimento, endereco, Celular, Telefone, Email, EstadoCivil.valueOf(estadocivil), Sexo.valueOf(sexo));
             medico.gravar();
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f6f5ded394fc2999e90c00c597ed2c0ba23af65
         }
     }
 
@@ -116,8 +113,8 @@ public class Cadastros extends javax.swing.JFrame {
         DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         String Nascimento = fmt.format(this.dtcDataDeNascimentoOperador.getDate());
         String Telefone = tffCelularOperador.getText();
-        String estadocivil = cbEstadoCivilOperador.getSelectedItem().toString().toUpperCase();
-        String sexo = cbSexoOperador.getSelectedItem().toString().toUpperCase();
+        String estadocivil = cbEstadoCivilOperador.getSelectedItem().toString();
+        String sexo = cbSexoOperador.getSelectedItem().toString();
         String Celular = tffCelularOperador.getText();
         String Email = tfEmailOperador.getText();
         String RG = tffRgOperador.getText();
@@ -464,7 +461,7 @@ public class Cadastros extends javax.swing.JFrame {
                         .addComponent(tfBairroPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(tffCepPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 12, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -571,7 +568,7 @@ public class Cadastros extends javax.swing.JFrame {
                 .addComponent(lblCelularPac)
                 .addGap(317, 317, 317)
                 .addComponent(lblConvenio)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         pnPacienteLayout.setVerticalGroup(
             pnPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1126,11 +1123,7 @@ public class Cadastros extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tffRgOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
                         .addComponent(dtcDataDeNascimentoOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                        .addComponent(dtcDataDeNascimentoOperador, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
->>>>>>> 1f6f5ded394fc2999e90c00c597ed2c0ba23af65
                     .addGroup(pnOperadorLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1153,11 +1146,7 @@ public class Cadastros extends javax.swing.JFrame {
                                     .addGroup(pnOperadorLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tfEmailOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-=======
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE))))
->>>>>>> 1f6f5ded394fc2999e90c00c597ed2c0ba23af65
                             .addGroup(pnOperadorLayout.createSequentialGroup()
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1175,11 +1164,7 @@ public class Cadastros extends javax.swing.JFrame {
                                         .addComponent(cbSexoOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(cbEstadoCivilOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-<<<<<<< HEAD
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-=======
-                                .addGap(0, 34, Short.MAX_VALUE)))))
->>>>>>> 1f6f5ded394fc2999e90c00c597ed2c0ba23af65
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnOperadorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1265,27 +1250,28 @@ public class Cadastros extends javax.swing.JFrame {
                 .addGap(267, 267, 267)
                 .addComponent(lblTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tbCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblbCadPaciente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblbLimpar)
                 .addGap(24, 24, 24))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tbCadastros)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblbCadPaciente)
                     .addComponent(lblbLimpar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         tbCadastros.getAccessibleContext().setAccessibleName("Pacientes");
