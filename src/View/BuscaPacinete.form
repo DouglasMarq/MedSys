@@ -105,6 +105,9 @@
           <Image iconType="3" name="/Img/icons8_Checked_Checkbox_30px.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblbConfirmaMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPesquisaPacientes">
       <Properties>

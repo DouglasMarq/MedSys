@@ -54,6 +54,11 @@ public class BuscaPacinete extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbPaciente);
 
         lblbConfirma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Checked_Checkbox_30px.png"))); // NOI18N
+        lblbConfirma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbConfirmaMouseClicked(evt);
+            }
+        });
 
         lblPesquisaPacientes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblPesquisaPacientes.setText("Pesquisa Pacientes");
@@ -102,6 +107,11 @@ public class BuscaPacinete extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblbConfirmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblbConfirmaMouseClicked
 
     /**
      * @param args the command line arguments

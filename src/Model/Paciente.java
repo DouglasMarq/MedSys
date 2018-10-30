@@ -42,7 +42,8 @@ public class Paciente extends Pessoa {
 			String erro = "Erro!!";
 
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-		}
+                        JOptionPane.showMessageDialog(null, "Ocorreu um erro no cadastro, verifique...");
+		} else JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 	}
 
 	public void deletar() {

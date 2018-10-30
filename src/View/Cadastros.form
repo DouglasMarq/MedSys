@@ -577,18 +577,6 @@
                               <Component id="lblDataNascimentoMed" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tfNmMed" min="-2" pref="107" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tfSnMed" min="-2" pref="134" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tffCpfMed" min="-2" pref="107" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="tftCRM" min="-2" pref="126" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Component id="dtcDataDeNascimentoMed" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
@@ -635,10 +623,9 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="lblRGMed" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="pnAcesso" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -649,7 +636,24 @@
                               <Component id="tffRgMed" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="312" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tfNmMed" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tfSnMed" min="-2" pref="134" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tffCpfMed" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="tftCRM" min="-2" pref="126" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="dtcDataDeNascimentoMed" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="pnAcesso" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -700,22 +704,19 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblEmailMed" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRGMed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRGMed" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="tfEmailMed" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tffRgMed" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel3" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pnAcesso" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="pnAcesso" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1006,7 +1007,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="tfBairroMed" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
@@ -1016,7 +1017,7 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="tfNumeroMed" max="32767" attributes="0"/>
                                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       </Group>
@@ -1024,8 +1025,8 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblComplementoMed" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tfComplementoMed" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblComplementoMed" max="32767" attributes="0"/>
+                                              <Component id="tfComplementoMed" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
                                       </Group>
@@ -1164,7 +1165,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="tffRgOperador" min="-2" pref="138" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dtcDataDeNascimentoOperador" pref="96" max="32767" attributes="0"/>
+                              <Component id="dtcDataDeNascimentoOperador" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -1192,7 +1193,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="tfEmailOperador" min="-2" pref="148" max="-2" attributes="0"/>
-                                              <EmptySpace pref="16" max="32767" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1218,7 +1219,7 @@
                                               <Component id="cbEstadoCivilOperador" min="-2" pref="113" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1248,7 +1249,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="tfNmOperador" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfNmOperador" alignment="3" max="-2" attributes="0"/>
                                   <Component id="tfSnOperador" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tffCpfOperador" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tffRgOperador" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1499,7 +1500,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="tfBairroOperador" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
@@ -1509,17 +1510,17 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="tfNumeroOperador" max="32767" attributes="0"/>
                                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblComplementoOp" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="tfComplementoOperador" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
                                       <Component id="tffCepOperador" min="-2" pref="82" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="tfComplementoOperador" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblComplementoOp" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
