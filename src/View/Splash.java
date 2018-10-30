@@ -2,6 +2,7 @@ package View;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 
 public class Splash extends javax.swing.JFrame {
 
@@ -12,6 +13,7 @@ public class Splash extends javax.swing.JFrame {
         initComponents();
         testacnx();
         centralizarComponente();
+        close();
     }
     
     public void centralizarComponente() {
@@ -113,9 +115,17 @@ public class Splash extends javax.swing.JFrame {
         });
     }
     
+    public void close(){
+ 
+ WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+ Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+ 
+ }
+    
     public void testacnx (){
         lblStatus.setText("Conectando ao Banco de dados");
-        
+        Login l = new Login();
+        l.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
