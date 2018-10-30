@@ -9,10 +9,14 @@ import javax.swing.JOptionPane;
 
 public class ConnectionFactory {
 
-    //private static final String url = "jdbc:sqlite:C:\\Users\\gabri\\Documents\\Desenvolvimento\\Projetos\\MedSys\\bd\\MedSysdb.db";
+    private static final String url = "jdbc:sqlite:/home/gabriel/Documentos/projetos/MedSys/bd/MedSysdb.db";
     //private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
     //private static final String url = "jdbc:sqlite:C:\\Users\\Douglas\\Downloads\\Development\\MedSys\\bd\\MedSysdb.db";
+<<<<<<< HEAD
     private static final String url = "jdbc:sqlite:C:\\git\\MedSys2\\bd\\MedSysdb.db"; //Caminho do lucão
+=======
+    //private static final String url = "jdbc:sqlite:C:\\git\\MedSys\\bd\\MedSysdb.db"; //Caminho do lucão
+>>>>>>> 1f6f5ded394fc2999e90c00c597ed2c0ba23af65
     
 
 	public static Connection getConnection() {
