@@ -13,7 +13,7 @@ public class Splash extends javax.swing.JFrame {
         initComponents();
         testacnx();
         centralizarComponente();
-        close();
+        this.setVisible(false);
     }
     
     public void centralizarComponente() {

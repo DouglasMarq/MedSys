@@ -65,6 +65,7 @@ public class InterfaceMedico extends javax.swing.JFrame {
         lblEncaminhar = new javax.swing.JLabel();
         cbEncaminhar = new javax.swing.JComboBox<>();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consulta");
 
         lblCodigoPaciente.setText("Codigo");

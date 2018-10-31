@@ -6,6 +6,7 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="66" green="66" red="66" type="rgb"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -588,9 +589,9 @@
                                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="TffCelularMed" min="-2" pref="105" max="-2" attributes="0"/>
+                                              <Component id="TffTelefoneMedico" min="-2" pref="105" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="tffCelularMed" min="-2" pref="117" max="-2" attributes="0"/>
+                                              <Component id="tffCelularMedico" min="-2" pref="117" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -626,7 +627,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblRGMed" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="pnAcesso" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <Component id="pnAcesso" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -649,9 +650,9 @@
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Component id="dtcDataDeNascimentoMed" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel3" min="-2" pref="349" max="-2" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -690,11 +691,11 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TffCelularMed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TffTelefoneMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbSexoMed" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbEstadoCivilMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbEspecialidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tffCelularMed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tffCelularMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="dtcDataDeNascimentoMed" min="-2" max="-2" attributes="0"/>
@@ -731,7 +732,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="TffCelularMed">
+            <Component class="javax.swing.JFormattedTextField" name="TffTelefoneMedico">
             </Component>
             <Component class="javax.swing.JComboBox" name="cbEstadoCivilMedico">
               <Properties>
@@ -890,7 +891,7 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="tffRgMed">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="tffCelularMed">
+            <Component class="javax.swing.JFormattedTextField" name="tffCelularMedico">
             </Component>
             <Container class="javax.swing.JPanel" name="pnAcesso">
               <Properties>
@@ -913,15 +914,15 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tfUsuarioMed" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Component id="tfUsuarioMed" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblSenha" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="pfSenhaMed" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <Component id="pfSenhaMed" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -978,59 +979,58 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfRuaMed" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                          <Component id="lblRuaMed" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="tfRuaMed" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                                  <Component id="lblRuaMed" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="tfCidadeMed" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Component id="tfCidadeMed" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                          <Component id="lblCidadeMed" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="tfBairroMed" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                                  <Component id="lblNumeroMed" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="tfNumeroMed" min="-2" pref="61" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblComplementoMed" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="tfComplementoMed" min="-2" pref="84" max="-2" attributes="0"/>
+                                              <Component id="tffCepMed" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                          <Component id="lblBairroMed" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                                          <Component id="lblCepMed" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                  <Component id="lblCidadeMed" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="lblBairroMed" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="lblCepMed" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfBairroMed" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                          <Component id="lblNumeroMed" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="tfNumeroMed" min="-2" pref="61" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="tffCepMed" min="-2" pref="75" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="lblComplementoMed" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tfComplementoMed" min="-2" pref="84" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="46" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

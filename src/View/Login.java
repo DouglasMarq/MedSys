@@ -10,8 +10,33 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
         
-    
     private void LogarFuncionario(){
+        if(tfUserOp.getText().length() ==0){
+            JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
+        } else if(pfPassOp.getPassword().length==0){
+            JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todos!");
+        } else {
+            String username = tfUserOp.getText();
+            char[] pass = pfPassOp.getPassword();
+            String password = String.copyValueOf(pass);
+            
+            Principal l = new Principal();
+            l.validarlogin(username, password);
+            
+            if(l.validarlogin(username,password)){
+                System.out.println("Login Valido");
+                JOptionPane.showMessageDialog(null, "Login valido, Bem vindo(a)");
+		Interface i = new Interface();
+		i.setVisible(true);
+                this.setVisible(false);
+            } else {
+                System.out.println("Login Invalido");
+                JOptionPane.showMessageDialog(null, "Login Invalido, tente novamente");
+            }
+        }
+    }
+    
+    private void LogarMedico(){
         if(tfUserMed.getText().length() ==0){
             JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
         } else if(pfPassMed.getPassword().length==0){
@@ -27,8 +52,8 @@ public class Login extends javax.swing.JFrame {
             if(l.validarlogin(username,password)){
                 System.out.println("Login Valido");
                 JOptionPane.showMessageDialog(null, "Login valido, Bem vindo(a)");
-		Interface i = new Interface();
-		i.setVisible(true);
+		InterfaceMedico im = new InterfaceMedico();
+		im.setVisible(true);
                 this.setVisible(false);
             } else {
                 System.out.println("Login Invalido");
@@ -251,7 +276,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLogMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogMedActionPerformed
         // TODO add your handling code here:
-        LogarFuncionario();
+        LogarMedico();
     }//GEN-LAST:event_btnLogMedActionPerformed
 
     private void tpClasseLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tpClasseLoginMouseClicked
@@ -281,6 +306,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnPacLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacLoginActionPerformed
         // TODO add your handling code here:
+        LogarFuncionario();
     }//GEN-LAST:event_btnPacLoginActionPerformed
 
     /**
