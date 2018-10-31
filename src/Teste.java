@@ -1,8 +1,10 @@
 
+import Model.Consulta;
 import Model.Endereco;
 import Model.EstadoCivil;
 import Model.Paciente;
 import Model.Sexo;
+import dao.ConsultaDao;
 
 
 
@@ -18,9 +20,9 @@ import Model.Sexo;
  */
 public class Teste {
 	public static void main(String[] args) {
-		Endereco endereco = new Endereco();
-		Paciente p = new Paciente("a", "Gbri", "Gbri", "Gbri", "Gbri", "Gbri", endereco, "Gbri", "Gbri", "Gbri", EstadoCivil.CASADO, Sexo.MASCULINO);
-		//p.gravar();
-		p.deletar();
+		ConsultaDao Consulta = new ConsultaDao();
+		Consulta cons = new Consulta("Aberto", "31/10/2018", "sono", "cerebral", "guilhotina", "tomanocu", "douglao", "meister", "douglaisoasi", "meisterieism");
+		
+		cons.gravar();
 	}
 }
