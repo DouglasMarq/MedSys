@@ -1,14 +1,8 @@
 package View;
 
 import Model.Consulta;
-import dao.ConnectionFactory;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.table.DefaultTableModel;
 import util.Botoes;
 
 public class TelaConsultas extends javax.swing.JFrame {
@@ -17,49 +11,24 @@ public class TelaConsultas extends javax.swing.JFrame {
      * Creates new form TelaConsultas
      */
     
-    private String a;
-    private String b;
-    private String c;
-    private String d;
-    private String d2;
-    private String e;
-    private String e2;
+    private String Consulta;
+    private String Status;
+    private String DataConsulta;
+    private String PacienteNome;
+    private String PacienteSobrenome;
+    private String MedicoNome;
+    private String MedicoSobrenome;
+
     
     private void setTable(){
-        
-        
-        
-        Consulta con = new Consulta(a,b,c,d,d2,e,e2);
+
+        Consulta con = new Consulta(Consulta, Status, DataConsulta, PacienteNome, PacienteSobrenome, MedicoNome, MedicoSobrenome);
         
         tbConsultaAberta.setModel(con.TableConsulta());
-        
-        /*DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
-        
-        Connection con = ConnectionFactory.getConnection();
-        
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            stmt = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,nm_Paciente,sn_Paciente,nm_Medico,sn_Medico from d3_Consultas");
-            rs = stmt.executeQuery();
-            while(rs.next()){
-                String a = rs.getString("cd_Consulta");
-                String b = rs.getString("ds_status");
-                String c = rs.getString("dt_consulta");
-                String d = rs.getString("nm_Paciente");
-                String d2 = rs.getString("sn_Paciente");
-                String e = rs.getString("nm_Medico");
-                String e2 = rs.getString("sn_Medico");
-                Consultas.addRow(new Object[]{a,b,c,d,d2,e,e2});
-            }
-        } catch(SQLException ex) {
-            throw new RuntimeException("Erro ao pegar dados");
-        }
-        
-        tbConsultaAberta.setModel(Consultas);*/
-        
+        tbConsultasBaixadas.setModel(con.CFechado());
+
     }
+    
     public TelaConsultas() {
         initComponents();
         setTable();

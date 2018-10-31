@@ -1,17 +1,44 @@
 package View;
 
+import Model.Consulta;
+import Model.Medico;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import util.Botoes;
 
 public class TelaConsultaNova extends javax.swing.JFrame {
+    
+    private void setMedico(){
+        Medico med = new Medico();
+        for (Medico medico : med.buscar()) {
+            cbMedico.addItem(medico.getNome().concat(" "+medico.getSobrenome()));
+        }
+    }
+    
+     /*private void registrarConsulta() {
 
+
+            String nome = tfNmMed.getText();
+            String sobrenome = tfSnMed.getText();
+            String CRM = tftCRM.getText();
+            String CPF = tffCpfMed.getText();
+            DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+            String Nascimento = fmt.format(this.dtcDataDeNascimentoMed.getDate());
+            String Telefone = TffCelularMed.getText();
+
+
+		//Consulta cons = new Consulta(Status, DataConsulta, QueixaPaciente, ExameFisico, Conduta, sid, PacienteNome, PacienteSobrenome, MedicoNome, MedicoSobrenome);
+                //cons.gravar();
+    }*/
+
+    
     /**
      * Creates new form TelaConsultaNova
      */
     public TelaConsultaNova() {
         initComponents();
         centralizarComponente();
+        setMedico();
     }
     
     public void centralizarComponente() {
@@ -30,7 +57,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbMedico = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         lblDataDaConsulta = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -48,8 +75,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         jLabel1.setText("Nova consulta");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 11, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 129, -1));
+        getContentPane().add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 129, -1));
 
         jLabel2.setText("Medico");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
@@ -76,6 +102,9 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
         lblbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Save_30px.png"))); // NOI18N
         lblbSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbSalvarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblbSalvarMouseEntered(evt);
             }
@@ -99,6 +128,11 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         Botoes bt = new Botoes();
         bt.tirabotão(lblbSalvar);
     }//GEN-LAST:event_lblbSalvarMouseExited
+
+    private void lblbSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblbSalvarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -136,7 +170,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbMedico;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
