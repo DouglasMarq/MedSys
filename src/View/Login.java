@@ -52,8 +52,11 @@ public class Login extends javax.swing.JFrame {
             if(l.validarlogin(username,password)){
                 System.out.println("Login Valido");
                 JOptionPane.showMessageDialog(null, "Login valido, Bem vindo(a)");
-		InterfaceMedico im = new InterfaceMedico();
-		im.setVisible(true);
+		//InterfaceMedico im = new InterfaceMedico();
+                TelaConsultas c = new TelaConsultas();
+                c.Medico();
+                c.setVisible(true);
+		//im.setVisible(true);
                 this.setVisible(false);
             } else {
                 System.out.println("Login Invalido");

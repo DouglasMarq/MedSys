@@ -63,10 +63,11 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         taQueixaDoPaciente = new javax.swing.JTextArea();
         lblQueixaDoPaciente = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         lblbSalvar = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
 
         setTitle("Nova Consulta");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,10 +76,10 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         jLabel1.setText("Nova consulta");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 11, -1, -1));
 
-        getContentPane().add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 129, -1));
+        getContentPane().add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 129, -1));
 
         jLabel2.setText("Medico");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
 
         lblDataDaConsulta.setText("Data da consulta");
         getContentPane().add(lblDataDaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
@@ -93,11 +94,8 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         lblQueixaDoPaciente.setText("Queixa do paciente");
         getContentPane().add(lblQueixaDoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 170, -1, -1));
 
-        jLabel3.setText("Especialidade?");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Doctors_Bag_70px.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
 
         lblbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Save_30px.png"))); // NOI18N
@@ -113,6 +111,12 @@ public class TelaConsultaNova extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lblbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 110, -1));
+
+        jLabel5.setText("Paciente");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,11 +175,12 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbMedico;
+    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDataDaConsulta;
     private javax.swing.JLabel lblQueixaDoPaciente;

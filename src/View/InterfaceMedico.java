@@ -116,6 +116,9 @@ public class InterfaceMedico extends javax.swing.JFrame {
         lblbConfirmaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Inspection_50px.png"))); // NOI18N
         lblbConfirmaConsulta.setToolTipText("Concluir Consulta");
         lblbConfirmaConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbConfirmaConsultaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblbConfirmaConsultaMouseEntered(evt);
             }
@@ -269,6 +272,11 @@ public class InterfaceMedico extends javax.swing.JFrame {
         Botoes bt = new Botoes();
         bt.tirabotão(lblbConfirmaConsulta);
     }//GEN-LAST:event_lblbConfirmaConsultaMouseExited
+
+    private void lblbConfirmaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaConsultaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblbConfirmaConsultaMouseClicked
 
     /**
      * @param args the command line arguments
