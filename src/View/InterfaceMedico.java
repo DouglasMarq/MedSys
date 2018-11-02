@@ -47,26 +47,14 @@ public class InterfaceMedico extends javax.swing.JFrame {
         lblCodigoPacientedf = new javax.swing.JLabel();
         lblCpfPacientedf = new javax.swing.JLabel();
         lblNomePacinetedf = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        jsSeparaInfos = new javax.swing.JSeparator();
         lblConsulta = new javax.swing.JLabel();
         lblNomeMedico = new javax.swing.JLabel();
         lblNomeMedicodf = new javax.swing.JLabel();
-        lblQueixaDescritivo = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        taQueixaDescritivo = new javax.swing.JTextArea();
         lblLaudoMedico = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jspLaudoMedico = new javax.swing.JScrollPane();
         taLaudoMedico = new javax.swing.JTextArea();
-        lblSolicitacãoExame = new javax.swing.JLabel();
-        cbSolicitacaoExame = new javax.swing.JComboBox<>();
-        lblSidDoenca = new javax.swing.JLabel();
-        cbSidDoenca = new javax.swing.JComboBox<>();
-        lblObservacão = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        taObservacao = new javax.swing.JTextArea();
         lblbConfirmaConsulta = new javax.swing.JLabel();
-        lblEncaminhar = new javax.swing.JLabel();
-        cbEncaminhar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consulta");
@@ -90,31 +78,11 @@ public class InterfaceMedico extends javax.swing.JFrame {
 
         lblNomeMedicodf.setText("--");
 
-        lblQueixaDescritivo.setText("Queixa / Descritivo");
-
-        taQueixaDescritivo.setColumns(20);
-        taQueixaDescritivo.setRows(5);
-        jScrollPane1.setViewportView(taQueixaDescritivo);
-
-        lblLaudoMedico.setText("Laudo Medico");
+        lblLaudoMedico.setText("Laudo Médico");
 
         taLaudoMedico.setColumns(20);
         taLaudoMedico.setRows(5);
-        jScrollPane2.setViewportView(taLaudoMedico);
-
-        lblSolicitacãoExame.setText("Solicitação de exame:");
-
-        cbSolicitacaoExame.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lblSidDoenca.setText("SID / Doença:");
-
-        cbSidDoenca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lblObservacão.setText("Observação");
-
-        taObservacao.setColumns(20);
-        taObservacao.setRows(5);
-        jScrollPane3.setViewportView(taObservacao);
+        jspLaudoMedico.setViewportView(taLaudoMedico);
 
         lblbConfirmaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Inspection_50px.png"))); // NOI18N
         lblbConfirmaConsulta.setToolTipText("Concluir Consulta");
@@ -130,32 +98,30 @@ public class InterfaceMedico extends javax.swing.JFrame {
             }
         });
 
-        lblEncaminhar.setText("Encaminhar:");
-
-        cbEncaminhar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
+            .addComponent(jsSeparaInfos)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 357, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblNomeMedicodf)
+                                .addGap(58, 58, 58))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblConsulta)
+                                .addGap(225, 225, 225)
+                                .addComponent(lblNomeMedico)
+                                .addGap(46, 46, 46))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jspLaudoMedico)
+                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSolicitacãoExame)
-                            .addComponent(lblSidDoenca)
-                            .addComponent(lblEncaminhar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbSolicitacaoExame, 0, 106, Short.MAX_VALUE)
-                            .addComponent(cbSidDoenca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbEncaminhar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -176,36 +142,13 @@ public class InterfaceMedico extends javax.swing.JFrame {
                                         .addGap(83, 83, 83)
                                         .addComponent(lblNomePacinetedf))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(lblLaudoMedico)
-                                .addGap(201, 201, 201)
-                                .addComponent(lblObservacão)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(331, 331, 331)
+                                .addComponent(lblLaudoMedico)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblQueixaDescritivo)
-                                .addGap(310, 310, 310))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblNomeMedicodf)
-                                .addGap(58, 58, 58))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblConsulta)
-                                .addGap(225, 225, 225)
-                                .addComponent(lblNomeMedico)
-                                .addGap(46, 46, 46))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblbConfirmaConsulta)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addComponent(lblbConfirmaConsulta)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,40 +168,19 @@ public class InterfaceMedico extends javax.swing.JFrame {
                             .addComponent(lblCpfPacientedf)
                             .addComponent(lblNomePacinetedf))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jsSeparaInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(lblNomeMedico)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblNomeMedicodf)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblQueixaDescritivo)
+                .addComponent(lblLaudoMedico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLaudoMedico)
-                    .addComponent(lblObservacão))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSolicitacãoExame)
-                            .addComponent(cbSolicitacaoExame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSidDoenca)
-                            .addComponent(cbSidDoenca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEncaminhar)
-                            .addComponent(cbEncaminhar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3))
-                .addGap(11, 11, 11)
+                .addComponent(jspLaudoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblbConfirmaConsulta)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -317,31 +239,19 @@ public class InterfaceMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbEncaminhar;
-    private javax.swing.JComboBox<String> cbSidDoenca;
-    private javax.swing.JComboBox<String> cbSolicitacaoExame;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jsSeparaInfos;
+    private javax.swing.JScrollPane jspLaudoMedico;
     private javax.swing.JLabel lblCodigoPaciente;
     private javax.swing.JLabel lblCodigoPacientedf;
     private javax.swing.JLabel lblConsulta;
     private javax.swing.JLabel lblCpfPaciente;
     private javax.swing.JLabel lblCpfPacientedf;
-    private javax.swing.JLabel lblEncaminhar;
     private javax.swing.JLabel lblLaudoMedico;
     private javax.swing.JLabel lblNomeMedico;
     private javax.swing.JLabel lblNomeMedicodf;
     private javax.swing.JLabel lblNomePaciente;
     private javax.swing.JLabel lblNomePacinetedf;
-    private javax.swing.JLabel lblObservacão;
-    private javax.swing.JLabel lblQueixaDescritivo;
-    private javax.swing.JLabel lblSidDoenca;
-    private javax.swing.JLabel lblSolicitacãoExame;
     private javax.swing.JLabel lblbConfirmaConsulta;
     private javax.swing.JTextArea taLaudoMedico;
-    private javax.swing.JTextArea taObservacao;
-    private javax.swing.JTextArea taQueixaDescritivo;
     // End of variables declaration//GEN-END:variables
 }

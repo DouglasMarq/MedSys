@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
-        
     private void LogarFuncionario(){
         if(tfUserOp.getText().length() ==0){
             JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
