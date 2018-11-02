@@ -28,6 +28,9 @@ public class InterfaceMedico extends javax.swing.JFrame {
         Dimension dw = getSize();
         setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
+        public void pacientex(){
+    //lblCodigoPacientedf.setText(text);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

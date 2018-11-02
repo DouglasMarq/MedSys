@@ -85,10 +85,10 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         jLabel1.setText("Nova consulta");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 11, -1, -1));
 
-        getContentPane().add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 150, -1));
+        getContentPane().add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 200, -1));
 
         jLabel2.setText("Medico");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         lblDataDaConsulta.setText("Data da consulta");
         getContentPane().add(lblDataDaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
@@ -105,7 +105,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Doctors_Bag_70px.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 110, 120, -1));
 
         lblbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Save_30px.png"))); // NOI18N
         lblbSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,10 +121,10 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         });
         getContentPane().add(lblbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
 
-        getContentPane().add(cbPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, -1));
+        getContentPane().add(cbPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 220, -1));
 
         jLabel5.setText("Paciente");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -72,6 +72,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         lblNovaConsulta = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblSelectConsulta = new javax.swing.JLabel();
+        lblbDelete = new javax.swing.JLabel();
 
         setTitle("Consultas");
 
@@ -191,6 +192,20 @@ public class TelaConsultas extends javax.swing.JFrame {
             }
         });
 
+        lblbDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Cancel_50px.png"))); // NOI18N
+        lblbDelete.setToolTipText("Excluir consulta");
+        lblbDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbDeleteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbDeleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbDeleteMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,6 +228,8 @@ public class TelaConsultas extends javax.swing.JFrame {
                         .addComponent(lblNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblCancelaConsulta)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblbDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblSelectConsulta)
                         .addContainerGap())))
@@ -258,7 +275,8 @@ public class TelaConsultas extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblCancelaConsulta)
-                                    .addComponent(lblSelectConsulta))))))
+                                    .addComponent(lblSelectConsulta)
+                                    .addComponent(lblbDelete))))))
                 .addContainerGap())
         );
 
@@ -322,6 +340,22 @@ public class TelaConsultas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lblCancelaConsultaMouseClicked
 
+    private void lblbDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblbDeleteMouseClicked
+
+    private void lblbDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbDelete);
+    }//GEN-LAST:event_lblbDeleteMouseEntered
+
+    private void lblbDeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbDelete);
+    }//GEN-LAST:event_lblbDeleteMouseExited
+
     public void CacelaConsulta(){
         long idFind;
         String cpfFind;
@@ -375,6 +409,7 @@ public class TelaConsultas extends javax.swing.JFrame {
     private javax.swing.JLabel lblConsultas;
     private javax.swing.JLabel lblNovaConsulta;
     private javax.swing.JLabel lblSelectConsulta;
+    private javax.swing.JLabel lblbDelete;
     private javax.swing.JPanel pnBaixadas;
     private javax.swing.JScrollPane spAbertas;
     private javax.swing.JScrollPane spBaixadas;
