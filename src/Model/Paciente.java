@@ -1,5 +1,9 @@
 package Model;
 
+import Model.Endereco;
+import Model.EstadoCivil;
+import Model.Pessoa;
+import Model.Sexo;
 import dao.PacienteDao;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -75,8 +79,8 @@ public class Paciente extends Pessoa {
 		return dao.read();	
 	}
 	
-	public Paciente buscaUm(){
+	public Paciente buscaUm(String cpf){
 		PacienteDao dao = new PacienteDao();
-		return dao.findOne(this.getId(), this.getCpf(), this.getNome());
+		return dao.findOne(cpf);
 	}
 }

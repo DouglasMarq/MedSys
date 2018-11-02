@@ -1,5 +1,9 @@
 package Model;
 
+import Model.Endereco;
+import Model.EstadoCivil;
+import Model.Funcionario;
+import Model.Sexo;
 import dao.OperadorDao;
 import dao.PacienteDao;
 import java.util.List;
@@ -65,6 +69,6 @@ public class Operador extends Funcionario {
 	
 	public Operador buscaUm(){
 		OperadorDao dao = new OperadorDao();
-		return dao.findOne(this.getId(), this.getCpf(), this.getNome());
+		return dao.findOne(this.getCpf());
 	}
 }

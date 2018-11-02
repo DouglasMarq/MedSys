@@ -20,9 +20,10 @@ import dao.ConsultaDao;
  */
 public class Teste {
 	public static void main(String[] args) {
-		ConsultaDao Consulta = new ConsultaDao();
-		Consulta cons = new Consulta("Aberto", "31/10/2018", "sono", "cerebral", "guilhotina", "tomanocu", "douglao", "meister", "douglaisoasi", "meisterieism");
-		
-		cons.gravar();
+		ConsultaDao dao = new ConsultaDao();
+		Consulta cons = new Consulta("Aberto", "21091999", "Dor", "KarimKArim", "Goku");
+		          System.out.println("gravando!");
+		dao.create(cons);
+                    System.out.println("gravou!");
 	}
 }

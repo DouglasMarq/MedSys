@@ -4,6 +4,7 @@ import Model.Endereco;
 import Model.EstadoCivil;
 import Model.Paciente;
 import Model.Sexo;
+import dao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -205,17 +206,15 @@ public class PacienteDao implements dao<Paciente> {
 	}
 
 	@Override
-	public Paciente findOne(long idFind, String cpfFind, String nomeFind) {
+	public Paciente findOne(String cpfFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
-		final String sql = "select * from d1_Pacientes where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and ds_cpf LIKE(?)";
+		final String sql = "select * from d1_Pacientes where ds_cpf LIKE(?)";
 
 		try {
 			pst = con.prepareStatement(sql);
-			pst.setLong(1, idFind);
-			pst.setString(2, nomeFind);
-			pst.setString(3, cpfFind);
+			pst.setString(1, cpfFind);
 
 			rs = pst.executeQuery();
 

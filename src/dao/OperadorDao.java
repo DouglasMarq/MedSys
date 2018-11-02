@@ -4,6 +4,7 @@ import Model.Endereco;
 import Model.EstadoCivil;
 import Model.Operador;
 import Model.Sexo;
+import dao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -221,11 +222,11 @@ public class OperadorDao implements dao<Operador> {
 	}
 
 	@Override
-	public Operador findOne(long idFind, String cpfFind, String nomeFind) {
+	public Operador findOne(String cpfFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
-		final String sql = "select * from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_cargo = 20";
+		final String sql = "select * from d0_Funcionarios where ds_cpf LIKE(?) and cd_cargo = 20";
 
 		try {
 			pst = con.prepareStatement(sql);

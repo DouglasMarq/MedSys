@@ -1,5 +1,9 @@
 package Model;
 
+import Model.Endereco;
+import Model.EstadoCivil;
+import Model.Funcionario;
+import Model.Sexo;
 import dao.MedicoDao;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -76,7 +80,7 @@ public class Medico extends Funcionario {
 	
 	public Medico buscaUm(){
 		MedicoDao dao = new MedicoDao();
-		return dao.findOne(this.getId(), this.getCpf(), this.getNome());
+		return dao.findOne(this.getCpf());
 	}
 
 }

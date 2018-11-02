@@ -3,18 +3,24 @@ package View;
 import Model.Consulta;
 import Model.Medico;
 import Model.Paciente;
+import Model.Sexo;
+import dao.PacienteDao;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import util.Botoes;
 import util.Formata;
 
 public class TelaConsultaNova extends javax.swing.JFrame {
+    Paciente paciente;
+    Medico medico;
     
     private void setMedico(){
         Medico med = new Medico();
         for (Medico medico : med.buscar()) {
             cbMedico.addItem(medico.getNome().concat(" "+medico.getSobrenome()));
         }
+        
+        
     }
     
     /*private void setPaciente(){
@@ -99,11 +105,11 @@ public class TelaConsultaNova extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblbSalvarMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblbSalvarMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblbSalvarMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbSalvarMouseEntered(evt);
             }
         });
 
@@ -126,37 +132,39 @@ public class TelaConsultaNova extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(lblIcone)
-                        .addGap(90, 90, 90)
-                        .addComponent(lblNovaConsulta))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPaciente)
+                        .addGap(78, 78, 78))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(tfNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(lblMedico))
-                            .addComponent(cbMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(lblDataDaConsulta))
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addComponent(lblbSalvar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblPaciente)
-                        .addGap(78, 78, 78)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(lblIcone)
+                            .addGap(90, 90, 90)
+                            .addComponent(lblNovaConsulta))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(70, 70, 70)
+                                    .addComponent(lblMedico))
+                                .addComponent(cbMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(10, 10, 10)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(50, 50, 50)
+                                    .addComponent(lblDataDaConsulta))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblbSalvar))))))
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -170,10 +178,10 @@ public class TelaConsultaNova extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(lblPaciente)
                 .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfCPF)
-                    .addComponent(BtnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNomePaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnPesquisa))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -183,10 +191,9 @@ public class TelaConsultaNova extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblDataDaConsulta)
                         .addGap(6, 6, 6)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblbSalvar))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblbSalvar)))))
         );
 
         pack();
@@ -206,12 +213,16 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
     private void lblbSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseClicked
         // TODO add your handling code here:
+        Consulta consulta = new Consulta(jDateChooser1.getName(), cbMedico.getName(), tfNomePaciente.getText());
+        consulta.gravar();
         
     }//GEN-LAST:event_lblbSalvarMouseClicked
 
     private void BtnPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPesquisaMouseClicked
         // TODO add your handling code here:
-        tfCPF.getText();
+        PacienteDao dao = new PacienteDao();
+        paciente = dao.findOne(tfCPF.getText());
+        tfNomePaciente.setText(paciente.getNome() + " " + paciente.getSobrenome());
     }//GEN-LAST:event_BtnPesquisaMouseClicked
 
     /**

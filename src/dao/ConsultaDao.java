@@ -1,6 +1,7 @@
 package dao;
 
 import Model.Consulta;
+import dao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,19 +16,18 @@ public class ConsultaDao implements dao<Consulta> {
 	public int create(Consulta obj) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
-		final String sql = "insert into d3_Consultas (ds_status,dt_consulta,ds_queixapaciente,nm_Paciente,sn_Paciente,nm_Medico,sn_Medico) values (?,?,?,?,?,?,?)";
+		final String sql = "insert into d3_Consultas (ds_status,dt_consulta,ds_laudomedico,nm_Paciente,nm_Funcionario) values (?,?,?,?,?)"; 
+;
 
 		try {
 			pst = con.prepareStatement(sql);
 
-			pst.setString(1, obj.getStatus());
+			pst.setString(1, "Aberto");
 			pst.setString(2, obj.getDataConsulta());
-			pst.setString(3, obj.getQueixaPaciente());
+			pst.setString(3, obj.getLaudoMedico());
 			pst.setString(4, obj.getPacienteNome());
-			pst.setString(5, obj.getPacienteSobrenome());
-			pst.setString(6, obj.getMedicoNome());
-			pst.setString(7, obj.getMedicoSobrenome());
-
+                        pst.setString(5, obj.getMedicoNome());
+                      
 			return pst.executeUpdate();
 
 		} catch (SQLException ex) {
@@ -51,7 +51,7 @@ public class ConsultaDao implements dao<Consulta> {
 	PreparedStatement pst = null;
 	ResultSet rs = null;
         try {
-            pst = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,nm_Paciente,sn_Paciente,nm_Medico,sn_Medico from d3_Consultas");
+            pst = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,nm_Paciente,nm_Medico from d3_Consultas");
             rs = pst.executeQuery();
             List Consultas = new ArrayList();
                while (rs.next()) {
@@ -59,10 +59,8 @@ public class ConsultaDao implements dao<Consulta> {
                     String Status = rs.getString("ds_status");
                     String DataConsulta = rs.getString("dt_consulta");
                     String PacienteNome = rs.getString("nm_Paciente");
-                    String PacienteSobrenome = rs.getString("sn_Paciente");
                     String MedicoNome = rs.getString("nm_Medico");
-                    String MedicoSobrenome = rs.getString("sn_Medico");
-                    Consulta consulta = new Consulta(Consulta, Status, DataConsulta, PacienteNome, PacienteSobrenome, MedicoNome, MedicoSobrenome);
+                    Consulta consulta = new Consulta();
                     Consultas.add(consulta);
                     //Consulta.addRow(new Object[]{a,b,c,d,d2,e,e2});
                 }
@@ -86,19 +84,14 @@ public class ConsultaDao implements dao<Consulta> {
 			+ "ds_conduta = ?,"
 			+ "ds_sid = ?,"
 			+ "nm_Medico = ?,"
-			+ "sn_Medico = ?,"
 			+ " where cd_Paciente = ?";
 
 		try {
 			pst = con.prepareStatement(sql);
 
 			pst.setString(1, ConsultaUpdate.getStatus());
-			pst.setString(2, ConsultaUpdate.getQueixaPaciente());
-			pst.setString(3, ConsultaUpdate.getExameFisico());
-			pst.setString(4, ConsultaUpdate.getConduta());
-			pst.setString(5, ConsultaUpdate.getSid());
+			pst.setString(2, ConsultaUpdate.getLaudoMedico());
 			pst.setString(6, ConsultaUpdate.getMedicoNome());
-			pst.setString(7, ConsultaUpdate.getMedicoSobrenome());
 			pst.setLong(8, idFind);
 
 			return pst.executeUpdate();
@@ -145,7 +138,7 @@ public class ConsultaDao implements dao<Consulta> {
 	}
 
     @Override
-    public Consulta findOne(long idFind, String cpfFind, String nomeFind) {
+    public Consulta findOne(String cpfFind) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  }

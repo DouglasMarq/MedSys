@@ -22,7 +22,7 @@ public class TelaConsultas extends javax.swing.JFrame {
     
     private void setTable(){
 
-        Consulta con = new Consulta(Consulta, Status, DataConsulta, PacienteNome, PacienteSobrenome, MedicoNome, MedicoSobrenome);
+        Consulta con = new Consulta();
         
         tbConsultaAberta.setModel(con.TableConsulta());
         tbConsultasBaixadas.setModel(con.CFechado());

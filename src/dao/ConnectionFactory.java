@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 
 public class ConnectionFactory {
 
-    //private static final String url = "jdbc:sqlite:/home/gabriel/Documentos/projetos/MedSys/bd/MedSysdb.db";
-    private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
+    private static final String url = "jdbc:sqlite:/home/gabriel/Documentos/projetos/MedSys/bd/MedSysdb.db";
+    //private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
     //private static final String url = "jdbc:sqlite:C:\\Users\\Douglas\\Downloads\\Development\\MedSys\\bd\\MedSysdb.db";
     //private static final String url = "jdbc:sqlite:C:\\git\\MedSys2\\bd\\MedSysdb.db"; //Caminho do lucão;
     
