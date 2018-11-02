@@ -15,8 +15,8 @@ public class Consulta {
     private String medicoNome;
     private String pacienteNome;
 
-    //protected DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
-    private DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Sobrenome", "Medico", "Sobrenome"}, 0);
+    protected DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
+    protected DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
     private ArrayList<String> ComboBoxMedico = new ArrayList<>();
 
     public Consulta() {
@@ -73,7 +73,7 @@ public class Consulta {
         return codigoConsulta;
     }
 
-    public void setCodigoConsulta(String codicoConsulta) {
+    public void setCodigoConsulta(String codigoConsulta) {
         this.codigoConsulta = codigoConsulta;
     }
 
@@ -97,8 +97,8 @@ public class Consulta {
         return laudoMedico;
     }
 
-    public void setLaudoMedico(String queixaPaciente) {
-        this.laudoMedico = queixaPaciente;
+    public void setLaudoMedico(String laudoMedico) {
+        this.laudoMedico = laudoMedico;
     }
 
     public String getMedicoNome() {
@@ -135,7 +135,7 @@ public class Consulta {
     
     
     public DefaultTableModel TableConsulta() {
-        DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
+        //DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
         //DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
 
         ConsultaDao cd = new ConsultaDao();

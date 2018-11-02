@@ -55,12 +55,13 @@ public class ConsultaDao implements dao<Consulta> {
             rs = pst.executeQuery();
             List Consultas = new ArrayList();
                while (rs.next()) {
-                    String Consulta = rs.getString("cd_Consulta");
-                    String Status = rs.getString("ds_status");
-                    String DataConsulta = rs.getString("dt_consulta");
-                    String PacienteNome = rs.getString("nm_Paciente");
-                    String MedicoNome = rs.getString("nm_Funcionario");
-                    Consulta consulta = new Consulta();
+                    String codigoConsulta = rs.getString("cd_Consulta");
+                    String status = rs.getString("ds_status");
+                    String dataConsulta = rs.getString("dt_consulta");
+                    String laudoMedico = rs.getString("ds_laudomedico");
+                    String pacienteNome = rs.getString("nm_Paciente");
+                    String medicoNome = rs.getString("nm_Funcionario");
+                    Consulta consulta = new Consulta(codigoConsulta, status, dataConsulta, laudoMedico, pacienteNome, medicoNome);
                     Consultas.add(consulta);
                     //Consulta.addRow(new Object[]{a,b,c,d,d2,e,e2});
                 }
