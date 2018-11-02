@@ -40,7 +40,7 @@ public class Operador extends Funcionario {
 
 	public void deletar() {
 		OperadorDao dao = new OperadorDao();
-		int valida = dao.delete(this.getId(), this.getCpf(), this.getNome());
+		int valida = dao.delete(this.getId());
 		
 		if (valida != 1) {
 			String message = "Exclusão não Concluida";

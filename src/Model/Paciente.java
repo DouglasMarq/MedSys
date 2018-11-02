@@ -52,7 +52,7 @@ public class Paciente extends Pessoa {
 
 	public void deletar() {
 		PacienteDao dao = new PacienteDao();
-		int valida = dao.delete(this.getId(), this.getCpf(), this.getNome());
+		int valida = dao.delete(this.getId());
 		
 		if (valida != 1) {
 			String message = "Exclusão não Concluida";

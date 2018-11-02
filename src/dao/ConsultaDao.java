@@ -79,21 +79,16 @@ public class ConsultaDao implements dao<Consulta> {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		final String sql = "update d0_Consultas"
-			+ " set ds_status = ?,"
-			+ "ds_queixapaciente = ?,"
-			+ "ds_exameFisico = ?,"
-			+ "ds_conduta = ?,"
-			+ "ds_sid = ?,"
-			+ "nm_Medico = ?,"
-			+ " where cd_Paciente = ?";
+			+ "set ds_status = ?,"
+			+ "ds_laudomedico = ?,"
+			+ " where cd_Consulta = ?";
 
 		try {
 			pst = con.prepareStatement(sql);
 
 			pst.setString(1, ConsultaUpdate.getStatus());
 			pst.setString(2, ConsultaUpdate.getLaudoMedico());
-			pst.setString(6, ConsultaUpdate.getMedicoNome());
-			pst.setLong(8, idFind);
+			pst.setLong(3, idFind);
 
 			return pst.executeUpdate();
 			
@@ -111,7 +106,7 @@ public class ConsultaDao implements dao<Consulta> {
 	}
 
     @Override
-	public int delete(long idFind, String cpfFind, String nomeFind) {
+	public int delete(long idFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		final String sql = "delete from d3_Consultas where cd_Consulta LIKE (?)";
@@ -135,33 +130,6 @@ public class ConsultaDao implements dao<Consulta> {
 			ConnectionFactory.closeConnection(con, pst);
 		}
 	}
-        
-        /*public int delete(long idFind, String cpfFind, String nomeFind) {
-		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst = null;
-		final String sql = "delete from d3_Consultas where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and sn_Paciente LIKE(?)";
-
-		try {
-			pst = con.prepareStatement(sql);
-			pst.setLong(1, idFind);
-			pst.setString(2, nomeFind);
-			pst.setString(3, cpfFind);
-
-			return pst.executeUpdate();
-			
-		} catch (SQLException ex) {
-			ex.getMessage();
-
-			String message = "Erro no Banco de Dados";
-			String erro = "Erro!!";
-
-			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-
-			throw new RuntimeException();
-		} finally {
-			ConnectionFactory.closeConnection(con, pst);
-		}
-	}*/
 
     @Override
     public Consulta findOne(String cpfFind) {

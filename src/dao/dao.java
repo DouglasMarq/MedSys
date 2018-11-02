@@ -10,7 +10,7 @@ public interface dao<T> {
 
 	public int update(long id, T obj); // atualiza
 
-	public int delete(long idDel, String cpfDel, String nomeDel); // exclui
+	public int delete(long idDel); // exclui
 
 	public T findOne(String codeFind); 
 	

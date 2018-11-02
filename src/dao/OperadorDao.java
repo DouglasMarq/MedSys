@@ -194,16 +194,14 @@ public class OperadorDao implements dao<Operador> {
 	}
 
 	@Override
-	public int delete(long idFind, String cpfFind, String nomeFind) {
+	public int delete(long idFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
-		final String sql = "delete from d0_Funcionarios where cd_Funcionario LIKE (?) and nm_Funcionario LIKE(?) and ds_cpf LIKE(?) and cd_Cargo LIKE (20)";
+		final String sql = "delete from d0_Funcionarios where cd_Funcionario LIKE (?)";
 
 		try {
 			pst = con.prepareStatement(sql);
 			pst.setLong(1, idFind);
-			pst.setString(2, nomeFind);
-			pst.setString(3, cpfFind);
 
 			return pst.executeUpdate();
 

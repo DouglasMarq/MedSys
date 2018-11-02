@@ -51,7 +51,7 @@ public class Medico extends Funcionario {
 
 	public void deletar() {
 		MedicoDao dao = new MedicoDao();
-		int valida = dao.delete(this.getId(), this.getCpf(), this.getNome());
+		int valida = dao.delete(this.getId());
 		
 		if (valida != 1) {
 			String message = "Exclusão não Concluida";

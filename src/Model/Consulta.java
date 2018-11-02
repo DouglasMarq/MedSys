@@ -132,7 +132,17 @@ public class Consulta {
 		} else JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
     }
         
-    
+    public void excluir()  {
+        ConsultaDao dao = new ConsultaDao();
+        int valida = dao.delete(Long.parseLong(this.getCodigoConsulta()));
+        
+        if (valida != 1) {
+			String message = "Exclusão não Concluida";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+		}
+    }
     
     public DefaultTableModel TableConsulta() {
         //DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
