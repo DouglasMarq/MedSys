@@ -51,7 +51,7 @@ public class ConsultaDao implements dao<Consulta> {
 	PreparedStatement pst = null;
 	ResultSet rs = null;
         try {
-            pst = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,nm_Paciente,nm_Medico from d3_Consultas");
+            pst = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,ds_laudomedico,nm_Paciente,nm_Funcionario from d3_Consultas");
             rs = pst.executeQuery();
             List Consultas = new ArrayList();
                while (rs.next()) {
@@ -59,7 +59,7 @@ public class ConsultaDao implements dao<Consulta> {
                     String Status = rs.getString("ds_status");
                     String DataConsulta = rs.getString("dt_consulta");
                     String PacienteNome = rs.getString("nm_Paciente");
-                    String MedicoNome = rs.getString("nm_Medico");
+                    String MedicoNome = rs.getString("nm_Funcionario");
                     Consulta consulta = new Consulta();
                     Consultas.add(consulta);
                     //Consulta.addRow(new Object[]{a,b,c,d,d2,e,e2});
