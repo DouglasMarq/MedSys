@@ -15,8 +15,8 @@ public class Consulta {
     private String medicoNome;
     private String pacienteNome;
 
-    protected DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
-    protected DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
+    protected DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Medico", "Paciente"}, 0);
+    protected DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Medico", "Paciente"}, 0);
     private ArrayList<String> ComboBoxMedico = new ArrayList<>();
 
     public Consulta() {

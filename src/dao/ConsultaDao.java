@@ -114,6 +114,31 @@ public class ConsultaDao implements dao<Consulta> {
 	public int delete(long idFind, String cpfFind, String nomeFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
+		final String sql = "delete from d3_Consultas where cd_Consulta LIKE (?)";
+
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setLong(1, idFind);
+
+			return pst.executeUpdate();
+			
+		} catch (SQLException ex) {
+			ex.getMessage();
+
+			String message = "Erro no Banco de Dados";
+			String erro = "Erro!!";
+
+			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+
+			throw new RuntimeException();
+		} finally {
+			ConnectionFactory.closeConnection(con, pst);
+		}
+	}
+        
+        /*public int delete(long idFind, String cpfFind, String nomeFind) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pst = null;
 		final String sql = "delete from d3_Consultas where cd_Paciente LIKE (?) and nm_Paciente LIKE(?) and sn_Paciente LIKE(?)";
 
 		try {
@@ -136,7 +161,7 @@ public class ConsultaDao implements dao<Consulta> {
 		} finally {
 			ConnectionFactory.closeConnection(con, pst);
 		}
-	}
+	}*/
 
     @Override
     public Consulta findOne(String cpfFind) {
