@@ -19,7 +19,7 @@ public class Formata {
     public static DefaultFormatterFactory celular(){
         MaskFormatter mask = null;
         try {
-            mask = new MaskFormatter("(##) 9 ####-####");
+            mask = new MaskFormatter("(##) 9####-####");
             mask.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
         }
@@ -55,4 +55,5 @@ public class Formata {
         }
         return (new DefaultFormatterFactory(mask,mask));
     }
+    
 }

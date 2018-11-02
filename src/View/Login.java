@@ -1,15 +1,41 @@
 package View;
 
 import Controller.Principal;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
-        
-    
     private void LogarFuncionario(){
+        if(tfUserOp.getText().length() ==0){
+            JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
+        } else if(pfPassOp.getPassword().length==0){
+            JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todos!");
+        } else {
+            String username = tfUserOp.getText();
+            char[] pass = pfPassOp.getPassword();
+            String password = String.copyValueOf(pass);
+            
+            Principal l = new Principal();
+            l.validarlogin(username, password);
+            
+            if(l.validarlogin(username,password)){
+                System.out.println("Login Valido");
+                JOptionPane.showMessageDialog(null, "Login valido, Bem vindo(a)");
+		Interface i = new Interface();
+		i.setVisible(true);
+                this.setVisible(false);
+            } else {
+                System.out.println("Login Invalido");
+                JOptionPane.showMessageDialog(null, "Login Invalido, tente novamente");
+            }
+        }
+    }
+    
+    private void LogarMedico(){
         if(tfUserMed.getText().length() ==0){
             JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
         } else if(pfPassMed.getPassword().length==0){
@@ -24,22 +50,34 @@ public class Login extends javax.swing.JFrame {
             
             if(l.validarlogin(username,password)){
                 System.out.println("Login Valido");
-		Interface i = new Interface();
-		i.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Login valido, Bem vindo(a)");
+		//InterfaceMedico im = new InterfaceMedico();
+                TelaConsultas c = new TelaConsultas();
+                c.Medico();
+                c.setVisible(true);
+		//im.setVisible(true);
                 this.setVisible(false);
             } else {
                 System.out.println("Login Invalido");
+                JOptionPane.showMessageDialog(null, "Login Invalido, tente novamente");
             }
         }
     }
     
     public Login() {
         initComponents();
+        centralizarComponente();
         tfUserOp.requestFocus();
         tfUserOp.setText("");
         
     }
-
+    
+        public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,6 +115,11 @@ public class Login extends javax.swing.JFrame {
         lblLogCliente.setText("Operador");
 
         tfUserOp.setText("Usuario");
+        tfUserOp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfUserOpMouseClicked(evt);
+            }
+        });
 
         pfPassOp.setText("jPasswordField1");
         pfPassOp.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -86,6 +129,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         btnPacLogin.setText("Login");
+        btnPacLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPacLoginActionPerformed(evt);
+            }
+        });
 
         lblImgPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Access_100px.png"))); // NOI18N
 
@@ -230,7 +278,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLogMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogMedActionPerformed
         // TODO add your handling code here:
-        LogarFuncionario();
+        LogarMedico();
     }//GEN-LAST:event_btnLogMedActionPerformed
 
     private void tpClasseLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tpClasseLoginMouseClicked
@@ -250,6 +298,18 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         pfPassOp.setText("");
     }//GEN-LAST:event_pfPassOpFocusGained
+
+    private void tfUserOpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUserOpMouseClicked
+        // TODO add your handling code here:
+      //  if (tfUserOp.getText() != ""){
+      //      tfUserOp.setText("");
+      //  } 
+    }//GEN-LAST:event_tfUserOpMouseClicked
+
+    private void btnPacLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacLoginActionPerformed
+        // TODO add your handling code here:
+        LogarFuncionario();
+    }//GEN-LAST:event_btnPacLoginActionPerformed
 
     /**
      * @param args the command line arguments

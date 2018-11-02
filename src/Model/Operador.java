@@ -30,7 +30,8 @@ public class Operador extends Funcionario {
 			String erro = "Erro!!";
 
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-		}
+                        JOptionPane.showMessageDialog(null, "Ocorreu um erro durante o cadastro,verifique...");
+		}else JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 	}
 
 	public void deletar() {

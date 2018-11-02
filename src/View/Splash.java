@@ -1,7 +1,8 @@
 package View;
 
-import dao.ConnectionFactory;
-import java.sql.Connection;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 
 public class Splash extends javax.swing.JFrame {
 
@@ -11,6 +12,14 @@ public class Splash extends javax.swing.JFrame {
     public Splash() {
         initComponents();
         testacnx();
+        centralizarComponente();
+        this.setVisible(false);
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**
@@ -24,6 +33,7 @@ public class Splash extends javax.swing.JFrame {
 
         lblMedSys = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
+        lblImghospital = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("MedSys");
@@ -31,7 +41,11 @@ public class Splash extends javax.swing.JFrame {
         lblMedSys.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblMedSys.setText("MedSys");
 
+        lblStatus.setDisplayedMnemonic('C');
+        lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Rocket_50px.png"))); // NOI18N
         lblStatus.setText("Status da operação");
+
+        lblImghospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Hospital_70px.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -40,21 +54,27 @@ public class Splash extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
+                        .addGap(160, 160, 160)
+                        .addComponent(lblImghospital)
+                        .addGap(18, 18, 18)
                         .addComponent(lblMedSys))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
+                        .addGap(188, 188, 188)
                         .addComponent(lblStatus)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(lblMedSys)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(lblStatus)
-                .addGap(22, 22, 22))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(lblMedSys))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblImghospital)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(lblStatus))
         );
 
         pack();
@@ -95,12 +115,21 @@ public class Splash extends javax.swing.JFrame {
         });
     }
     
+    public void close(){
+ 
+ WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+ Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+ 
+ }
+    
     public void testacnx (){
         lblStatus.setText("Conectando ao Banco de dados");
-        ConnectionFactory.getConnection();
+        Login l = new Login();
+        l.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblImghospital;
     private javax.swing.JLabel lblMedSys;
     private javax.swing.JLabel lblStatus;
     // End of variables declaration//GEN-END:variables

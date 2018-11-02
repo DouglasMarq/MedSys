@@ -1,12 +1,65 @@
 package View;
 
-public class TelaConsultaNova extends javax.swing.JFrame {
+import Model.Consulta;
+import Model.Medico;
+import Model.Paciente;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import util.Botoes;
+import util.Formata;
 
+public class TelaConsultaNova extends javax.swing.JFrame {
+    
+    private void setMedico(){
+        Medico med = new Medico();
+        for (Medico medico : med.buscar()) {
+            cbMedico.addItem(medico.getNome().concat(" "+medico.getSobrenome()));
+        }
+    }
+    
+    /*private void setPaciente(){
+        Paciente pac = new Paciente();
+        for (Paciente paciente : pac.buscar()){
+            cbPaciente.addItem(paciente.getNome().concat(" "+paciente.getSobrenome()));
+        }
+    }*/
+    
+     /*private void registrarConsulta() {
+
+
+            String nome = tfNmMed.getText();
+            String sobrenome = tfSnMed.getText();
+            String CRM = tftCRM.getText();
+            String CPF = tffCpfMed.getText();
+            DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+            String Nascimento = fmt.format(this.dtcDataDeNascimentoMed.getDate());
+            String Telefone = TffCelularMed.getText();
+
+
+		//Consulta cons = new Consulta(Status, DataConsulta, QueixaPaciente, ExameFisico, Conduta, sid, PacienteNome, PacienteSobrenome, MedicoNome, MedicoSobrenome);
+                //cons.gravar();
+    }*/
+    
+    private void setMask(){
+        tfCPF.setFormatterFactory(Formata.cpf());
+    }
+
+    
     /**
      * Creates new form TelaConsultaNova
      */
     public TelaConsultaNova() {
         initComponents();
+        centralizarComponente();
+        setMedico();
+        setMask();
+        //setPaciente();
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**
@@ -18,73 +71,148 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        lblNovaConsulta = new javax.swing.JLabel();
+        cbMedico = new javax.swing.JComboBox<>();
+        lblMedico = new javax.swing.JLabel();
         lblDataDaConsulta = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        taQueixaDoPaciente = new javax.swing.JTextArea();
-        lblQueixaDoPaciente = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        pnbSalvar = new javax.swing.JPanel();
-        lblbSalvar = new javax.swing.JLabel();
+        lblIcone = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        lblbSalvar = new javax.swing.JLabel();
+        lblPaciente = new javax.swing.JLabel();
+        BtnPesquisa = new javax.swing.JButton();
+        tfNomePaciente = new javax.swing.JTextField();
+        tfCPF = new javax.swing.JFormattedTextField();
 
         setTitle("Nova Consulta");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Nova consulta");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 11, -1, -1));
+        lblNovaConsulta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblNovaConsulta.setText("Nova consulta");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 129, -1));
-
-        jLabel2.setText("Medico");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        lblMedico.setText("Medico");
 
         lblDataDaConsulta.setText("Data da consulta");
-        getContentPane().add(lblDataDaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
-        taQueixaDoPaciente.setColumns(20);
-        taQueixaDoPaciente.setRows(5);
-        jScrollPane1.setViewportView(taQueixaDoPaciente);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 193, 563, -1));
-
-        lblQueixaDoPaciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblQueixaDoPaciente.setText("Queixa do paciente");
-        getContentPane().add(lblQueixaDoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 170, -1, -1));
-
-        jLabel3.setText("Especialidade?");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Doctors_Bag_70px.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Doctors_Bag_70px.png"))); // NOI18N
 
         lblbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Save_30px.png"))); // NOI18N
+        lblbSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbSalvarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbSalvarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbSalvarMouseExited(evt);
+            }
+        });
 
-        javax.swing.GroupLayout pnbSalvarLayout = new javax.swing.GroupLayout(pnbSalvar);
-        pnbSalvar.setLayout(pnbSalvarLayout);
-        pnbSalvarLayout.setHorizontalGroup(
-            pnbSalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnbSalvarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblbSalvar))
-        );
-        pnbSalvarLayout.setVerticalGroup(
-            pnbSalvarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbSalvarLayout.createSequentialGroup()
-                .addComponent(lblbSalvar)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        lblPaciente.setText("Paciente");
 
-        getContentPane().add(pnbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 30, 30));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        BtnPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Search_20px.png"))); // NOI18N
+        BtnPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnPesquisaMouseClicked(evt);
+            }
+        });
+
+        tfNomePaciente.setEditable(false);
+
+        tfCPF.setText("CPF do Paciente");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(lblIcone)
+                        .addGap(90, 90, 90)
+                        .addComponent(lblNovaConsulta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(BtnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(tfNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(lblMedico))
+                            .addComponent(cbMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(lblDataDaConsulta))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(lblbSalvar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblPaciente)
+                        .addGap(78, 78, 78)))
+                .addGap(10, 10, 10))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIcone)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(lblNovaConsulta)))
+                .addGap(20, 20, 20)
+                .addComponent(lblPaciente)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfCPF)
+                    .addComponent(BtnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfNomePaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblMedico)
+                        .addGap(6, 6, 6)
+                        .addComponent(cbMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblDataDaConsulta)
+                        .addGap(6, 6, 6)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblbSalvar))))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblbSalvarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbSalvar);
+    }//GEN-LAST:event_lblbSalvarMouseEntered
+
+    private void lblbSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbSalvar);
+    }//GEN-LAST:event_lblbSalvarMouseExited
+
+    private void lblbSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblbSalvarMouseClicked
+
+    private void BtnPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPesquisaMouseClicked
+        // TODO add your handling code here:
+        tfCPF.getText();
+    }//GEN-LAST:event_BtnPesquisaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -122,17 +250,16 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton BtnPesquisa;
+    private javax.swing.JComboBox<String> cbMedico;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDataDaConsulta;
-    private javax.swing.JLabel lblQueixaDoPaciente;
+    private javax.swing.JLabel lblIcone;
+    private javax.swing.JLabel lblMedico;
+    private javax.swing.JLabel lblNovaConsulta;
+    private javax.swing.JLabel lblPaciente;
     private javax.swing.JLabel lblbSalvar;
-    private javax.swing.JPanel pnbSalvar;
-    private javax.swing.JTextArea taQueixaDoPaciente;
+    private javax.swing.JFormattedTextField tfCPF;
+    private javax.swing.JTextField tfNomePaciente;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,8 @@
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 public class BuscaPacinete extends javax.swing.JFrame {
 
     /**
@@ -7,6 +10,13 @@ public class BuscaPacinete extends javax.swing.JFrame {
      */
     public BuscaPacinete() {
         initComponents();
+        centralizarComponente();
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**
@@ -22,7 +32,6 @@ public class BuscaPacinete extends javax.swing.JFrame {
         tfNome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbPaciente = new javax.swing.JTable();
-        pnbConfirma = new javax.swing.JPanel();
         lblbConfirma = new javax.swing.JLabel();
         lblPesquisaPacientes = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -44,18 +53,12 @@ public class BuscaPacinete extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbPaciente);
 
-        javax.swing.GroupLayout pnbConfirmaLayout = new javax.swing.GroupLayout(pnbConfirma);
-        pnbConfirma.setLayout(pnbConfirmaLayout);
-        pnbConfirmaLayout.setHorizontalGroup(
-            pnbConfirmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        pnbConfirmaLayout.setVerticalGroup(
-            pnbConfirmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
         lblbConfirma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Checked_Checkbox_30px.png"))); // NOI18N
+        lblbConfirma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbConfirmaMouseClicked(evt);
+            }
+        });
 
         lblPesquisaPacientes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblPesquisaPacientes.setText("Pesquisa Pacientes");
@@ -66,47 +69,49 @@ public class BuscaPacinete extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(lblPesquisaPacientes)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(170, 170, 170)
                         .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lblNome)
-                        .addGap(72, 72, 72)))
-                .addComponent(lblbConfirma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblbConfirma))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(lblNome)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnbConfirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125)
-                .addComponent(lblPesquisaPacientes)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnbConfirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(lblPesquisaPacientes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(lblNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblbConfirma, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblbConfirma)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblbConfirmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblbConfirmaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -134,7 +139,6 @@ public class BuscaPacinete extends javax.swing.JFrame {
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPesquisaPacientes;
     private javax.swing.JLabel lblbConfirma;
-    private javax.swing.JPanel pnbConfirma;
     private javax.swing.JTable tbPaciente;
     private javax.swing.JTextField tfNome;
     // End of variables declaration//GEN-END:variables

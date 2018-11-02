@@ -1,5 +1,9 @@
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import util.Botoes;
+
 public class Interface extends javax.swing.JFrame {
 
     /**
@@ -7,6 +11,13 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        centralizarComponente();
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
 
     /**
@@ -18,101 +29,78 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        pnbPaciente = new javax.swing.JPanel();
+        lblBemVindo = new javax.swing.JLabel();
+        jpIcones = new javax.swing.JPanel();
         lblbPaciente = new javax.swing.JLabel();
         lblbPacienteTxt = new javax.swing.JLabel();
-        pnbConsultas = new javax.swing.JPanel();
-        lblbConsultaTxt = new javax.swing.JLabel();
         lblbConsulta = new javax.swing.JLabel();
+        lblbConsultaTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MedSys");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Bem vindo");
+        lblBemVindo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblBemVindo.setText("Bem vindo");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jpIcones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        pnbPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblbPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Team_50px.png"))); // NOI18N
+        lblbPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnbPacienteMouseClicked(evt);
+                lblbPacienteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbPacienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbPacienteMouseExited(evt);
             }
         });
 
-        lblbPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Team_50px.png"))); // NOI18N
-
         lblbPacienteTxt.setText("Cadastros");
 
-        javax.swing.GroupLayout pnbPacienteLayout = new javax.swing.GroupLayout(pnbPaciente);
-        pnbPaciente.setLayout(pnbPacienteLayout);
-        pnbPacienteLayout.setHorizontalGroup(
-            pnbPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbPacienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnbPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblbPaciente)
-                    .addComponent(lblbPacienteTxt))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnbPacienteLayout.setVerticalGroup(
-            pnbPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbPacienteLayout.createSequentialGroup()
-                .addComponent(lblbPaciente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblbPacienteTxt)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pnbConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblbConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Test_Passed_50px.png"))); // NOI18N
+        lblbConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnbConsultasMouseClicked(evt);
+                lblbConsultaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbConsultaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbConsultaMouseExited(evt);
             }
         });
 
         lblbConsultaTxt.setText("Consultas");
 
-        lblbConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Test_Passed_50px.png"))); // NOI18N
-
-        javax.swing.GroupLayout pnbConsultasLayout = new javax.swing.GroupLayout(pnbConsultas);
-        pnbConsultas.setLayout(pnbConsultasLayout);
-        pnbConsultasLayout.setHorizontalGroup(
-            pnbConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbConsultasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnbConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpIconesLayout = new javax.swing.GroupLayout(jpIcones);
+        jpIcones.setLayout(jpIconesLayout);
+        jpIconesLayout.setHorizontalGroup(
+            jpIconesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpIconesLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jpIconesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblbPaciente)
+                    .addComponent(lblbPacienteTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpIconesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblbConsulta)
                     .addComponent(lblbConsultaTxt))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(51, 51, 51))
         );
-        pnbConsultasLayout.setVerticalGroup(
-            pnbConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnbConsultasLayout.createSequentialGroup()
-                .addComponent(lblbConsulta)
+        jpIconesLayout.setVerticalGroup(
+            jpIconesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpIconesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpIconesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblbPaciente)
+                    .addComponent(lblbConsulta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblbConsultaTxt)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnbPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(245, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnbPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(jpIconesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblbPacienteTxt)
+                    .addComponent(lblbConsultaTxt))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,37 +109,61 @@ public class Interface extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpIcones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(163, 163, 163)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblBemVindo)
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(lblBemVindo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpIcones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pnbPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbPacienteMouseClicked
+    private void lblbPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbPacienteMouseClicked
         // TODO add your handling code here:
         Cadastros p = new Cadastros();
         p.setVisible(true);
-    }//GEN-LAST:event_pnbPacienteMouseClicked
+    }//GEN-LAST:event_lblbPacienteMouseClicked
 
-    private void pnbConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbConsultasMouseClicked
+    private void lblbConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConsultaMouseClicked
         // TODO add your handling code here:
         TelaConsultas t = new TelaConsultas();
         t.setVisible(true);
-    }//GEN-LAST:event_pnbConsultasMouseClicked
+    }//GEN-LAST:event_lblbConsultaMouseClicked
+
+    private void lblbPacienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbPacienteMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbPaciente);
+    }//GEN-LAST:event_lblbPacienteMouseEntered
+
+    private void lblbPacienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbPacienteMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbPaciente);
+    }//GEN-LAST:event_lblbPacienteMouseExited
+
+    private void lblbConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConsultaMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbConsulta);
+    }//GEN-LAST:event_lblbConsultaMouseEntered
+
+    private void lblbConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConsultaMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbConsulta);
+    }//GEN-LAST:event_lblbConsultaMouseExited
 
     /**
      * @param args the command line arguments
@@ -189,13 +201,11 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jpIcones;
+    private javax.swing.JLabel lblBemVindo;
     private javax.swing.JLabel lblbConsulta;
     private javax.swing.JLabel lblbConsultaTxt;
     private javax.swing.JLabel lblbPaciente;
     private javax.swing.JLabel lblbPacienteTxt;
-    private javax.swing.JPanel pnbConsultas;
-    private javax.swing.JPanel pnbPaciente;
     // End of variables declaration//GEN-END:variables
 }

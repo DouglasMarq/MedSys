@@ -1,12 +1,9 @@
 package View;
 
 import Model.Consulta;
-import dao.ConnectionFactory;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.table.DefaultTableModel;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import util.Botoes;
 
 public class TelaConsultas extends javax.swing.JFrame {
 
@@ -14,42 +11,41 @@ public class TelaConsultas extends javax.swing.JFrame {
      * Creates new form TelaConsultas
      */
     
+    private String Consulta;
+    private String Status;
+    private String DataConsulta;
+    private String PacienteNome;
+    private String PacienteSobrenome;
+    private String MedicoNome;
+    private String MedicoSobrenome;
+
+    
     private void setTable(){
+
+        Consulta con = new Consulta(Consulta, Status, DataConsulta, PacienteNome, PacienteSobrenome, MedicoNome, MedicoSobrenome);
         
-        Consulta c = new Consulta();
-        
-        tbConsultaAberta.setModel(c.TableConsulta());
-        
-        /*DefaultTableModel Consultas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
-        
-        Connection con = ConnectionFactory.getConnection();
-        
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            stmt = con.prepareStatement("Select cd_Consulta,ds_status,dt_consulta,nm_Paciente,sn_Paciente,nm_Medico,sn_Medico from d3_Consultas");
-            rs = stmt.executeQuery();
-            while(rs.next()){
-                String a = rs.getString("cd_Consulta");
-                String b = rs.getString("ds_status");
-                String c = rs.getString("dt_consulta");
-                String d = rs.getString("nm_Paciente");
-                String d2 = rs.getString("sn_Paciente");
-                String e = rs.getString("nm_Medico");
-                String e2 = rs.getString("sn_Medico");
-                Consultas.addRow(new Object[]{a,b,c,d,d2,e,e2});
-            }
-        } catch(SQLException ex) {
-            throw new RuntimeException("Erro ao pegar dados");
-        }
-        
-        tbConsultaAberta.setModel(Consultas);*/
-        
+        tbConsultaAberta.setModel(con.TableConsulta());
+        tbConsultasBaixadas.setModel(con.CFechado());
+
     }
+    
     public TelaConsultas() {
         initComponents();
         setTable();
+        centralizarComponente();
+        lblSelectConsulta.setVisible(false);
+    }
+    
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    }
+    
+    public void Medico(){
+        lblNovaConsulta.setVisible(false);
+        lblCancelaConsulta.setVisible(false);
+        lblSelectConsulta.setVisible(true);
     }
 
     /**
@@ -61,9 +57,6 @@ public class TelaConsultas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfCd_paciente = new javax.swing.JTextField();
-        tffCPF = new javax.swing.JFormattedTextField();
-        tffNmPaciente = new javax.swing.JTextField();
         jtpConsultas = new javax.swing.JTabbedPane();
         spAbertas = new javax.swing.JScrollPane();
         tbConsultaAberta = new javax.swing.JTable();
@@ -72,17 +65,14 @@ public class TelaConsultas extends javax.swing.JFrame {
         tbConsultasBaixadas = new javax.swing.JTable();
         lblCancelar = new javax.swing.JLabel();
         lblConsultas = new javax.swing.JLabel();
-        lblCodigo = new javax.swing.JLabel();
-        lblCpf = new javax.swing.JLabel();
-        lblNomeDoPaciente = new javax.swing.JLabel();
-        btplPesquisa = new javax.swing.JPanel();
-        btpPesquisa = new javax.swing.JLabel();
-        pnbNovaConsulta = new javax.swing.JPanel();
-        lblNovaConsulta = new javax.swing.JLabel();
-        lblbNovaConsulta = new javax.swing.JLabel();
-        pnbCancelarConsulta = new javax.swing.JPanel();
+        lblFiltro = new javax.swing.JLabel();
+        cbFiltro = new javax.swing.JComboBox<>();
+        tfFiltro = new javax.swing.JTextField();
         lblCancelaConsulta = new javax.swing.JLabel();
-        lblbCancelarConsulta = new javax.swing.JLabel();
+        lblNovaConsulta = new javax.swing.JLabel();
+        lblPesquisaFiltro = new javax.swing.JLabel();
+        lblSelectConsulta = new javax.swing.JLabel();
+        lblbDelete = new javax.swing.JLabel();
 
         setTitle("Consultas");
 
@@ -135,11 +125,11 @@ public class TelaConsultas extends javax.swing.JFrame {
         pnBaixadas.setLayout(pnBaixadasLayout);
         pnBaixadasLayout.setHorizontalGroup(
             pnBaixadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spBaixadas, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
+            .addComponent(spBaixadas, javax.swing.GroupLayout.DEFAULT_SIZE, 912, Short.MAX_VALUE)
         );
         pnBaixadasLayout.setVerticalGroup(
             pnBaixadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spBaixadas, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+            .addComponent(spBaixadas, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
 
         jtpConsultas.addTab("Baixadas", pnBaixadas);
@@ -149,198 +139,230 @@ public class TelaConsultas extends javax.swing.JFrame {
         lblConsultas.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblConsultas.setText("Consultas");
 
-        lblCodigo.setText("Codigo");
+        lblFiltro.setText("Filtro");
 
-        lblCpf.setText("Cpf");
+        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N/A", "Codigo da consulta", "Paciente", "Data da consulta" }));
 
-        lblNomeDoPaciente.setText("Nome do Paciente");
-
-        btplPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btpPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Search_20px.png"))); // NOI18N
-        btpPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCancelaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Delete_File_50px.png"))); // NOI18N
+        lblCancelaConsulta.setToolTipText("Cancelar Consulta");
+        lblCancelaConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btpPesquisaMouseClicked(evt);
+                lblCancelaConsultaMouseClicked(evt);
             }
-        });
-
-        javax.swing.GroupLayout btplPesquisaLayout = new javax.swing.GroupLayout(btplPesquisa);
-        btplPesquisa.setLayout(btplPesquisaLayout);
-        btplPesquisaLayout.setHorizontalGroup(
-            btplPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btplPesquisaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btpPesquisa))
-        );
-        btplPesquisaLayout.setVerticalGroup(
-            btplPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btplPesquisaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btpPesquisa))
-        );
-
-        pnbNovaConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnbNovaConsultaMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCancelaConsultaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCancelaConsultaMouseExited(evt);
             }
         });
 
         lblNovaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_New_File_50px.png"))); // NOI18N
-        lblNovaConsulta.setToolTipText("");
-
-        lblbNovaConsulta.setText("Nova cosulta");
-
-        javax.swing.GroupLayout pnbNovaConsultaLayout = new javax.swing.GroupLayout(pnbNovaConsulta);
-        pnbNovaConsulta.setLayout(pnbNovaConsultaLayout);
-        pnbNovaConsultaLayout.setHorizontalGroup(
-            pnbNovaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbNovaConsultaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnbNovaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblbNovaConsulta))
-                .addGap(0, 9, Short.MAX_VALUE))
-        );
-        pnbNovaConsultaLayout.setVerticalGroup(
-            pnbNovaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbNovaConsultaLayout.createSequentialGroup()
-                .addComponent(lblNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblbNovaConsulta))
-        );
-
-        pnbCancelarConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblNovaConsulta.setToolTipText("Nova Consulta");
+        lblNovaConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnbCancelarConsultaMouseClicked(evt);
+                lblNovaConsultaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblNovaConsultaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblNovaConsultaMouseExited(evt);
             }
         });
 
-        lblCancelaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Delete_File_50px.png"))); // NOI18N
+        lblPesquisaFiltro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Search_20px.png"))); // NOI18N
+        lblPesquisaFiltro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPesquisaFiltroMouseClicked(evt);
+            }
+        });
 
-        lblbCancelarConsulta.setText("Cancelar consulta");
+        lblSelectConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Inspection_50px.png"))); // NOI18N
+        lblSelectConsulta.setToolTipText("Selecionar consulta");
+        lblSelectConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSelectConsultaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSelectConsultaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSelectConsultaMouseExited(evt);
+            }
+        });
 
-        javax.swing.GroupLayout pnbCancelarConsultaLayout = new javax.swing.GroupLayout(pnbCancelarConsulta);
-        pnbCancelarConsulta.setLayout(pnbCancelarConsultaLayout);
-        pnbCancelarConsultaLayout.setHorizontalGroup(
-            pnbCancelarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbCancelarConsultaLayout.createSequentialGroup()
-                .addComponent(lblbCancelarConsulta)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(pnbCancelarConsultaLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblCancelaConsulta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnbCancelarConsultaLayout.setVerticalGroup(
-            pnbCancelarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnbCancelarConsultaLayout.createSequentialGroup()
-                .addComponent(lblCancelaConsulta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblbCancelarConsulta))
-        );
+        lblbDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Cancel_50px.png"))); // NOI18N
+        lblbDelete.setToolTipText("Excluir consulta");
+        lblbDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbDeleteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbDeleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbDeleteMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tfCd_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tffCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCodigo)
-                                .addGap(41, 41, 41)
-                                .addComponent(lblCpf)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tffNmPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(lblNomeDoPaciente)
-                                .addGap(56, 56, 56)
-                                .addComponent(btplPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(307, 307, 307))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblConsultas)
-                        .addGap(310, 310, 310)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnbNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnbCancelarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(lblCancelar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jtpConsultas)
-                        .addGap(10, 10, 10))))
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(lblCancelar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCancelaConsulta)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblbDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSelectConsulta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(lblFiltro))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblPesquisaFiltro)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(403, 403, 403)
+                .addComponent(lblConsultas)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jtpConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCodigo)
-                            .addComponent(lblCpf)
-                            .addComponent(lblNomeDoPaciente))
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btplPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCd_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tffCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tffNmPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jtpConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCancelaConsulta)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblFiltro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblPesquisaFiltro))
+                                .addGap(18, 18, 18)
+                                .addComponent(lblNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblbDelete)
+                            .addComponent(lblSelectConsulta)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                        .addComponent(pnbCancelarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(pnbNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(132, 132, 132)
+                        .addComponent(lblCancelar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pnbNovaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbNovaConsultaMouseClicked
+    private void lblPesquisaFiltroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPesquisaFiltroMouseClicked
         // TODO add your handling code here:
-        TelaConsultaNova tc = new TelaConsultaNova();
-        tc.setVisible(true);
-    }//GEN-LAST:event_pnbNovaConsultaMouseClicked
+        //BOTÃO DE BUSCA DO FILTRO
+    }//GEN-LAST:event_lblPesquisaFiltroMouseClicked
 
-    private void pnbCancelarConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnbCancelarConsultaMouseClicked
+    private void lblNovaConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovaConsultaMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_pnbCancelarConsultaMouseClicked
+        Botoes bt = new Botoes();
+        bt.botabotão(lblNovaConsulta);
+    }//GEN-LAST:event_lblNovaConsultaMouseEntered
 
-    private void btpPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btpPesquisaMouseClicked
+    private void lblNovaConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovaConsultaMouseExited
         // TODO add your handling code here:
-        BuscaPacinete bp = new BuscaPacinete();
-        bp.setVisible(true);
-    }//GEN-LAST:event_btpPesquisaMouseClicked
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblNovaConsulta);
+    }//GEN-LAST:event_lblNovaConsultaMouseExited
 
+    private void lblCancelaConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelaConsultaMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblCancelaConsulta);
+    }//GEN-LAST:event_lblCancelaConsultaMouseEntered
+
+    private void lblCancelaConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelaConsultaMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblCancelaConsulta);
+    }//GEN-LAST:event_lblCancelaConsultaMouseExited
+
+    private void lblNovaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovaConsultaMouseClicked
+        // TODO add your handling code here:
+        TelaConsultaNova tl = new TelaConsultaNova();
+        tl.setVisible(true);
+    }//GEN-LAST:event_lblNovaConsultaMouseClicked
+
+    private void lblSelectConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSelectConsultaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblSelectConsultaMouseClicked
+
+    private void lblSelectConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSelectConsultaMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblSelectConsulta);
+    }//GEN-LAST:event_lblSelectConsultaMouseEntered
+
+    private void lblSelectConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSelectConsultaMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblSelectConsulta);
+    }//GEN-LAST:event_lblSelectConsultaMouseExited
+
+    private void lblCancelaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelaConsultaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lblCancelaConsultaMouseClicked
+
+    private void lblbDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblbDeleteMouseClicked
+
+    private void lblbDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseEntered
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.botabotão(lblbDelete);
+    }//GEN-LAST:event_lblbDeleteMouseEntered
+
+    private void lblbDeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseExited
+        // TODO add your handling code here:
+        Botoes bt = new Botoes();
+        bt.tirabotão(lblbDelete);
+    }//GEN-LAST:event_lblbDeleteMouseExited
+
+    public void CacelaConsulta(){
+        long idFind;
+        String cpfFind;
+        String nomeFind;
+        
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -377,27 +399,21 @@ public class TelaConsultas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btpPesquisa;
-    private javax.swing.JPanel btplPesquisa;
+    private javax.swing.JComboBox<String> cbFiltro;
     private javax.swing.JTabbedPane jtpConsultas;
     private javax.swing.JLabel lblCancelaConsulta;
     private javax.swing.JLabel lblCancelar;
-    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblConsultas;
-    private javax.swing.JLabel lblCpf;
-    private javax.swing.JLabel lblNomeDoPaciente;
+    private javax.swing.JLabel lblFiltro;
     private javax.swing.JLabel lblNovaConsulta;
-    private javax.swing.JLabel lblbCancelarConsulta;
-    private javax.swing.JLabel lblbNovaConsulta;
+    private javax.swing.JLabel lblPesquisaFiltro;
+    private javax.swing.JLabel lblSelectConsulta;
+    private javax.swing.JLabel lblbDelete;
     private javax.swing.JPanel pnBaixadas;
-    private javax.swing.JPanel pnbCancelarConsulta;
-    private javax.swing.JPanel pnbNovaConsulta;
     private javax.swing.JScrollPane spAbertas;
     private javax.swing.JScrollPane spBaixadas;
     private javax.swing.JTable tbConsultaAberta;
     private javax.swing.JTable tbConsultasBaixadas;
-    private javax.swing.JTextField tfCd_paciente;
-    private javax.swing.JFormattedTextField tffCPF;
-    private javax.swing.JTextField tffNmPaciente;
+    private javax.swing.JTextField tfFiltro;
     // End of variables declaration//GEN-END:variables
 }
