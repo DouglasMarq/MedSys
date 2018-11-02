@@ -14,7 +14,15 @@ import util.Botoes;
  * @author lucas
  */
 public class InterfaceMedico extends javax.swing.JFrame {
+    
 
+    public InterfaceMedico(String cd_consulta, String Nomepac, String Nomemed) {
+      initComponents();
+        lblNomePacinetedf.setText(Nomepac);
+        lblNomeMedicodf.setText(Nomemed);
+        lblSetNumero.setText(cd_consulta);
+      centralizarComponente();
+    }
     /**
      * Creates new form InterfaceMedico
      */
@@ -41,11 +49,7 @@ public class InterfaceMedico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCodigoPaciente = new javax.swing.JLabel();
-        lblCpfPaciente = new javax.swing.JLabel();
         lblNomePaciente = new javax.swing.JLabel();
-        lblCodigoPacientedf = new javax.swing.JLabel();
-        lblCpfPacientedf = new javax.swing.JLabel();
         lblNomePacinetedf = new javax.swing.JLabel();
         jsSeparaInfos = new javax.swing.JSeparator();
         lblConsulta = new javax.swing.JLabel();
@@ -55,34 +59,38 @@ public class InterfaceMedico extends javax.swing.JFrame {
         jspLaudoMedico = new javax.swing.JScrollPane();
         taLaudoMedico = new javax.swing.JTextArea();
         lblbConfirmaConsulta = new javax.swing.JLabel();
+        lblNumero = new javax.swing.JLabel();
+        lblSetNumero = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consulta");
-
-        lblCodigoPaciente.setText("Codigo");
-
-        lblCpfPaciente.setText("Cpf");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNomePaciente.setText("Nome do paciente");
-
-        lblCodigoPacientedf.setText("--");
-
-        lblCpfPacientedf.setText("--");
+        getContentPane().add(lblNomePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         lblNomePacinetedf.setText("---");
+        getContentPane().add(lblNomePacinetedf, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        getContentPane().add(jsSeparaInfos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 95, 739, 10));
 
         lblConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblConsulta.setText("Consulta");
+        getContentPane().add(lblConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
         lblNomeMedico.setText("Medico");
+        getContentPane().add(lblNomeMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, -1, -1));
 
         lblNomeMedicodf.setText("--");
+        getContentPane().add(lblNomeMedicodf, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 50, -1, -1));
 
         lblLaudoMedico.setText("Laudo Médico");
+        getContentPane().add(lblLaudoMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 111, -1, -1));
 
         taLaudoMedico.setColumns(20);
         taLaudoMedico.setRows(5);
         jspLaudoMedico.setViewportView(taLaudoMedico);
+
+        getContentPane().add(jspLaudoMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 131, 719, -1));
 
         lblbConfirmaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Inspection_50px.png"))); // NOI18N
         lblbConfirmaConsulta.setToolTipText("Concluir Consulta");
@@ -97,91 +105,13 @@ public class InterfaceMedico extends javax.swing.JFrame {
                 lblbConfirmaConsultaMouseExited(evt);
             }
         });
+        getContentPane().add(lblbConfirmaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 245, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jsSeparaInfos)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 357, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblNomeMedicodf)
-                                .addGap(58, 58, 58))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblConsulta)
-                                .addGap(225, 225, 225)
-                                .addComponent(lblNomeMedico)
-                                .addGap(46, 46, 46))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jspLaudoMedico)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCodigoPaciente)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lblCodigoPacientedf)))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblCpfPaciente)
-                                        .addGap(42, 42, 42)
-                                        .addComponent(lblNomePaciente))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblCpfPacientedf)
-                                        .addGap(83, 83, 83)
-                                        .addComponent(lblNomePacinetedf))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(331, 331, 331)
-                                .addComponent(lblLaudoMedico)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblbConfirmaConsulta)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblConsulta)
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCodigoPaciente)
-                            .addComponent(lblCpfPaciente)
-                            .addComponent(lblNomePaciente))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCodigoPacientedf)
-                            .addComponent(lblCpfPacientedf)
-                            .addComponent(lblNomePacinetedf))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jsSeparaInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblNomeMedico)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNomeMedicodf)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblLaudoMedico)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jspLaudoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblbConfirmaConsulta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        lblNumero.setText("Numero:");
+        getContentPane().add(lblNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+
+        lblSetNumero.setText("--");
+        getContentPane().add(lblSetNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,7 +130,7 @@ public class InterfaceMedico extends javax.swing.JFrame {
 
     private void lblbConfirmaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaConsultaMouseClicked
         // TODO add your handling code here:
-        
+       
     }//GEN-LAST:event_lblbConfirmaConsultaMouseClicked
 
     /**
@@ -241,16 +171,14 @@ public class InterfaceMedico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator jsSeparaInfos;
     private javax.swing.JScrollPane jspLaudoMedico;
-    private javax.swing.JLabel lblCodigoPaciente;
-    private javax.swing.JLabel lblCodigoPacientedf;
     private javax.swing.JLabel lblConsulta;
-    private javax.swing.JLabel lblCpfPaciente;
-    private javax.swing.JLabel lblCpfPacientedf;
     private javax.swing.JLabel lblLaudoMedico;
     private javax.swing.JLabel lblNomeMedico;
     private javax.swing.JLabel lblNomeMedicodf;
     private javax.swing.JLabel lblNomePaciente;
     private javax.swing.JLabel lblNomePacinetedf;
+    private javax.swing.JLabel lblNumero;
+    private javax.swing.JLabel lblSetNumero;
     private javax.swing.JLabel lblbConfirmaConsulta;
     private javax.swing.JTextArea taLaudoMedico;
     // End of variables declaration//GEN-END:variables

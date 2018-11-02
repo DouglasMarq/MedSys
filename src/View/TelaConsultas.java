@@ -319,7 +319,14 @@ public class TelaConsultas extends javax.swing.JFrame {
 
     private void lblSelectConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSelectConsultaMouseClicked
         // TODO add your handling code here:
-        
+        int row = tbConsultaAberta.getSelectedRow();
+        int[] col = {0,3,4};
+        String cd_consulta = tbConsultaAberta.getModel().getValueAt(row, col[0]).toString();
+        String nm_pac = tbConsultaAberta.getModel().getValueAt(row, col[1]).toString();
+        String nm_med = tbConsultaAberta.getModel().getValueAt(row, col[2]).toString();
+        System.out.println(cd_consulta + " " + nm_pac + " " + nm_med);
+        InterfaceMedico im = new InterfaceMedico(cd_consulta, nm_pac, nm_med);
+        im.setVisible(true);
     }//GEN-LAST:event_lblSelectConsultaMouseClicked
 
     private void lblSelectConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSelectConsultaMouseEntered
@@ -341,6 +348,11 @@ public class TelaConsultas extends javax.swing.JFrame {
 
     private void lblbDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseClicked
         // TODO add your handling code here:
+        int row = tbConsultaAberta.getSelectedRow();
+        int col = 0;
+        String value = tbConsultaAberta.getModel().getValueAt(row, col).toString();
+        Consulta c = new Consulta(value );
+         c.excluir();
     }//GEN-LAST:event_lblbDeleteMouseClicked
 
     private void lblbDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseEntered

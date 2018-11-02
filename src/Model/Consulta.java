@@ -49,6 +49,10 @@ public class Consulta {
         this.pacienteNome = pacienteNome;
     }
 
+    public Consulta(String codigoConsulta) {
+        this.codigoConsulta = codigoConsulta;
+    }
+
 
     
     
@@ -141,7 +145,7 @@ public class Consulta {
 			String erro = "Erro!!";
 
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-		}
+		}else JOptionPane.showMessageDialog(null,"Excluido com sucesso!");
     }
     
     public DefaultTableModel TableConsulta() {
