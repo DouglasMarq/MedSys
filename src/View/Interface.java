@@ -13,7 +13,8 @@ public class Interface extends javax.swing.JFrame {
         initComponents();
         centralizarComponente();
     }
-    
+    /**
+     *Centraliza a view na tela do usuario*/
     public void centralizarComponente() {
         Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension dw = getSize();
@@ -38,6 +39,7 @@ public class Interface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MedSys");
+        setResizable(false);
 
         lblBemVindo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblBemVindo.setText("Bem vindo");

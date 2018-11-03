@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
+    /**
+     * Utilizado para o login do funcionario (operador)
+      */
     private void LogarFuncionario(){
         if(tfUserOp.getText().length() ==0){
             JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
@@ -34,7 +37,9 @@ public class Login extends javax.swing.JFrame {
             }
         }
     }
-    
+    /**
+     * Utilizado para o login do Medico
+      */
     private void LogarMedico(){
         if(tfUserMed.getText().length() ==0){
             JOptionPane.showMessageDialog(null,"Há campos em branco, preencha todas!");
@@ -71,7 +76,9 @@ public class Login extends javax.swing.JFrame {
         tfUserOp.setText("");
         
     }
-    
+     /**
+     *Centraliza a view na tela do usuario
+      */
         public void centralizarComponente() {
         Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension dw = getSize();
@@ -104,6 +111,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setResizable(false);
 
         tpClasseLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

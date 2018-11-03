@@ -18,7 +18,9 @@ public class TelaConsultas extends javax.swing.JFrame {
     private String medicoNome;
     private String pacienteNome;
 
-    
+    /**
+     * Preenche a table de consultas tanto abertas quanto fechadas com as consultas presentes na base de dados
+     */
     private void setTable(){
 
         Consulta con = new Consulta(codigoConsulta,status,dataConsulta,laudoMedico,medicoNome,pacienteNome);
@@ -34,13 +36,17 @@ public class TelaConsultas extends javax.swing.JFrame {
         centralizarComponente();
         lblSelectConsulta.setVisible(false);
     }
-    
+     /**
+     *Centraliza a view na tela do usuario
+      */
     public void centralizarComponente() {
         Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension dw = getSize();
         setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
-    
+    /**
+     * Utilizado para quando o medico iniciar a tela não tenha acesso aos botoes de criar e excluir consultas, pois é uma função do operador.
+     */
     public void Medico(){
         lblNovaConsulta.setVisible(false);
         lblCancelaConsulta.setVisible(false);
@@ -64,16 +70,13 @@ public class TelaConsultas extends javax.swing.JFrame {
         tbConsultasBaixadas = new javax.swing.JTable();
         lblCancelar = new javax.swing.JLabel();
         lblConsultas = new javax.swing.JLabel();
-        lblFiltro = new javax.swing.JLabel();
-        cbFiltro = new javax.swing.JComboBox<>();
-        tfFiltro = new javax.swing.JTextField();
         lblCancelaConsulta = new javax.swing.JLabel();
         lblNovaConsulta = new javax.swing.JLabel();
-        lblPesquisaFiltro = new javax.swing.JLabel();
         lblSelectConsulta = new javax.swing.JLabel();
-        lblbDelete = new javax.swing.JLabel();
 
         setTitle("Consultas");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbConsultaAberta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,6 +95,11 @@ public class TelaConsultas extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tbConsultaAberta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tbConsultaAbertaMouseEntered(evt);
             }
         });
         spAbertas.setViewportView(tbConsultaAberta);
@@ -133,14 +141,14 @@ public class TelaConsultas extends javax.swing.JFrame {
 
         jtpConsultas.addTab("Baixadas", pnBaixadas);
 
+        getContentPane().add(jtpConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 68, -1, 202));
+
         lblCancelar.setToolTipText("");
+        getContentPane().add(lblCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 366, -1, -1));
 
         lblConsultas.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblConsultas.setText("Consultas");
-
-        lblFiltro.setText("Filtro");
-
-        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N/A", "Codigo da consulta", "Paciente", "Data da consulta" }));
+        getContentPane().add(lblConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 11, -1, 31));
 
         lblCancelaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Delete_File_50px.png"))); // NOI18N
         lblCancelaConsulta.setToolTipText("Cancelar Consulta");
@@ -155,6 +163,7 @@ public class TelaConsultas extends javax.swing.JFrame {
                 lblCancelaConsultaMouseExited(evt);
             }
         });
+        getContentPane().add(lblCancelaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 281, -1, -1));
 
         lblNovaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_New_File_50px.png"))); // NOI18N
         lblNovaConsulta.setToolTipText("Nova Consulta");
@@ -169,13 +178,7 @@ public class TelaConsultas extends javax.swing.JFrame {
                 lblNovaConsultaMouseExited(evt);
             }
         });
-
-        lblPesquisaFiltro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Search_20px.png"))); // NOI18N
-        lblPesquisaFiltro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblPesquisaFiltroMouseClicked(evt);
-            }
-        });
+        getContentPane().add(lblNovaConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 281, -1, -1));
 
         lblSelectConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Inspection_50px.png"))); // NOI18N
         lblSelectConsulta.setToolTipText("Selecionar consulta");
@@ -190,102 +193,10 @@ public class TelaConsultas extends javax.swing.JFrame {
                 lblSelectConsultaMouseExited(evt);
             }
         });
-
-        lblbDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Cancel_50px.png"))); // NOI18N
-        lblbDelete.setToolTipText("Excluir consulta");
-        lblbDelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblbDeleteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblbDeleteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblbDeleteMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jtpConsultas)
-                        .addGap(10, 10, 10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(lblCancelar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCancelaConsulta)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblbDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSelectConsulta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(lblFiltro))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblPesquisaFiltro)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(403, 403, 403)
-                .addComponent(lblConsultas)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jtpConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCancelaConsulta)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFiltro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblPesquisaFiltro))
-                                .addGap(18, 18, 18)
-                                .addComponent(lblNovaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblbDelete)
-                            .addComponent(lblSelectConsulta)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(lblCancelar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(lblSelectConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(877, 281, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblPesquisaFiltroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPesquisaFiltroMouseClicked
-        // TODO add your handling code here:
-        //BOTÃO DE BUSCA DO FILTRO
-    }//GEN-LAST:event_lblPesquisaFiltroMouseClicked
 
     private void lblNovaConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovaConsultaMouseEntered
         // TODO add your handling code here:
@@ -343,29 +254,21 @@ public class TelaConsultas extends javax.swing.JFrame {
 
     private void lblCancelaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelaConsultaMouseClicked
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_lblCancelaConsultaMouseClicked
-
-    private void lblbDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseClicked
-        // TODO add your handling code here:
         int row = tbConsultaAberta.getSelectedRow();
         int col = 0;
         String value = tbConsultaAberta.getModel().getValueAt(row, col).toString();
         Consulta c = new Consulta(value );
          c.excluir();
-    }//GEN-LAST:event_lblbDeleteMouseClicked
+        setTable();
+         //TelaConsultas tc = new TelaConsultas();
+        // tc.setVisible(true);
+        //TelaConsultas.this.dispose();
+    }//GEN-LAST:event_lblCancelaConsultaMouseClicked
 
-    private void lblbDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseEntered
+    private void tbConsultaAbertaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbConsultaAbertaMouseEntered
         // TODO add your handling code here:
-        Botoes bt = new Botoes();
-        bt.botabotão(lblbDelete);
-    }//GEN-LAST:event_lblbDeleteMouseEntered
-
-    private void lblbDeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbDeleteMouseExited
-        // TODO add your handling code here:
-        Botoes bt = new Botoes();
-        bt.tirabotão(lblbDelete);
-    }//GEN-LAST:event_lblbDeleteMouseExited
+        setTable();
+    }//GEN-LAST:event_tbConsultaAbertaMouseEntered
 
     public void CacelaConsulta(){
         long idFind;
@@ -410,21 +313,16 @@ public class TelaConsultas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbFiltro;
     private javax.swing.JTabbedPane jtpConsultas;
     private javax.swing.JLabel lblCancelaConsulta;
     private javax.swing.JLabel lblCancelar;
     private javax.swing.JLabel lblConsultas;
-    private javax.swing.JLabel lblFiltro;
     private javax.swing.JLabel lblNovaConsulta;
-    private javax.swing.JLabel lblPesquisaFiltro;
     private javax.swing.JLabel lblSelectConsulta;
-    private javax.swing.JLabel lblbDelete;
     private javax.swing.JPanel pnBaixadas;
     private javax.swing.JScrollPane spAbertas;
     private javax.swing.JScrollPane spBaixadas;
     private javax.swing.JTable tbConsultaAberta;
     private javax.swing.JTable tbConsultasBaixadas;
-    private javax.swing.JTextField tfFiltro;
     // End of variables declaration//GEN-END:variables
 }

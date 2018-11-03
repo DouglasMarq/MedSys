@@ -15,7 +15,9 @@ import util.Formata;
 public class TelaConsultaNova extends javax.swing.JFrame {
     Paciente paciente;
     Medico medico;
-    
+    /** 
+     * Preenche o combobox de medicos com todos os medicos presentes na base de dados
+     */
     private void setMedico(){
         Medico med = new Medico();
         for (Medico medico : med.buscar()) {
@@ -47,7 +49,9 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 		//Consulta cons = new Consulta(Status, DataConsulta, QueixaPaciente, ExameFisico, Conduta, sid, PacienteNome, PacienteSobrenome, MedicoNome, MedicoSobrenome);
                 //cons.gravar();
     }*/
-    
+    /** 
+     * Coloca a mascara nos campos formatados
+     */
     private void setMask(){
         tfCPF.setFormatterFactory(Formata.cpf());
     }
@@ -63,7 +67,9 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         setMask();
         //setPaciente();
     }
-    
+     /**
+     *Centraliza a view na tela do usuario
+      */
     public void centralizarComponente() {
         Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension dw = getSize();
@@ -92,6 +98,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         tfCPF = new javax.swing.JFormattedTextField();
 
         setTitle("Nova Consulta");
+        setResizable(false);
 
         lblNovaConsulta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblNovaConsulta.setText("Nova consulta");

@@ -15,7 +15,11 @@ import util.Botoes;
  */
 public class InterfaceMedico extends javax.swing.JFrame {
     
-
+    /**
+     * Utilizado para preenchimento dos campos Codigo da consulta,Nome do paciente e nome do medico ao inicializar a view.
+     * @param cd_consulta preencher com o codigo da consulta
+     * @param Nomepac preencher com o nome do paciente
+     * @param Nomemed  preencher com o nome do Medico */
     public InterfaceMedico(String cd_consulta, String Nomepac, String Nomemed) {
       initComponents();
         lblNomePacinetedf.setText(Nomepac);
@@ -30,15 +34,13 @@ public class InterfaceMedico extends javax.swing.JFrame {
         initComponents();
         centralizarComponente();
     }
-    
+    /**
+     * Centraliza a view na tela do usuario*/
         public void centralizarComponente() {
         Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension dw = getSize();
         setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
-        public void pacientex(){
-    //lblCodigoPacientedf.setText(text);
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,8 +64,9 @@ public class InterfaceMedico extends javax.swing.JFrame {
         lblNumero = new javax.swing.JLabel();
         lblSetNumero = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNomePaciente.setText("Nome do paciente");
@@ -78,10 +81,10 @@ public class InterfaceMedico extends javax.swing.JFrame {
         getContentPane().add(lblConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
         lblNomeMedico.setText("Medico");
-        getContentPane().add(lblNomeMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, -1, -1));
+        getContentPane().add(lblNomeMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         lblNomeMedicodf.setText("--");
-        getContentPane().add(lblNomeMedicodf, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 50, -1, -1));
+        getContentPane().add(lblNomeMedicodf, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         lblLaudoMedico.setText("Laudo Médico");
         getContentPane().add(lblLaudoMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 111, -1, -1));

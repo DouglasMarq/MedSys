@@ -17,7 +17,9 @@ import util.Botoes;
 import util.Formata;
 
 public class Cadastros extends javax.swing.JFrame {
-
+    
+    /**
+     * Registra o medico com as informaçoes inseridas na view */
     private void registrarMedico() {
         if (tfSnMed.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Há campos vazios");
@@ -62,7 +64,8 @@ public class Cadastros extends javax.swing.JFrame {
 
         }
     }
-
+   /**
+    * Registra o paciente com as informaçoes inseridas na view */
     private void registrarPaciente() {
         if (tfSnPaciente.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Há campos vazios");
@@ -105,7 +108,8 @@ public class Cadastros extends javax.swing.JFrame {
 
         }
     }
-
+    /**
+     * Registra o operador com as informaçoes inseridas na view */
     private void registrarOperador() {
         if (tfSnOperador.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Há campos vazios");
@@ -148,7 +152,8 @@ public class Cadastros extends javax.swing.JFrame {
         operador.gravar();
     }
     }
-
+    /**
+     * Usado para colocar as mascaras nos campos que precisam ser formatados*/
     private void setMask() {
         tffCpfMed.setFormatterFactory(Formata.cpf());
         tffCpfPaciente.setFormatterFactory(Formata.cpf());
@@ -163,7 +168,8 @@ public class Cadastros extends javax.swing.JFrame {
         tffRgPaciente.setFormatterFactory(Formata.RG());
         tffRgOperador.setFormatterFactory(Formata.RG());
     }
-
+   /**
+    * Limpa os campos do medico*/
     private void LimpaMed() {
 	        tfSnMed.setText("");
 		tfNmMed.setText("");
@@ -183,7 +189,8 @@ public class Cadastros extends javax.swing.JFrame {
                 pfSenhaMed.setText("");
                 tftCRM.setText("");
     }
-
+    /**
+     * Limpa os campos do Paciente*/
     private void LimpaPaciente() {
 		tfSnPaciente.setText("");
 		tfNmPaciente.setText("");
@@ -200,7 +207,8 @@ public class Cadastros extends javax.swing.JFrame {
                 tfBairroPaciente.setText("");
                 tffCepPaciente.setText("");
     }
-    
+        /**
+         * Limpa os campos do Operador*/
         private void LimpaOperador() {
 		tfSnOperador.setText("");
 		tfNmOperador.setText("");
@@ -228,7 +236,8 @@ public class Cadastros extends javax.swing.JFrame {
         setMask();
         centralizarComponente();
     }
-
+    /**
+     * Centraliza a view na tela do usuario*/
     public void centralizarComponente() {
         Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension dw = getSize();
