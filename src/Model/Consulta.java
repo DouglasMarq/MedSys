@@ -14,6 +14,7 @@ public class Consulta {
     private String laudoMedico;
     private String medicoNome;
     private String pacienteNome;
+    private Long ID;
 
     protected DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Medico", "Paciente"}, 0);
     protected DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Medico", "Paciente"}, 0);
@@ -23,39 +24,38 @@ public class Consulta {
     }
 
     public Consulta(String dataConsulta, String medicoNome, String pacienteNome) {
-        this.dataConsulta = dataConsulta;
-        this.medicoNome = medicoNome;
-        this.pacienteNome = pacienteNome;
+        setDataConsulta(dataConsulta);
+        setMedicoNome(medicoNome);
+        setPacienteNome(pacienteNome);
     }
     
-    
+    public Consulta(String codigoConsulta, String laudoMedico) {
+        setCodigoConsulta(codigoConsulta);
+        setLaudoMedico(laudoMedico);
+    }
 
     public Consulta(String status, String dataConsulta, String laudoMedico, String medicoNome, String pacienteNome) {
-        this.status = status;
-        this.dataConsulta = dataConsulta;
-        this.laudoMedico = laudoMedico;
-        this.medicoNome = medicoNome;
-        this.pacienteNome = pacienteNome;
+        setStatus(status);
+        setDataConsulta(dataConsulta);
+        setLaudoMedico(laudoMedico);
+        setMedicoNome(medicoNome);
+        setPacienteNome(pacienteNome);
     }
 
     
     
     public Consulta(String codigoConsulta, String status, String dataConsulta, String laudoMedico, String medicoNome, String pacienteNome) {
-        this.codigoConsulta = codigoConsulta;
-        this.status = status;
-        this.dataConsulta = dataConsulta;
-        this.laudoMedico = laudoMedico;
-        this.medicoNome = medicoNome;
-        this.pacienteNome = pacienteNome;
+        setCodigoConsulta(codigoConsulta);
+        setStatus(status);
+        setDataConsulta(dataConsulta);
+        setLaudoMedico(laudoMedico);
+        setMedicoNome(medicoNome);
+        setPacienteNome(pacienteNome);
     }
 
     public Consulta(String codigoConsulta) {
         this.codigoConsulta = codigoConsulta;
     }
-
-
-    
-    
 
     public DefaultTableModel getConsultasFechadas() {
         return ConsultasFechadas;
@@ -148,6 +148,14 @@ public class Consulta {
 		}else JOptionPane.showMessageDialog(null,"Excluido com sucesso!");
     }
     
+    public void Atualizar(String codigoConsulta, String laudoMedico){
+        ConsultaDao dao = new ConsultaDao();
+//        Consulta lm = new Consulta();
+//        lm = laudoMedico;
+        dao.update(Long.parseLong(codigoConsulta),laudoMedico);
+        System.out.println("sucesso2");
+    }
+    
     public DefaultTableModel TableConsulta() {
         //DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
         //DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
@@ -163,6 +171,18 @@ public class Consulta {
             ComboBoxMedico.add(ca.getMedicoNome());
         }
         return ConsultasAbertas;
+    }
+    
+    public class TableModel extends DefaultTableModel{ 
+        
+        TableModel(Object[][] data, String[] columnNames){
+            super(data, columnNames);
+        }
+        
+        @Override
+        public boolean isCellEditable(int row, int column){
+            return false;
+        }
     }
     
     public DefaultTableModel CFechado() {

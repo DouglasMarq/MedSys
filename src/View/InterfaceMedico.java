@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.Consulta;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import util.Botoes;
@@ -14,6 +15,17 @@ import util.Botoes;
  * @author lucas
  */
 public class InterfaceMedico extends javax.swing.JFrame {
+    
+    private String LaudoMedico;
+    private String codigoConsulta;
+    
+    private void setLaudoMedico(){
+        LaudoMedico = taLaudoMedico.getText() ;
+        codigoConsulta = lblSetNumero.getText();
+        Consulta teste = new Consulta(codigoConsulta,LaudoMedico);
+        teste.Atualizar(codigoConsulta,LaudoMedico);
+        System.out.println("sucesso");
+    }
     
     /**
      * Utilizado para preenchimento dos campos Codigo da consulta,Nome do paciente e nome do medico ao inicializar a view.
@@ -133,7 +145,7 @@ public class InterfaceMedico extends javax.swing.JFrame {
 
     private void lblbConfirmaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaConsultaMouseClicked
         // TODO add your handling code here:
-       
+       setLaudoMedico();
     }//GEN-LAST:event_lblbConfirmaConsultaMouseClicked
 
     /**
