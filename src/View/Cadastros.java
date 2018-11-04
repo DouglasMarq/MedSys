@@ -412,7 +412,7 @@ public class Cadastros extends javax.swing.JFrame {
 
         lblEstadoCivil.setText("Estado civil");
 
-        cbConvenio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amil", "NotreDame Intermédica", "Item 3", "Item 4" }));
+        cbConvenio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amil", "NotreDame Intermédica", "Nenhum" }));
 
         lblConvenio.setText("Convenio");
 

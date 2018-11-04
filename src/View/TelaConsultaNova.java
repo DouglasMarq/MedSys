@@ -241,6 +241,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
         Consulta consulta = new Consulta(data, cbMedico.getSelectedItem().toString(), tfNomePaciente.getText());
         consulta.gravar();
+        this.dispose();
         
     }//GEN-LAST:event_lblbSalvarMouseClicked
 
