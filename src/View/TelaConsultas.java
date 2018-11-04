@@ -21,12 +21,14 @@ public class TelaConsultas extends javax.swing.JFrame {
     /**
      * Preenche a table de consultas tanto abertas quanto fechadas com as consultas presentes na base de dados
      */
-    private void setTable(){
+    public void setTable(){
 
         Consulta con = new Consulta(codigoConsulta,status,dataConsulta,laudoMedico,medicoNome,pacienteNome);
         
         tbConsultaAberta.setModel(con.TableConsulta());
         tbConsultasBaixadas.setModel(con.CFechado());
+        
+        
 
     }
     
@@ -270,7 +272,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         setTable();
     }//GEN-LAST:event_tbConsultaAbertaMouseEntered
 
-    public void CacelaConsulta(){
+    public void CancelaConsulta(){
         long idFind;
         String cpfFind;
         String nomeFind;

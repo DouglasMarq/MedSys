@@ -25,6 +25,7 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         }
         
         
+        
     }
     
     /*private void setPaciente(){
@@ -99,6 +100,14 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
         setTitle("Nova Consulta");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         lblNovaConsulta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblNovaConsulta.setText("Nova consulta");
@@ -225,6 +234,8 @@ public class TelaConsultaNova extends javax.swing.JFrame {
 
     private void lblbSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseClicked
         // TODO add your handling code here:
+        TelaConsultas TC = new TelaConsultas();
+        TC.setTable();
         DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         String data = fmt.format(jDateChooser1.getDate());
 
@@ -239,6 +250,18 @@ public class TelaConsultaNova extends javax.swing.JFrame {
         paciente = dao.findOne(tfCPF.getText());
         tfNomePaciente.setText(paciente.getNome() + " " + paciente.getSobrenome());
     }//GEN-LAST:event_BtnPesquisaMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        TelaConsultas TC = new TelaConsultas();
+        TC.setTable();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        TelaConsultas TC = new TelaConsultas();
+        TC.setTable();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
