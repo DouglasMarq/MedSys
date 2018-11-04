@@ -279,7 +279,6 @@ public class TelaConsultas extends javax.swing.JFrame {
         setTable();
     }//GEN-LAST:event_tbConsultaAbertaMouseEntered
 
-<<<<<<< HEAD
     public void CancelaConsulta(){
         long idFind;
         String cpfFind;
@@ -287,13 +286,11 @@ public class TelaConsultas extends javax.swing.JFrame {
         
         
     }
-=======
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
          setTable();
     }//GEN-LAST:event_formMouseClicked
 
->>>>>>> 84a155024fafcdf89a3d1139cd180e698bfbd7eb
     /**
      * @param args the command line arguments
      */
