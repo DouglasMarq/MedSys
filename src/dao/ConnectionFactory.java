@@ -46,7 +46,11 @@ public class ConnectionFactory {
 			throw new RuntimeException();
 		}
 	}
-
+/**
+ * Fecha a conexão com o banco de dados, a conexão e o PreparedStatement a serem fechados devem ser passados como parametro.
+ * @param con
+ * @param pst 
+ */
 	public static void closeConnection(Connection con, PreparedStatement pst) {
 		try {
 			if (con != null) {
@@ -62,7 +66,12 @@ public class ConnectionFactory {
 			throw new RuntimeException();
 		}
 	}
-
+/**
+ * Fecha a conexão com o banco de dados, a conexão, PreparedStatement e o ResultSet a serem fechados devem ser passados como parametro.
+ * @param con
+ * @param pst
+ * @param rs 
+ */
 	public static void closeConnection(Connection con, PreparedStatement pst, ResultSet rs) {
 		try {
 			if (con != null) {
