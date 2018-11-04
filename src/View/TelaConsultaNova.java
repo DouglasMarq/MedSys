@@ -214,13 +214,13 @@ public class TelaConsultaNova extends javax.swing.JFrame {
     private void lblbSalvarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblbSalvar);
+        bt.botabotao(lblbSalvar);
     }//GEN-LAST:event_lblbSalvarMouseEntered
 
     private void lblbSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblbSalvar);
+        bt.tirabotao(lblbSalvar);
     }//GEN-LAST:event_lblbSalvarMouseExited
 
     private void lblbSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbSalvarMouseClicked

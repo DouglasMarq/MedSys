@@ -15,30 +15,7 @@ public class login {
      * @param password
      * @return 
      */
-    public boolean validar_login(String username,String password){
-        
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try{
-            stmt = con.prepareStatement("SELECT * FROM d0_Funcionarios WHERE ds_user=? AND ds_pass=?");
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            rs = stmt.executeQuery();
-            if (rs.next()){
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException ex){
-            throw new RuntimeException("Erro no login");
-        } finally {
-            ConnectionFactory.closeConnection(con);
-            rs = null;
-            stmt = null;
-        }
-    }
+   
     
     
 /**
@@ -77,6 +54,31 @@ public class login {
      */
     public void setUsername(String username) {
         this.username = username;
+    }
+    
+     public boolean validar_login(String username,String password){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try{
+            stmt = con.prepareStatement("SELECT * FROM d0_Funcionarios WHERE ds_user=? AND ds_pass=?");
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            rs = stmt.executeQuery();
+            if (rs.next()){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException ex){
+            throw new RuntimeException("Erro no login");
+        } finally {
+            ConnectionFactory.closeConnection(con);
+            rs = null;
+            stmt = null;
+        }
     }
 
 }

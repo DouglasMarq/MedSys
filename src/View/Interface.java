@@ -146,25 +146,25 @@ public class Interface extends javax.swing.JFrame {
     private void lblbPacienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbPacienteMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblbPaciente);
+        bt.botabotao(lblbPaciente);
     }//GEN-LAST:event_lblbPacienteMouseEntered
 
     private void lblbPacienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbPacienteMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblbPaciente);
+        bt.tirabotao(lblbPaciente);
     }//GEN-LAST:event_lblbPacienteMouseExited
 
     private void lblbConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConsultaMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblbConsulta);
+        bt.botabotao(lblbConsulta);
     }//GEN-LAST:event_lblbConsultaMouseEntered
 
     private void lblbConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConsultaMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblbConsulta);
+        bt.tirabotao(lblbConsulta);
     }//GEN-LAST:event_lblbConsultaMouseExited
 
     /**

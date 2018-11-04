@@ -208,25 +208,25 @@ public class TelaConsultas extends javax.swing.JFrame {
     private void lblNovaConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovaConsultaMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblNovaConsulta);
+        bt.botabotao(lblNovaConsulta);
     }//GEN-LAST:event_lblNovaConsultaMouseEntered
 
     private void lblNovaConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovaConsultaMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblNovaConsulta);
+        bt.tirabotao(lblNovaConsulta);
     }//GEN-LAST:event_lblNovaConsultaMouseExited
 
     private void lblCancelaConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelaConsultaMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblCancelaConsulta);
+        bt.botabotao(lblCancelaConsulta);
     }//GEN-LAST:event_lblCancelaConsultaMouseEntered
 
     private void lblCancelaConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelaConsultaMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblCancelaConsulta);
+        bt.tirabotao(lblCancelaConsulta);
     }//GEN-LAST:event_lblCancelaConsultaMouseExited
 
     private void lblNovaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNovaConsultaMouseClicked
@@ -250,13 +250,13 @@ public class TelaConsultas extends javax.swing.JFrame {
     private void lblSelectConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSelectConsultaMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblSelectConsulta);
+        bt.botabotao(lblSelectConsulta);
     }//GEN-LAST:event_lblSelectConsultaMouseEntered
 
     private void lblSelectConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSelectConsultaMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblSelectConsulta);
+        bt.tirabotao(lblSelectConsulta);
     }//GEN-LAST:event_lblSelectConsultaMouseExited
 
     private void lblCancelaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelaConsultaMouseClicked
