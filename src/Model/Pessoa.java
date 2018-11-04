@@ -17,7 +17,21 @@ public abstract class Pessoa {
 
 	public Pessoa() {
 	}
-
+/**
+ * Construtor feito para passagens de tais dados por parametro:
+ * @param id
+ * @param nome
+ * @param sobrenome
+ * @param rg
+ * @param cpf
+ * @param dataNascimento
+ * @param endereco
+ * @param celular
+ * @param telefone
+ * @param email
+ * @param estadocivil
+ * @param sexo 
+ */
 	public Pessoa(long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
 		this.id = id;
 		this.nome = nome;
@@ -32,7 +46,20 @@ public abstract class Pessoa {
 		this.estadocivil = estadocivil;
 		this.sexo = sexo;
 	}
-
+/**
+ * Construtor feito para passagens dos dados por meio dos parametros :
+ * @param nome
+ * @param sobrenome
+ * @param rg
+ * @param cpf
+ * @param dataNascimento
+ * @param endereco
+ * @param celular
+ * @param telefone
+ * @param email
+ * @param estadocivil
+ * @param sexo 
+ */
 	public Pessoa(String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;

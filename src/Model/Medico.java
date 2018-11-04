@@ -11,15 +11,53 @@ import javax.swing.JOptionPane;
 public class Medico extends Funcionario {
 
     private String crm;
-
+     /**
+     * Construtor vazio para apenas instancia da classe.
+     */
     public Medico() {
     }
-
-    public Medico(String crm, String login, String senha, int cargo, long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
+/**
+ * Construtor feito para passagens de tais dados por parametro:
+ * @param crm
+ * @param login
+ * @param senha
+ * @param cargo
+ * @param id
+ * @param nome
+ * @param sobrenome
+ * @param rg
+ * @param cpf
+ * @param dataNascimento
+ * @param endereco
+ * @param celular
+ * @param telefone
+ * @param email
+ * @param estadocivil
+ * @param sexo 
+ */
+    public Medico(String crm, String login, String senha, int cargo, long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo)
+    {
         super(login, senha, cargo, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
         this.crm = crm;
     }
-
+/**
+ * Construtor feito para passagens de tais dados por parametro:
+ * @param crm
+ * @param login
+ * @param senha
+ * @param cargo
+ * @param nome
+ * @param sobrenome
+ * @param rg
+ * @param cpf
+ * @param dataNascimento
+ * @param endereco
+ * @param celular
+ * @param telefone
+ * @param email
+ * @param estadocivil
+ * @param sexo 
+ */
     public Medico(String crm, String login, String senha, int cargo, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
         super(login, senha, cargo, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
         this.crm = crm;
@@ -34,6 +72,9 @@ public class Medico extends Funcionario {
     }
 
     // DAO's na view
+     /**
+     * Passa o comando "create" para a classe DAO para gravação de dados no bd.
+     */
     public void gravar() {
         MedicoDao dao = new MedicoDao();
         int valida = dao.create(this);
@@ -50,7 +91,9 @@ public class Medico extends Funcionario {
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
         }
     }
-
+    /**
+     * Passa o comando "delete" para a classe DAO para a exclusão de dados no bd.
+     */
     public void deletar() {
         MedicoDao dao = new MedicoDao();
         int valida = dao.delete(this.getId());
@@ -62,7 +105,9 @@ public class Medico extends Funcionario {
             JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Passa o comando "update" para a classe DAO para atualização de dados no bd.
+     */
     public void regravar() {
         MedicoDao dao = new MedicoDao();
         int valida = dao.update(this.getId(), this);
@@ -74,7 +119,10 @@ public class Medico extends Funcionario {
             JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Busca os operadores e retonar uma list com todos eles.
+     * @return 
+    */
     public List<Medico> buscar() {
         MedicoDao dao = new MedicoDao();
         return dao.read();

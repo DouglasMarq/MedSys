@@ -10,19 +10,57 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Operador extends Funcionario {
-
+/**
+ * Construtor vazio para apenas instancia da classe.
+ */
     public Operador() {
     }
-
+/**
+ * Construtor feito para passagens de tais dados por parametro:
+ * @param login
+ * @param senha
+ * @param departamento
+ * @param id
+ * @param nome
+ * @param sobrenome
+ * @param rg
+ * @param cpf
+ * @param dataNascimento
+ * @param endereco
+ * @param celular
+ * @param telefone
+ * @param email
+ * @param estadocivil
+ * @param sexo 
+ */
     public Operador(String login, String senha, int departamento, long id, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
         super(login, senha, departamento, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
     }
-
+/**
+ * Construtor feito para passagens de tais dados por parametro:
+ * @param login
+ * @param senha
+ * @param departamento
+ * @param nome
+ * @param sobrenome
+ * @param rg
+ * @param cpf
+ * @param dataNascimento
+ * @param endereco
+ * @param celular
+ * @param telefone
+ * @param email
+ * @param estadocivil
+ * @param sexo 
+ */
     public Operador(String login, String senha, int departamento, String nome, String sobrenome, String rg, String cpf, String dataNascimento, Endereco endereco, String celular, String telefone, String email, EstadoCivil estadocivil, Sexo sexo) {
         super(login, senha, departamento, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
     }
 
     // DAO's na view
+     /**
+     * Passa o comando "create" para a classe DAO para gravação de dados no bd.
+     */
     public void gravar() {
         OperadorDao dao = new OperadorDao();
         int valida = dao.create(this);
@@ -38,7 +76,9 @@ public class Operador extends Funcionario {
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
         }
     }
-
+    /**
+     * Passa o comando "delete" para a classe DAO para a exclusão de dados no bd.
+     */
     public void deletar() {
         OperadorDao dao = new OperadorDao();
         int valida = dao.delete(this.getId());
@@ -50,7 +90,9 @@ public class Operador extends Funcionario {
             JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Passa o comando "update" para a classe DAO para atualização de dados no bd.
+     */
     public void regravar() {
         OperadorDao dao = new OperadorDao();
         int valida = dao.update(this.getId(), this);
@@ -62,7 +104,10 @@ public class Operador extends Funcionario {
             JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
         }
     }
-
+/**
+ * Busca os operadores e retonar uma list com todos eles.
+ * @return 
+ */
     public List<Operador> buscar() {
         OperadorDao dao = new OperadorDao();
         return dao.read();

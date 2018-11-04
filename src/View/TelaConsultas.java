@@ -51,6 +51,7 @@ public class TelaConsultas extends javax.swing.JFrame {
         lblNovaConsulta.setVisible(false);
         lblCancelaConsulta.setVisible(false);
         lblSelectConsulta.setVisible(true);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
@@ -74,8 +75,14 @@ public class TelaConsultas extends javax.swing.JFrame {
         lblNovaConsulta = new javax.swing.JLabel();
         lblSelectConsulta = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultas");
         setResizable(false);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbConsultaAberta.setModel(new javax.swing.table.DefaultTableModel(
@@ -270,13 +277,11 @@ public class TelaConsultas extends javax.swing.JFrame {
         setTable();
     }//GEN-LAST:event_tbConsultaAbertaMouseEntered
 
-    public void CacelaConsulta(){
-        long idFind;
-        String cpfFind;
-        String nomeFind;
-        
-        
-    }
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+         setTable();
+    }//GEN-LAST:event_formMouseClicked
+
     /**
      * @param args the command line arguments
      */
