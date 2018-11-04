@@ -11,7 +11,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ConsultaDao implements dao<Consulta> {
-    
+    /**
+     * Executa a instrução sql insert na tabela de consultas, requer um objeto do tipo Consulta com as informaçoes para serem inseridas na instrução.
+     * @param obj
+     * @return 
+     */
     @Override
 	public int create(Consulta obj) {
 		Connection con = ConnectionFactory.getConnection();
@@ -43,7 +47,10 @@ public class ConsultaDao implements dao<Consulta> {
 		}
 
 	}
-    
+    /**
+     * Executa a instrução sql select no banco de dados, retorna uma ArrayList com todos os objetos do tipo Consulta e com todos os campos registrados na tabela.
+     * @return 
+     */
     public List<Consulta> read(){
         Connection con = ConnectionFactory.getConnection();
 	PreparedStatement pst = null;
@@ -71,7 +78,12 @@ public class ConsultaDao implements dao<Consulta> {
         }
         return null;
     }
-
+/**
+ * Executa a instrução update sql no banco de dados, necessita a passagem como parametro do codigo da consulta e do objeto consulta a ser atualizado no banco.
+ * @param idFind
+ * @param ConsultaUpdate
+ * @return 
+ */
     @Override
 	public int update(long idFind, Consulta ConsultaUpdate) {
         
@@ -98,7 +110,11 @@ public class ConsultaDao implements dao<Consulta> {
 		}
            
 	}
-
+/**
+ * Executa a instrução delete sql no banco de dados, necessita a passagem do id da consulta a ser deletado do banco de dados.
+ * @param idFind
+ * @return 
+ */
     @Override
 	public int delete(long idFind) {
 		Connection con = ConnectionFactory.getConnection();

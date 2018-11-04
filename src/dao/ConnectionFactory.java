@@ -14,7 +14,10 @@ public class ConnectionFactory {
     //private static final String url = "jdbc:sqlite:C:\\Users\\Douglas\\Downloads\\Development\\MedSys\\bd\\MedSysdb.db";
     private static final String url = "jdbc:sqlite:C:\\git\\MedSys2\\bd\\MedSysdb.db"; //Caminho do lucão;
     
-
+/**
+ * Retorna uma conexão com o banco de dados com a url de conexão e o driver especifico do banco utilizado
+ * @return 
+ */
 	public static Connection getConnection() {
 		try {
 			return DriverManager.getConnection(url);
@@ -26,7 +29,10 @@ public class ConnectionFactory {
 			throw new RuntimeException();
 		}
 	}
-
+/**
+ * Fecha a conexão com o banco de dados, a conexão a ser fechada deve ser passada como parametro.
+ * @param con 
+ */
 	public static void closeConnection(Connection con) {
 		try {
 			if (con != null) {

@@ -14,7 +14,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class OperadorDao implements dao<Operador> {
-
+/**
+ * Executa a instrução sql insert na tabela de Operadores, requer um objeto do tipo Operador com as informaçoes para serem inseridas na instrução.
+ * @param obj
+ * @return 
+ */
 	@Override
 	public int create(Operador obj) {
 		Connection con = ConnectionFactory.getConnection();
@@ -64,7 +68,10 @@ public class OperadorDao implements dao<Operador> {
 		}
 
 	}
-
+/**
+ * Executa a instrução sql select no banco de dados, retorna uma ArrayList com todos os objetos do tipo Operador e com todos os campos registrados na tabela.
+ * @return 
+ */
 	@Override
 	public List<Operador> read() {
 		Connection con = ConnectionFactory.getConnection();
@@ -122,7 +129,12 @@ public class OperadorDao implements dao<Operador> {
 			ConnectionFactory.closeConnection(con, pst, rs);
 		}
 	}
-
+/**
+ * Executa a instrução update sql no banco de dados, necessita a passagem como parametro do codigo do Operador e do objeto Operador a ser atualizado no banco.
+ * @param idFind
+ * @param obj
+ * @return 
+ */
 	@Override
 	public int update(long idFind, Operador obj) {
 		Connection con = ConnectionFactory.getConnection();
@@ -192,7 +204,11 @@ public class OperadorDao implements dao<Operador> {
 		}
 
 	}
-
+/**
+ * Executa a instrução delete sql no banco de dados, necessita a passagem do id do Operador a ser deletado do banco de dados.
+ * @param idFind
+ * @return 
+ */
 	@Override
 	public int delete(long idFind) {
 		Connection con = ConnectionFactory.getConnection();
