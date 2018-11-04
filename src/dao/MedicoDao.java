@@ -14,7 +14,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class MedicoDao implements dao<Medico> {
-
+/**
+ * Executa a instrução sql insert na tabela de Medicos, requer um objeto do tipo Medico com as informaçoes para serem inseridas na instrução.
+ * @param obj
+ * @return 
+ */
 	@Override
 	public int create(Medico obj) {
 		Connection con = ConnectionFactory.getConnection();
@@ -62,7 +66,10 @@ public class MedicoDao implements dao<Medico> {
 		}
 
 	}
-
+/**
+ * Executa a instrução sql select no banco de dados, retorna uma ArrayList com todos os objetos do tipo Medico e com todos os campos registrados na tabela.
+ * @return 
+ */
 	@Override
 	public List<Medico> read() {
 		Connection con = ConnectionFactory.getConnection();
@@ -118,7 +125,12 @@ public class MedicoDao implements dao<Medico> {
 			ConnectionFactory.closeConnection(con, pst, rs);
 		}
 	}
-
+/**
+ * Executa a instrução update sql no banco de dados, necessita a passagem como parametro do codigo do Medico e do objeto Medico a ser atualizado no banco.
+ * @param idFind
+ * @param obj
+ * @return 
+ */
 	@Override
 	public int update(long idFind, Medico obj) {
 		Connection con = ConnectionFactory.getConnection();
@@ -183,7 +195,11 @@ public class MedicoDao implements dao<Medico> {
 			ConnectionFactory.closeConnection(con, pst);
 		}
 	}
-
+/**
+ * Executa a instrução delete sql no banco de dados, necessita a passagem do id do Medico a ser deletado do banco de dados.
+ * @param idFind
+ * @return 
+ */
 	@Override
 	public int delete(long idFind) {
 		Connection con = ConnectionFactory.getConnection();

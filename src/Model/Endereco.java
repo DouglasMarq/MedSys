@@ -8,10 +8,20 @@ public class Endereco {
 	private String bairro;
 	private String cidade;
 	private int cep;
-
+    /**
+    * Construtor sem parametros apenas para isntancia da classe
+    */
 	public Endereco() {
 	}
-
+/**
+ * Construtor feito para passagens de tais dados por parametro:
+ * @param logradouro
+ * @param numero
+ * @param complemento
+ * @param bairro
+ * @param cidade
+ * @param cep 
+ */
 	public Endereco(String logradouro, String numero, String complemento, String bairro, String cidade, int cep) {
 		this.logradouro = logradouro;
 		this.numero = numero;

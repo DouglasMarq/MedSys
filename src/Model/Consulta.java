@@ -14,26 +14,50 @@ public class Consulta {
     private String laudoMedico;
     private String medicoNome;
     private String pacienteNome;
-    private Long ID;
 
     protected DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Medico", "Paciente"}, 0);
     protected DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Medico", "Paciente"}, 0);
     private ArrayList<String> ComboBoxMedico = new ArrayList<>();
 
+    /**
+     * Construtor sem parametros para instancia da classe
+     */
     public Consulta() {
     }
 
+    /**
+     * Construtor feito para passagens de tais dados por parametro:
+     *
+     * @param dataConsulta
+     * @param medicoNome
+     * @param pacienteNome
+     */
     public Consulta(String dataConsulta, String medicoNome, String pacienteNome) {
         setDataConsulta(dataConsulta);
         setMedicoNome(medicoNome);
         setPacienteNome(pacienteNome);
     }
 
+    /**
+     * Construtor feito para passagens de tais dados por parametro:
+     *
+     * @param codigoConsulta
+     * @param laudoMedico
+     */
     public Consulta(String codigoConsulta, String laudoMedico) {
         setCodigoConsulta(codigoConsulta);
         setLaudoMedico(laudoMedico);
     }
 
+    /**
+     * Construtor feito para passagens de tais dados por parametro:
+     *
+     * @param status
+     * @param dataConsulta
+     * @param laudoMedico
+     * @param medicoNome
+     * @param pacienteNome
+     */
     public Consulta(String status, String dataConsulta, String laudoMedico, String medicoNome, String pacienteNome) {
         setStatus(status);
         setDataConsulta(dataConsulta);
@@ -42,6 +66,16 @@ public class Consulta {
         setPacienteNome(pacienteNome);
     }
 
+    /**
+     * Construtor feito para passagens de tais dados por parametro:
+     *
+     * @param codigoConsulta
+     * @param status
+     * @param dataConsulta
+     * @param laudoMedico
+     * @param medicoNome
+     * @param pacienteNome
+     */
     public Consulta(String codigoConsulta, String status, String dataConsulta, String laudoMedico, String medicoNome, String pacienteNome) {
         setCodigoConsulta(codigoConsulta);
         setStatus(status);
@@ -119,6 +153,9 @@ public class Consulta {
         this.pacienteNome = pacienteNome;
     }
 
+    /**
+     * Passa o comando "create" para a classe DAO para gravação de dados no bd.
+     */
     public void gravar() {
         ConsultaDao dao = new ConsultaDao();
         int valida = dao.create(this);
@@ -135,6 +172,10 @@ public class Consulta {
         }
     }
 
+    /**
+     * Passa o comando "delete" para a classe DAO para a exclusão de dados no
+     * bd.
+     */
     public void excluir() {
         ConsultaDao dao = new ConsultaDao();
         int valida = dao.delete(Long.parseLong(this.getCodigoConsulta()));
@@ -149,6 +190,10 @@ public class Consulta {
         }
     }
 
+    /**
+     * Passa o comando "update" para a classe DAO para atualização de dados no
+     * bd.
+     */
     public void Atualizar(String codigoConsulta) {
         ConsultaDao dao = new ConsultaDao();
         this.getLaudoMedico();
@@ -164,6 +209,12 @@ public class Consulta {
         }
     }
 
+    /**
+     * Constroi o table model, preenche a tabela da janela com os dados do banco
+     * de dados.
+     *
+     * @return
+     */
     public DefaultTableModel TableConsulta() {
         //DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
         //DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
@@ -181,6 +232,24 @@ public class Consulta {
         return ConsultasAbertas;
     }
 
+    /**
+     * Retorna as consultas fehcadas
+     *
+     * @return
+     */
+    public DefaultTableModel CFechado() {
+        return ConsultasFechadas;
+    }
+
+    /**
+     * Retorna a lista de medicos disponiveis no sistema.
+     *
+     * @return
+     */
+    public ArrayList<String> ComboBoxMediquin() {
+        return ComboBoxMedico;
+    }
+
     public class TableModel extends DefaultTableModel {
 
         TableModel(Object[][] data, String[] columnNames) {
@@ -192,22 +261,4 @@ public class Consulta {
             return false;
         }
     }
-
-    public DefaultTableModel CFechado() {
-        return ConsultasFechadas;
-    }
-
-    public ArrayList<String> ComboBoxMediquin() {
-        return ComboBoxMedico;
-    }
-
-    /*public static boolean validarlogin(String username, String password){
-        login l = new login(username, password);
-        l.validar_login(username, password);
-        if(l.validar_login(username,password)){
-            return true;
-        } else {
-            return false;
-        }
-    }*/
 }

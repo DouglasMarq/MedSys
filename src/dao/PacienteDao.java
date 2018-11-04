@@ -14,7 +14,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class PacienteDao implements dao<Paciente> {
-
+/**
+ * Executa a instrução sql insert na tabela de Pacientes, requer um objeto do tipo Paciente com as informaçoes para serem inseridas na instrução.
+ * @param obj
+ * @return 
+ */
 	@Override
 	public int create(Paciente obj) {
 		Connection con = ConnectionFactory.getConnection();
@@ -61,7 +65,10 @@ public class PacienteDao implements dao<Paciente> {
 		}
 
 	}
-
+/**
+ * Executa a instrução sql select no banco de dados, retorna uma ArrayList com todos os objetos do tipo Paciente e com todos os campos registrados na tabela.
+ * @return 
+ */
 	@Override
 	public List<Paciente> read() {
 		Connection con = ConnectionFactory.getConnection();
@@ -115,7 +122,12 @@ public class PacienteDao implements dao<Paciente> {
 		}
 
 	}
-
+/**
+ * Executa a instrução update sql no banco de dados, necessita a passagem como parametro do codigo do Paciente e do objeto Paciente a ser atualizado no banco
+ * @param idFind
+ * @param pacienteUpdate
+ * @return 
+ */
 	@Override
 	public int update(long idFind, Paciente pacienteUpdate) {
 		Connection con = ConnectionFactory.getConnection();
@@ -176,7 +188,11 @@ public class PacienteDao implements dao<Paciente> {
 		}
 
 	}
-
+/**
+ * Executa a instrução delete sql no banco de dados, necessita a passagem do id do Paciente a ser deletado do banco de dados.
+ * @param idFind
+ * @return 
+ */
 	@Override
 	public int delete(long idFind) {
 		Connection con = ConnectionFactory.getConnection();
@@ -203,7 +219,11 @@ public class PacienteDao implements dao<Paciente> {
 		}
 	}
 
-	
+	/**
+         * Executa a instrução select sql no banco de dados, retorna apenas um objeto do tipo Paciente com todos os dados da consulta, necessita do campo CPF do paciente para realizar a consulta.
+         * @param cpfFind
+         * @return 
+         */
 	public Paciente findOne(String cpfFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
