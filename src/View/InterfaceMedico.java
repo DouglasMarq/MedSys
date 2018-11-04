@@ -22,9 +22,8 @@ public class InterfaceMedico extends javax.swing.JFrame {
     private void setLaudoMedico(){
         LaudoMedico = taLaudoMedico.getText() ;
         codigoConsulta = lblSetNumero.getText();
-        Consulta teste = new Consulta(codigoConsulta,LaudoMedico);
-        teste.Atualizar(codigoConsulta,LaudoMedico);
-        System.out.println("sucesso");
+        Consulta consulta = new Consulta(codigoConsulta,LaudoMedico);
+        consulta.Atualizar(codigoConsulta);
     }
     
     /**

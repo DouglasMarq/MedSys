@@ -203,7 +203,7 @@ public class PacienteDao implements dao<Paciente> {
 		}
 	}
 
-	@Override
+	
 	public Paciente findOne(String cpfFind) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;

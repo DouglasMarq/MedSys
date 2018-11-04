@@ -209,56 +209,5 @@ public class MedicoDao implements dao<Medico> {
 		}
 	}
 
-	@Override
-	public Medico findOne(String cpfFind) {
-		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement pst = null;
-		ResultSet rs = null;
-		final String sql = "select * from d0_Funcionarios where ds_cpf LIKE(?) and cd_cargo LIKE (10)";
-
-		try {
-			pst = con.prepareStatement(sql);
-			rs = pst.executeQuery();
-
-			long id = rs.getLong("cd_funcionario");
-			String login = rs.getString("ds_user");
-			String senha = rs.getString("ds_pass");
-			String nome = rs.getString("nm_Funcionario");
-			String sobrenome = rs.getString("sn_Funcionario");
-			int cargo = rs.getInt("cd_cargo");
-			String crm = rs.getString("ds_crm");
-			String cpf = rs.getString("ds_cpf");
-			String dataNascimento = rs.getString("dt_nascimento");
-			String rg = rs.getString("ds_rg");
-			String telefone = rs.getString("ds_Telefone");
-			String celular = rs.getString("ds_Celular");
-			String email = rs.getString("ds_Email");
-			String lougradouro = rs.getString("ds_Logradouro");
-			String numeroEndereco = rs.getString("ds_numerores");
-			String complemento = rs.getString("ds_Complemento");
-			String bairro = rs.getString("ds_Bairro");
-			String cidade = rs.getString("ds_Cidade");
-			int cep = rs.getInt("ds_Cep");
-			String sexo = rs.getString("ds_sexo");
-			String estadoCivil = rs.getString("ds_estadocivil");
-
-			Endereco endereco = new Endereco(lougradouro, numeroEndereco, complemento, bairro, cidade, cep);
-			Medico medico = new Medico(crm, login, senha, cargo, id, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, EstadoCivil.valueOf(estadoCivil), Sexo.valueOf(sexo));
-
-			return medico;
-
-		} catch (SQLException ex) {
-			ex.getMessage();
-
-			String message = "Erro no Banco de Dados";
-			String erro = "Erro!!";
-
-			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-
-			throw new RuntimeException();
-		} finally {
-			ConnectionFactory.closeConnection(con,pst);
-		}
-	}
 
 }

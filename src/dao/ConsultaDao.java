@@ -31,7 +31,6 @@ public class ConsultaDao implements dao<Consulta> {
 
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
-			System.out.println(ex.getStackTrace());
 
 			String message = "Erro no Banco de Dados";
 			String erro = "Erro!!";
@@ -75,32 +74,29 @@ public class ConsultaDao implements dao<Consulta> {
 
     @Override
 	public int update(long idFind, Consulta ConsultaUpdate) {
-            int ret = 1;
+        
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pst = null;
 		final String sql = "update d3_Consultas set ds_status = 'Baixada', ds_laudomedico = ? where cd_Consulta = ?";
-                System.out.println("sucesso3");
+                
 		try {
 			pst = con.prepareStatement(sql);
-                        System.out.println(ConsultaUpdate.getLaudoMedico());
-                        System.out.println(idFind);
-			//pst.setString(1, ConsultaUpdate.getStatus());
 			pst.setString(1, ConsultaUpdate.getLaudoMedico());
 			pst.setLong(2, idFind);
-                        System.out.println("sucesso4");
-			//return pst.executeUpdate();
+                        
+			return pst.executeUpdate();
 			
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			String message = "Erro no Banco de Dados";
 			String erro = "Erro!!";
-                        ret = 0;
+                       
 			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
 			throw new RuntimeException();
 		} finally {
 			ConnectionFactory.closeConnection(con, pst);
 		}
-            return ret;
+           
 	}
 
     @Override
@@ -128,11 +124,6 @@ public class ConsultaDao implements dao<Consulta> {
 			ConnectionFactory.closeConnection(con, pst);
 		}
 	}
-
-    @Override
-    public Consulta findOne(String cpfFind) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
  }
     

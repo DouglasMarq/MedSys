@@ -28,7 +28,7 @@ public class Consulta {
         setMedicoNome(medicoNome);
         setPacienteNome(pacienteNome);
     }
-    
+
     public Consulta(String codigoConsulta, String laudoMedico) {
         setCodigoConsulta(codigoConsulta);
         setLaudoMedico(laudoMedico);
@@ -42,8 +42,6 @@ public class Consulta {
         setPacienteNome(pacienteNome);
     }
 
-    
-    
     public Consulta(String codigoConsulta, String status, String dataConsulta, String laudoMedico, String medicoNome, String pacienteNome) {
         setCodigoConsulta(codigoConsulta);
         setStatus(status);
@@ -121,41 +119,51 @@ public class Consulta {
         this.pacienteNome = pacienteNome;
     }
 
-    
-    public void gravar(){
+    public void gravar() {
         ConsultaDao dao = new ConsultaDao();
-		int valida = dao.create(this);
+        int valida = dao.create(this);
 
-		if (valida != 1) {
-			
-			String message = "Agendamento não Concluido";
-			String erro = "Erro!!";
+        if (valida != 1) {
 
-			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-                        JOptionPane.showMessageDialog(null, "Ocorreu um erro no Agendamento, verifique...");
-		} else JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+            String message = "Agendamento não Concluido";
+            String erro = "Erro!!";
+
+            JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro no Agendamento, verifique...");
+        } else {
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+        }
     }
-        
-    public void excluir()  {
+
+    public void excluir() {
         ConsultaDao dao = new ConsultaDao();
         int valida = dao.delete(Long.parseLong(this.getCodigoConsulta()));
-        
-        if (valida != 1) {
-			String message = "Exclusão não Concluida";
-			String erro = "Erro!!";
 
-			JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
-		}else JOptionPane.showMessageDialog(null,"Excluido com sucesso!");
+        if (valida != 1) {
+            String message = "Exclusão não Concluida";
+            String erro = "Erro!!";
+
+            JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+        }
     }
-    
-    public void Atualizar(String codigoConsulta, String laudoMedico){
+
+    public void Atualizar(String codigoConsulta) {
         ConsultaDao dao = new ConsultaDao();
-//        Consulta lm = new Consulta();
-//        lm = laudoMedico;
-        dao.update(Long.parseLong(codigoConsulta),laudoMedico);
-        System.out.println("sucesso2");
+        this.getLaudoMedico();
+        int valida = dao.update(Long.parseLong(codigoConsulta), this);
+
+        if (valida != 1) {
+            String message = "Laudo Medico não gravou na Base de Dados";
+            String erro = "Erro!!";
+
+            JOptionPane.showMessageDialog(null, message, erro, JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Consulta concluida com sucesso");
+        }
     }
-    
+
     public DefaultTableModel TableConsulta() {
         //DefaultTableModel ConsultasAbertas = new DefaultTableModel(new String[]{"Codigo da Consulta", "Status", "Data da Consulta", "Paciente", "Medico"}, 0);
         //DefaultTableModel ConsultasFechadas = new DefaultTableModel(new String[]{"Codigo da Consulta","Status","Data da Consulta","Paciente","Sobrenome","Medico","Sobrenome"}, 0);
@@ -172,28 +180,27 @@ public class Consulta {
         }
         return ConsultasAbertas;
     }
-    
-    public class TableModel extends DefaultTableModel{ 
-        
-        TableModel(Object[][] data, String[] columnNames){
+
+    public class TableModel extends DefaultTableModel {
+
+        TableModel(Object[][] data, String[] columnNames) {
             super(data, columnNames);
         }
-        
+
         @Override
-        public boolean isCellEditable(int row, int column){
+        public boolean isCellEditable(int row, int column) {
             return false;
         }
     }
-    
+
     public DefaultTableModel CFechado() {
         return ConsultasFechadas;
     }
-    
+
     public ArrayList<String> ComboBoxMediquin() {
         return ComboBoxMedico;
     }
-   
-    
+
     /*public static boolean validarlogin(String username, String password){
         login l = new login(username, password);
         l.validar_login(username, password);

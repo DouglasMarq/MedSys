@@ -12,7 +12,7 @@ public interface dao<T> {
 
 	public int delete(long idDel); // exclui
 
-	public T findOne(String codeFind); 
+	
 	
 
 }
