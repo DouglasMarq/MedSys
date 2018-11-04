@@ -1306,7 +1306,7 @@ public class Cadastros extends javax.swing.JFrame {
     private void lblbCadPacienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblbCadPaciente);
+        bt.botabotao(lblbCadPaciente);
     }//GEN-LAST:event_lblbCadPacienteMouseEntered
 
     private void lblbCadPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseClicked
@@ -1323,7 +1323,7 @@ public class Cadastros extends javax.swing.JFrame {
     private void lblbCadPacienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbCadPacienteMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblbCadPaciente);
+        bt.tirabotao(lblbCadPaciente);
     }//GEN-LAST:event_lblbCadPacienteMouseExited
 
     private void lblbLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseClicked
@@ -1340,13 +1340,13 @@ public class Cadastros extends javax.swing.JFrame {
     private void lblbLimparMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblbLimpar);
+        bt.botabotao(lblbLimpar);
     }//GEN-LAST:event_lblbLimparMouseEntered
 
     private void lblbLimparMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbLimparMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblbLimpar);
+        bt.tirabotao(lblbLimpar);
     }//GEN-LAST:event_lblbLimparMouseExited
 
     private void cbEstadoCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoCivilActionPerformed

@@ -133,13 +133,13 @@ public class InterfaceMedico extends javax.swing.JFrame {
     private void lblbConfirmaConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaConsultaMouseEntered
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.botabotão(lblbConfirmaConsulta);
+        bt.botabotao(lblbConfirmaConsulta);
     }//GEN-LAST:event_lblbConfirmaConsultaMouseEntered
 
     private void lblbConfirmaConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaConsultaMouseExited
         // TODO add your handling code here:
         Botoes bt = new Botoes();
-        bt.tirabotão(lblbConfirmaConsulta);
+        bt.tirabotao(lblbConfirmaConsulta);
     }//GEN-LAST:event_lblbConfirmaConsultaMouseExited
 
     private void lblbConfirmaConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbConfirmaConsultaMouseClicked
