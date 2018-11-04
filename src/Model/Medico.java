@@ -71,7 +71,7 @@ public class Medico extends Funcionario {
         this.crm = crm;
     }
 
-    // DAO's na view
+    
      /**
      * Passa o comando "create" para a classe DAO para gravação de dados no bd.
      */

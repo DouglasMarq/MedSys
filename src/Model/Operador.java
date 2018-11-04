@@ -57,7 +57,7 @@ public class Operador extends Funcionario {
         super(login, senha, departamento, nome, sobrenome, rg, cpf, dataNascimento, endereco, celular, telefone, email, estadocivil, sexo);
     }
 
-    // DAO's na view
+    
      /**
      * Passa o comando "create" para a classe DAO para gravação de dados no bd.
      */
