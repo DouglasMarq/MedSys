@@ -108,10 +108,12 @@ public class Login extends javax.swing.JFrame {
         pfPassMed = new javax.swing.JPasswordField();
         btnLogMed = new javax.swing.JButton();
         lblLogin = new javax.swing.JLabel();
+        lblInfoBeta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tpClasseLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -186,7 +188,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        tpClasseLogin.addTab("Secretaria", pnLogPac);
+        tpClasseLogin.addTab("Operador", pnLogPac);
 
         lblLogMed.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblLogMed.setText("Medico");
@@ -255,31 +257,15 @@ public class Login extends javax.swing.JFrame {
 
         tpClasseLogin.addTab("Medico", pnLogMed);
 
+        getContentPane().add(tpClasseLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 46, -1, -1));
+
         lblLogin.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblLogin.setText("Login");
+        getContentPane().add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 11, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tpClasseLogin)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLogin)
-                .addGap(223, 223, 223))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tpClasseLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        lblInfoBeta.setBackground(new java.awt.Color(102, 102, 102));
+        lblInfoBeta.setText("Usuario padrão: user Senha:pass");
+        getContentPane().add(lblInfoBeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -359,6 +345,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnPacLogin;
     private javax.swing.JLabel lblImgMed;
     private javax.swing.JLabel lblImgPac;
+    private javax.swing.JLabel lblInfoBeta;
     private javax.swing.JLabel lblLogCliente;
     private javax.swing.JLabel lblLogMed;
     private javax.swing.JLabel lblLogin;

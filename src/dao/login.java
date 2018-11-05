@@ -9,12 +9,6 @@ public class login {
     
     private String password;
     private String username;
-    /**
-     * Valida se o usuario e senha estão corretos ou presentes no banco de dados, necessita do usuario e da senha para fazer a validação dos mesmos
-     * @param username
-     * @param password
-     * @return 
-     */
    
     
     
@@ -56,6 +50,12 @@ public class login {
         this.username = username;
     }
     
+     /**
+     * Valida se o usuario e senha estão corretos e presentes no banco de dados, necessita do usuario e da senha para fazer a validação dos mesmos
+     * @param username
+     * @param password
+     * @return 
+     */
      public boolean validar_login(String username,String password){
         
         Connection con = ConnectionFactory.getConnection();

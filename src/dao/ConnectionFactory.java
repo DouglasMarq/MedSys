@@ -10,10 +10,11 @@ import javax.swing.JOptionPane;
 public class ConnectionFactory {
 
     //private static final String url = "jdbc:sqlite:/home/gabriel/Documentos/projetos/MedSys/bd/MedSysdb.db";
-    private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
+    //private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
     //private static final String url = "jdbc:sqlite:D:\\Development\\MedSys\\bd\\MedSysdb.db";
     //private static final String url = "jdbc:sqlite:C:\\Users\\Douglas\\Downloads\\Development\\MedSys\\bd\\MedSysdb.db";
-    //private static final String url = "jdbc:sqlite:C:\\git\\MedSys2\\bd\\MedSysdb.db"; //Caminho do lucão;
+    //private static final String url = "jdbc:sqlite:C:\\git\\MedSys\\bd\\MedSysdb.db"; //Caminho do lucão;
+    private static final String url = "jdbc:sqlite:D:/home/linux/NetbeansProjects/MedSys/bd/MedSysdb.db"; //caminho do drudi
     
 /**
  * Retorna uma conexão com o banco de dados com a url de conexão e o driver especifico do banco utilizado
