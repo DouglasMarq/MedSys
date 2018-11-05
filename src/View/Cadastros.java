@@ -551,295 +551,114 @@ public class Cadastros extends javax.swing.JFrame {
 
         tbCadastros.addTab("Paciente", pnPaciente);
 
+        pnMedico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnMedico.add(tfNmMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 107, -1));
+
         tffCpfMed.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        pnMedico.add(tffCpfMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 44, 107, -1));
+        pnMedico.add(TffTelefoneMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, 105, -1));
 
         cbEstadoCivilMedico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "Viuvo", "Separado" }));
+        pnMedico.add(cbEstadoCivilMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 95, 113, -1));
 
         lblEstadoCivil1.setText("Estado civil");
+        pnMedico.add(lblEstadoCivil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 75, -1, -1));
 
         lblTelefoneMed.setText("Telefone");
+        pnMedico.add(lblTelefoneMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 75, -1, -1));
 
         lblDataNascimentoMed.setText("Data de nascimento");
+        pnMedico.add(lblDataNascimentoMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 24, -1, -1));
 
         lblSexMed.setText("Sexo do Medico");
+        pnMedico.add(lblSexMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 75, -1, -1));
 
         lblNmMed.setText("Nome");
+        pnMedico.add(lblNmMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 24, -1, -1));
 
         lblCpfMed.setText("Cpf");
+        pnMedico.add(lblCpfMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 24, -1, -1));
 
         lblCRM.setText("CRM");
+        pnMedico.add(lblCRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 24, -1, -1));
+        pnMedico.add(tftCRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 44, 126, -1));
 
         lbMedicos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbMedicos.setText("Medicos");
+        pnMedico.add(lbMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 0, -1, -1));
+        pnMedico.add(tfSnMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 44, 134, -1));
 
         lblSnMed.setText("Sobrenome");
+        pnMedico.add(lblSnMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 24, -1, -1));
+        pnMedico.add(dtcDataDeNascimentoMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 44, 155, -1));
 
         lblCelularMed.setText("Celular");
+        pnMedico.add(lblCelularMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 75, -1, -1));
 
         cbSexoMed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        pnMedico.add(cbSexoMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 95, 84, -1));
 
         lblEmailMed.setText("Email");
+        pnMedico.add(lblEmailMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 126, -1, -1));
+        pnMedico.add(tfEmailMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 167, -1));
 
         lblRGMed.setText("Rg");
+        pnMedico.add(lblRGMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 126, -1, -1));
+        pnMedico.add(tffRgMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 119, 20));
+        pnMedico.add(tffCelularMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 95, 117, -1));
 
         pnAcesso.setBackground(new java.awt.Color(153, 153, 153));
+        pnAcesso.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAcesso.setText("Acesso");
+        pnAcesso.add(lblAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, -1));
 
         lblUsuario.setText("Usuario");
+        pnAcesso.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 23, -1, -1));
 
         lblSenha.setText("Senha");
+        pnAcesso.add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 54, -1, -1));
+        pnAcesso.add(tfUsuarioMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 110, -1));
+        pnAcesso.add(pfSenhaMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 110, -1));
 
-        javax.swing.GroupLayout pnAcessoLayout = new javax.swing.GroupLayout(pnAcesso);
-        pnAcesso.setLayout(pnAcessoLayout);
-        pnAcessoLayout.setHorizontalGroup(
-            pnAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnAcessoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAcesso)
-                .addGap(83, 83, 83))
-            .addGroup(pnAcessoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnAcessoLayout.createSequentialGroup()
-                        .addComponent(lblUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfUsuarioMed, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnAcessoLayout.createSequentialGroup()
-                        .addComponent(lblSenha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pfSenhaMed)))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        pnAcessoLayout.setVerticalGroup(
-            pnAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnAcessoLayout.createSequentialGroup()
-                .addComponent(lblAcesso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuario)
-                    .addComponent(tfUsuarioMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnAcessoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSenha)
-                    .addComponent(pfSenhaMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        pnMedico.add(pnAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 80, 190, 80));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblRuaMed.setText("Rua");
+        jPanel3.add(lblRuaMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 37, -1, -1));
 
         lblNumeroMed.setText("Numero");
+        jPanel3.add(lblNumeroMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 37, -1, -1));
 
         lblComplementoMed.setText("Complemento");
+        jPanel3.add(lblComplementoMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 37, -1, -1));
 
         lblBairroMed.setText("Bairro");
+        jPanel3.add(lblBairroMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 91, -1, -1));
 
         lblCidadeMed.setText("Cidade");
+        jPanel3.add(lblCidadeMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 91, -1, -1));
 
         lblCepMed.setText("Cep");
+        jPanel3.add(lblCepMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 91, -1, -1));
+        jPanel3.add(tfRuaMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 57, 147, -1));
+        jPanel3.add(tfNumeroMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 57, 61, -1));
+        jPanel3.add(tfComplementoMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 57, 84, -1));
+        jPanel3.add(tfCidadeMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 111, 133, -1));
+        jPanel3.add(tfBairroMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 111, 86, -1));
 
         jLabel5.setText("Endereço");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 12, -1, -1));
+        jPanel3.add(tffCepMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 111, 75, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfRuaMed, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(64, 64, 64)
-                                        .addComponent(lblRuaMed))
-                                    .addComponent(tfCidadeMed, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(lblCidadeMed)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfBairroMed, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(lblNumeroMed))
-                                    .addComponent(tfNumeroMed, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblComplementoMed)
-                                    .addComponent(tfComplementoMed, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tffCepMed, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(lblBairroMed)
-                                .addGap(77, 77, 77)
-                                .addComponent(lblCepMed))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jLabel5)))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRuaMed)
-                    .addComponent(lblNumeroMed)
-                    .addComponent(lblComplementoMed))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfRuaMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNumeroMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfComplementoMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCidadeMed)
-                    .addComponent(lblBairroMed)
-                    .addComponent(lblCepMed))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCidadeMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfBairroMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tffCepMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout pnMedicoLayout = new javax.swing.GroupLayout(pnMedico);
-        pnMedico.setLayout(pnMedicoLayout);
-        pnMedicoLayout.setHorizontalGroup(
-            pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMedicoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbMedicos)
-                .addGap(279, 279, 279))
-            .addGroup(pnMedicoLayout.createSequentialGroup()
-                .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lblNmMed)
-                        .addGap(88, 88, 88)
-                        .addComponent(lblSnMed)
-                        .addGap(89, 89, 89)
-                        .addComponent(lblCpfMed)
-                        .addGap(107, 107, 107)
-                        .addComponent(lblCRM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblDataNascimentoMed))
-                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tfNmMed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfSnMed, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tffCpfMed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tftCRM, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(dtcDataDeNascimentoMed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnMedicoLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tfEmailMed, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tffRgMed, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(150, 150, 150))
-                            .addGroup(pnMedicoLayout.createSequentialGroup()
-                                .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(pnMedicoLayout.createSequentialGroup()
-                                                .addComponent(lblTelefoneMed)
-                                                .addGap(77, 77, 77)
-                                                .addComponent(lblCelularMed)
-                                                .addGap(53, 53, 53))
-                                            .addGroup(pnMedicoLayout.createSequentialGroup()
-                                                .addComponent(TffTelefoneMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tffCelularMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
-                                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                                        .addGap(75, 75, 75)
-                                        .addComponent(lblEmailMed)
-                                        .addGap(145, 145, 145)))
-                                .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblSexMed)
-                                            .addComponent(cbSexoMed, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pnMedicoLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(cbEstadoCivilMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pnMedicoLayout.createSequentialGroup()
-                                                .addGap(34, 34, 34)
-                                                .addComponent(lblEstadoCivil1))))
-                                    .addComponent(lblRGMed))))
-                        .addComponent(pnAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        pnMedicoLayout.setVerticalGroup(
-            pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnMedicoLayout.createSequentialGroup()
-                .addComponent(lbMedicos)
-                .addGap(2, 2, 2)
-                .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnMedicoLayout.createSequentialGroup()
-                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNmMed)
-                            .addComponent(lblSnMed)
-                            .addComponent(lblCpfMed)
-                            .addComponent(lblCRM)
-                            .addComponent(lblDataNascimentoMed))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(tfNmMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfSnMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tffCpfMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tftCRM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(dtcDataDeNascimentoMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTelefoneMed)
-                            .addComponent(lblCelularMed)
-                            .addComponent(lblSexMed)
-                            .addComponent(lblEstadoCivil1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TffTelefoneMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbSexoMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbEstadoCivilMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tffCelularMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRGMed)
-                            .addComponent(lblEmailMed))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnMedicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfEmailMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tffRgMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pnAcesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
-        );
+        pnMedico.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 177, 360, 140));
 
         tbCadastros.addTab("Medicos", pnMedico);
+
+        pnOperador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnOperador.add(tfNmOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 107, -1));
 
         tffCpfOperador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         tffCpfOperador.addActionListener(new java.awt.event.ActionListener() {
@@ -847,77 +666,69 @@ public class Cadastros extends javax.swing.JFrame {
                 tffCpfOperadorActionPerformed(evt);
             }
         });
+        pnOperador.add(tffCpfOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 44, 107, -1));
+        pnOperador.add(tffTelefoneOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, 105, -1));
 
         cbEstadoCivilOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "Viúvo", "Separado" }));
+        pnOperador.add(cbEstadoCivilOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 95, 113, -1));
 
         lblEstadoCivilOp.setText("Estado civil");
+        pnOperador.add(lblEstadoCivilOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
 
         lblTelefoneOp.setText("Telefone");
+        pnOperador.add(lblTelefoneOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 75, -1, -1));
 
         lblDataNascimentoOp.setText("Data de nascimento");
+        pnOperador.add(lblDataNascimentoOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
         lblSexOp.setText("Sexo");
+        pnOperador.add(lblSexOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 75, -1, -1));
 
         lbOpNome.setText("Nome");
+        pnOperador.add(lbOpNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 24, -1, -1));
 
         lbCpfOp.setText("Cpf");
+        pnOperador.add(lbCpfOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 24, -1, -1));
 
         lbOperador.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbOperador.setText("Operador");
+        pnOperador.add(lbOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 0, -1, -1));
+        pnOperador.add(tfSnOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 44, 134, -1));
 
         lbSnOp.setText("Sobrenome");
+        pnOperador.add(lbSnOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 24, -1, -1));
+        pnOperador.add(dtcDataDeNascimentoOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 44, 110, -1));
 
         lblCelularOp.setText("Celular");
+        pnOperador.add(lblCelularOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 75, -1, -1));
 
         cbSexoOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        pnOperador.add(cbSexoOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 95, 84, -1));
 
         lblEmailOp.setText("Email");
+        pnOperador.add(lblEmailOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
+        pnOperador.add(tfEmailOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 95, 148, -1));
 
         lblRGOp.setText("Rg");
+        pnOperador.add(lblRGOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+        pnOperador.add(tffRgOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 44, 138, -1));
+        pnOperador.add(tffCelularOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 95, 117, -1));
 
         jpInfosOp.setBackground(new java.awt.Color(153, 153, 153));
+        jpInfosOp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAccess.setText("Acesso");
+        jpInfosOp.add(lblAccess, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 0, -1, -1));
 
         lblUser.setText("Usuario");
+        jpInfosOp.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 23, -1, -1));
 
         lblPass.setText("Senha");
+        jpInfosOp.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 54, -1, -1));
+        jpInfosOp.add(tfUserOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 150, -1));
+        jpInfosOp.add(pfSenhaOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 150, -1));
 
-        javax.swing.GroupLayout jpInfosOpLayout = new javax.swing.GroupLayout(jpInfosOp);
-        jpInfosOp.setLayout(jpInfosOpLayout);
-        jpInfosOpLayout.setHorizontalGroup(
-            jpInfosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpInfosOpLayout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
-                .addComponent(lblAccess)
-                .addGap(83, 83, 83))
-            .addGroup(jpInfosOpLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpInfosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpInfosOpLayout.createSequentialGroup()
-                        .addComponent(lblUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfUserOperador))
-                    .addGroup(jpInfosOpLayout.createSequentialGroup()
-                        .addComponent(lblPass)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pfSenhaOperador)))
-                .addContainerGap())
-        );
-        jpInfosOpLayout.setVerticalGroup(
-            jpInfosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpInfosOpLayout.createSequentialGroup()
-                .addComponent(lblAccess)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpInfosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUser)
-                    .addComponent(tfUserOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpInfosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPass)
-                    .addComponent(pfSenhaOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
+        pnOperador.add(jpInfosOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 126, 230, 90));
 
         jpLoginInfos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1006,125 +817,11 @@ public class Cadastros extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout pnOperadorLayout = new javax.swing.GroupLayout(pnOperador);
-        pnOperador.setLayout(pnOperadorLayout);
-        pnOperadorLayout.setHorizontalGroup(
-            pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnOperadorLayout.createSequentialGroup()
-                .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lbOpNome)
-                        .addGap(88, 88, 88)
-                        .addComponent(lbSnOp)
-                        .addGap(89, 89, 89)
-                        .addComponent(lbCpfOp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblRGOp)
-                        .addGap(70, 70, 70)
-                        .addComponent(lblDataNascimentoOp))
-                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tfNmOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfSnOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tffCpfOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tffRgOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dtcDataDeNascimentoOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnOperadorLayout.createSequentialGroup()
-                                .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                                        .addComponent(lblTelefoneOp)
-                                        .addGap(77, 77, 77)
-                                        .addComponent(lblCelularOp)
-                                        .addGap(53, 53, 53))
-                                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                                        .addComponent(tffTelefoneOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tffCelularOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblEmailOp)
-                                        .addGap(71, 71, 71))
-                                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfEmailOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(pnOperadorLayout.createSequentialGroup()
-                                .addComponent(jpLoginInfos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnOperadorLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(lblSexOp)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblEstadoCivilOp)
-                                .addGap(26, 26, 26))
-                            .addGroup(pnOperadorLayout.createSequentialGroup()
-                                .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jpInfosOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                                        .addComponent(cbSexoOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbEstadoCivilOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnOperadorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbOperador)
-                .addGap(279, 279, 279))
-        );
-        pnOperadorLayout.setVerticalGroup(
-            pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnOperadorLayout.createSequentialGroup()
-                .addComponent(lbOperador)
-                .addGap(2, 2, 2)
-                .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbOpNome)
-                    .addComponent(lbSnOp)
-                    .addComponent(lbCpfOp)
-                    .addComponent(lblDataNascimentoOp)
-                    .addComponent(lblRGOp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnOperadorLayout.createSequentialGroup()
-                        .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfNmOperador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfSnOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tffCpfOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tffRgOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTelefoneOp)
-                            .addComponent(lblCelularOp)
-                            .addComponent(lblSexOp)
-                            .addComponent(lblEstadoCivilOp)
-                            .addComponent(lblEmailOp))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tffTelefoneOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbSexoOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbEstadoCivilOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tffCelularOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEmailOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(dtcDataDeNascimentoOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnOperadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpInfosOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpLoginInfos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        pnOperador.add(jpLoginInfos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 126, -1, -1));
 
         tbCadastros.addTab("Operador", pnOperador);
 
-        getContentPane().add(tbCadastros, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 35, 640, 364));
+        getContentPane().add(tbCadastros, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 35, 690, 364));
         tbCadastros.getAccessibleContext().setAccessibleName("Pacientes");
 
         lblbCadPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons8_Add_User_Male_50px.png"))); // NOI18N
